@@ -4,12 +4,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by_credentials(user_params[:email, user_params[:password])
-
+    @user = User.find_by_credentials(user_params[:email], user_params[:password])
     if @user
       login(@user)
+      redirect_to @user
     else
       flash.now[:errors] = ["Invalid Credentials"]
+      render :new
     end
   end
 
@@ -20,7 +21,7 @@ class SessionsController < ApplicationController
 
   private
   def user_params
-    require(:user).permit(:email, :password)
+    params.require(:user).permit(:email, :password)
   end
 
 end

@@ -1,20 +1,25 @@
 class User < ActiveRecord::Base
   validates :username, :email, :token, presence: true, uniqueness: true
+  validates :password, length: { minimum: 6 }
 
   before_validation :ensure_session_token
+
+  attr_reader :password
 
   def self.generate_token
     SecureRandom::urlsafe_base64(16)
   end
 
-  def self.reset_token!
+  def reset_token!
     self.token = User.generate_token
-    self.save
+    self.save!
     self.token
   end
 
-  def self.find_by_credentials(username, password)
+  def self.find_by_credentials(email, password)
+    user = User.find_by_email(email)
 
+    user.try(:is_password?, password) ? user : nil
   end
 
   def is_password?(undigested_password)

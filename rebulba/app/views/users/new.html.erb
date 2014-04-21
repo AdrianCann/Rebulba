@@ -6,16 +6,19 @@
     Username
     <input type="text" name="user[username]" value="<%= @user.try(:username) %>">
   </label>
+  <br>
 
   <label>
     Email
     <input type="text" name="user[email]" value="<%= @user.try(:email) %>">
   </label>
+  <br>
 
   <label>
     Password
     <input type="password" name="user[password]" value="">
   </label>
+  <br>
 
   <input type="submit" value="Create Account">
 </form>
