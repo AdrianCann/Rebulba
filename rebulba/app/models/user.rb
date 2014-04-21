@@ -3,8 +3,15 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }
 
   before_validation :ensure_session_token
-
   attr_reader :password
+
+  has_many :posts,
+  class_name: "Post",
+  foreign_key: :user_id,
+  primary_key: :id
+
+  has_many :comments, through: :post, source: :user
+
 
   def self.generate_token
     SecureRandom::urlsafe_base64(16)
