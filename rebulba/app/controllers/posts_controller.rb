@@ -8,13 +8,15 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.save
-
+      render :show
     else
-
+      flash.now[:errors] = @post.errors.full_messages
+      render :new
     end
   end
 
   def index
+    @post = Post.all
   end
 
   def edit
@@ -28,7 +30,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-
+    params.require(:post).permit(:title, :body, :user_id)
   end
 
 end

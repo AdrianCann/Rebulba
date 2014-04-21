@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe User do
-  let(:user) { FactoryGirl.create(:user)}
+  let(:user) { FactoryGirl.build(:user)}
 
   context "validates username and password" do
     it { should validate_presence_of(:username) }
