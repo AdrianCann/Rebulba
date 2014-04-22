@@ -11,6 +11,10 @@
     <input type="submit" value="delete">
   </form>
 
+  <%= link_to "edit post", edit_post_url(post), method: :get %>
+
+  <%= render partial: "layouts/editpost" %>
+
 <li>
 
 
