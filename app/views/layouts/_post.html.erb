@@ -1,0 +1,22 @@
+<ul>
+<% @posts.each do |post| %>
+
+<li>
+  <%= post.title %>
+  <%= post.body %>
+
+
+
+
+
+  <%= render partial: "layouts/deletepost", locals: {post: post} %>
+
+  <%= render partial: "layouts/editpost", locals: {post: post} %>
+
+  <%= link_to "show post", user_post_url(current_user.id, post.id), method: :get%>
+
+<li>
+
+
+<% end %>
+<ul>

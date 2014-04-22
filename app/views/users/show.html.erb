@@ -1,0 +1,19 @@
+<h1>Show Page</h1>
+
+<%= render partial: "layouts/newpost" %>
+
+<%= render partial: "layouts/post" %>
+
+<%= render partial: "layouts/followings" %>
+
+
+
+<% @followers.each do |follower| %>
+
+<%= follower.username %>
+
+<% end %>
+
+<form action="<%=  %>">
+
+</form>
