@@ -1,3 +1,5 @@
+<h3>Following:</h3>
+
 <% @user.people_he_follows.each do |followee| %>
 
   <%= followee.username %>
@@ -5,3 +7,12 @@
   <%= render partial: "layouts/deletefollowee", locals: {followee: followee}  %>
 
 <% end %>
+
+<form action="<%= user_followings_url(current_user) %>" method="post">
+  <%= auth_token %>
+  <label>
+    Add Follower:
+    <input type="text" name="following[followee_id]" value="">
+    <input type="submit" value="Follow">
+  </label>
+</form>

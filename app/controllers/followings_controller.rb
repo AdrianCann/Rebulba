@@ -5,7 +5,8 @@ class FollowingsController < ApplicationController
   end
 
   def create
-    @following = Following.new(following_params.merge(follower_id: current_user.id))
+    params = following_params.merge(follower_id: current_user.id)
+    @following = Following.new(params)
     if @following.save
       redirect_to current_user
     else
