@@ -12,6 +12,20 @@ class User < ActiveRecord::Base
 
   has_many :comments, through: :post, source: :user
 
+  has_many :inbound_followings,
+  class_name: "Following",
+  foreign_key: :followee_id,
+  primary_key: :id
+
+  has_many :outbound_followings,
+  class_name: "Following",
+  foreign_key: :follower_id,
+  primary_key: :id
+
+  has_many :people_he_follows, through: :outbound_followings, source: :followee
+  has_many :followers, through: :inbound_followings, source: :follower
+
+
 
   def self.generate_token
     SecureRandom::urlsafe_base64(16)

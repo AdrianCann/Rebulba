@@ -6,9 +6,11 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user_id = current_user.id
 
     if @post.save
-      render :show
+
+      redirect_to users_url(current_user)
     else
       flash.now[:errors] = @post.errors.full_messages
       render :new
@@ -16,7 +18,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @post = Post.all
+    @posts = current_user.posts
   end
 
   def edit
@@ -30,7 +32,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :body, :user_id)
+    params.require(:post).permit(:title, :body)
   end
 
 end
