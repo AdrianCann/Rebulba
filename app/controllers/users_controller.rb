@@ -18,11 +18,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts
-    @new_post = Post.new
 
-    @people_he_follows = @user.people_he_follows
-    @followers = @user.followers
+    @new_post = Post.new
+    @new_following = Following.new
   end
 
 

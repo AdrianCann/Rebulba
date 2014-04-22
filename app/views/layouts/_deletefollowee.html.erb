@@ -1,0 +1,5 @@
+<form action="<%= user_following_url(current_user, followee.id) %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <%= auth_token %>
+  <input type="submit" value="delete">
+</form>
