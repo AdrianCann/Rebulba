@@ -1,4 +1,6 @@
-<form action="<%= posts_url %>" method="post">
+<form action="<%= user_posts_url(current_user) %>" method="post">
+
+  <%= auth_token %>
 
   <label>
     Post Title

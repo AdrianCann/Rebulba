@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 
     if @post.save
 
-      redirect_to users_url(current_user)
+      redirect_to user_url(current_user)
     else
       flash.now[:errors] = @post.errors.full_messages
       render :new
@@ -22,17 +22,20 @@ class PostsController < ApplicationController
   end
 
   def edit
+    post = Post.find(params[:id])
   end
 
   def update
   end
 
   def destroy
+    post = Post.find(params[:id])
+    post.destroy
+    redirect_to user_url(current_user)
   end
 
   private
   def post_params
     params.require(:post).permit(:title, :body)
   end
-
 end
