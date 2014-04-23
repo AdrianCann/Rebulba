@@ -16,7 +16,16 @@ class CommentsController < ApplicationController
     end
   end
 
+  def update
+    comment = Comment.find(params[:id])
+    comment.update(comment_params)
+    redirect_to current_user
+  end
+
   def destroy
+    comment = Comment.find(params[:id])
+    comment.destroy
+    redirect_to current_user
   end
 
   private

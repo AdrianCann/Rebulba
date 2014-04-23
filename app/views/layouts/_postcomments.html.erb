@@ -2,6 +2,21 @@
 
     <%= comment.body %>
 
+    <form action="<%= user_post_comment_url(post.user_id, post.id, comment.id) %>" method="post">
+      <input type="hidden" name="_method" value="put">
+      <%= auth_token %>
+      <label for="comment-body" name>Edit Comment</label>
+      <input type="textarea" id="comment-body" name=comment[body] value="<%= comment.body %>">
+
+      <input type="submit" value="Update">
+    </form>
+
+  <form action="<%= comment_url(comment.id) %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <%= auth_token %>
+    <input type="submit" value="delete">
+  </form>
+
   <% end %>
 
   <form action="<%= user_post_comments_url(post.user_id, post.id) %>" method="post">
@@ -11,3 +26,4 @@
 
     <input type="submit" value="Add">
   </form>
+
