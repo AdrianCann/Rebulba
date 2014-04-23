@@ -12,6 +12,11 @@ User.create({
   password: "i love adrian"})
 
 User.create({
+  username: "Sara Sweeney",
+  email: 'sara',
+  password: "i love adrian"})
+
+User.create({
   username: "Adrian",
   email: 'atcann@bu.edu',
   password: "123456"})
