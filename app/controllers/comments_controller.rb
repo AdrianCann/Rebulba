@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     @comment.post_id = params["post_id"]
 
     if @comment.save
-      redirect_to current_user
+      redirect_to(:back)
     else
       flash.now[:errors] = @comment.errors.full_messages
       redirect_to current_user
@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
   def update
     comment = Comment.find(params[:id])
     comment.update(comment_params)
-    redirect_to current_user
+    redirect_to(:back)
   end
 
   def destroy

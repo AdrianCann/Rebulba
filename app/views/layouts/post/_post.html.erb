@@ -8,7 +8,6 @@
   <%= post.body %>
 
   <% if params["id"].to_i == current_user.id %>
-    <%= render partial: "layouts/post/newpost" %>
 
     <%= render partial: "layouts/post/deletepost", locals: {post: post} %>
 
@@ -20,9 +19,6 @@
 
 <li>
 
-
-
-
-
 <% end %>
+
 <ul>

@@ -1,9 +1,9 @@
-<h1>Show Page</h1>
-
-<% if params["id"].to_i == current_user.id %>
-  <%= render partial: "layouts/post/newpost" %>
-<% end %>
+<h1><%= @user.username + "\'s page" %></h1>
 
 <%= render partial: "layouts/post/post" %>
 
 <%= render partial: "layouts/following/followings" %>
+
+<% if params["id"].to_i == current_user.id %>
+  <%= render partial: "layouts/post/newpost" %>
+<% end %>
