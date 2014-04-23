@@ -1,0 +1,13 @@
+  <% post.comments.each do |comment| %>
+
+    <%= comment.body %>
+
+  <% end %>
+
+  <form action="<%= user_post_comments_url(post.user_id, post.id) %>" method="post">
+    <%= auth_token %>
+    <label for="comment-body" name>Comment</label>
+    <input type="textarea" id="comment-body" name=comment[body] value="">
+
+    <input type="submit" value="Add">
+  </form>
