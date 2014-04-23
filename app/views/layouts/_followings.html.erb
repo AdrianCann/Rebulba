@@ -2,7 +2,7 @@
 
 <% @user.people_he_follows.each do |followee| %>
 
-  <%= followee.username %>
+  <%= link_to followee.username, followee %>
 
   <%= render partial: "layouts/deletefollowee", locals: {followee: followee}  %>
 

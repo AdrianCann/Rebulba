@@ -1,6 +1,8 @@
 <h1>Show Page</h1>
 
-<%= render partial: "layouts/newpost" %>
+<% if params["id"].to_i == current_user.id %>
+  <%= render partial: "layouts/newpost" %>
+<% end %>
 
 <%= render partial: "layouts/post" %>
 
