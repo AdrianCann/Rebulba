@@ -1,9 +1,9 @@
 <h1>Show Page</h1>
 
 <% if params["id"].to_i == current_user.id %>
-  <%= render partial: "layouts/newpost" %>
+  <%= render partial: "layouts/post/newpost" %>
 <% end %>
 
-<%= render partial: "layouts/post" %>
+<%= render partial: "layouts/post/post" %>
 
-<%= render partial: "layouts/followings" %>
+<%= render partial: "layouts/following/followings" %>

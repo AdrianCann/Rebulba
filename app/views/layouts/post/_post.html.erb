@@ -1,0 +1,23 @@
+<ul>
+<% @user.posts.each do |post| %>
+
+<li class=".post-options">
+  <%= post.title %>
+  <%= post.body %>
+
+  <%= render partial: "layouts/post/deletepost", locals: {post: post} %>
+
+  <%= render partial: "layouts/post/editpost", locals: {post: post} %>
+
+  <%= link_to "show post", user_post_url(current_user.id, post.id), method: :get%>
+
+  <%= render partial: "layouts/comment/postcomments", locals: {post: post} %>
+
+<li>
+
+
+
+
+
+<% end %>
+<ul>
