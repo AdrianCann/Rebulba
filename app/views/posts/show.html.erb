@@ -1,2 +1,7 @@
 <h1>Post Show</h1>
 
+<%= @post.title %>
+
+<%= @post.body %>
+
+<%= render partial: "layouts/comment/postcomments", locals: { post: @post } %>

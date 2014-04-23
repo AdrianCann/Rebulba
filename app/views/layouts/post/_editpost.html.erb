@@ -1,4 +1,4 @@
-<form action="<%= user_post_url(current_user, post.id) %>" method="post">
+<form action="<%= posts_url(post.id) %>" method="post">
   <input type="hidden" name="_method" value="put">
 
   <%= auth_token %>

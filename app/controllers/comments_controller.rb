@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
   def destroy
     comment = Comment.find(params[:id])
     comment.destroy
-    redirect_to current_user
+    redirect_to :back
   end
 
   private

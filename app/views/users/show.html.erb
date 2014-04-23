@@ -6,4 +6,6 @@
 
 <% if params["id"].to_i == current_user.id %>
   <%= render partial: "layouts/post/newpost" %>
+<% else %>
+  <%= render partial: "layouts/following/new" %>
 <% end %>

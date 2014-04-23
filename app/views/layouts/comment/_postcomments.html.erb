@@ -5,7 +5,7 @@
     <% if comment.user_id == current_user.id %>
       <%= render partial: "layouts/comment/edit", locals: {post: post, comment: comment} %>
     <% else %>
-        <%#= button_to "like", user_post_comment_likes_url(current_user.id, post.id, comment_id), method: :post %>
+        <%= button_to "like", comment_likes_url(comment.id), method: :post %>
     <% end %>
 
 
@@ -21,10 +21,5 @@
 
   <% end %>
 
-  <form action="<%= user_post_comments_url(post.user_id, post.id) %>" method="post">
-    <%= auth_token %>
-    <label for="comment-body" name>Comment</label>
-    <input type="textarea" id="comment-body" name=comment[body] value="">
+  <%= render partial: "layouts/comment/new", locals: {post: post} %>
 
-    <input type="submit" value="Add">
-  </form>

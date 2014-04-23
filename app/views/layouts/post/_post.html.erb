@@ -3,7 +3,7 @@
 
 <li class=".post">
 
-  <%= link_to post.title, user_post_url(current_user.id, post.id), method: :get%>
+  <%= link_to post.title, post_url(post.id), method: :get%>
 
   <%= post.body %>
 
