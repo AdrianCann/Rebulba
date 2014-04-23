@@ -1,0 +1,8 @@
+<form action="<%= user_followings_url(current_user) %>" method="post">
+  <%= auth_token %>
+  <label>
+    Add Follower:
+    <input type="text" name="following[followee_id]" value="">
+    <input type="submit" value="Follow">
+  </label>
+</form>

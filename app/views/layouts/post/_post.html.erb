@@ -2,14 +2,19 @@
 <% @user.posts.each do |post| %>
 
 <li class=".post-options">
-  <%= post.title %>
+
+  <%= link_to post.title, user_post_url(current_user.id, post.id), method: :get%>
+
   <%= post.body %>
 
-  <%= render partial: "layouts/post/deletepost", locals: {post: post} %>
+  <% if params["id"].to_i == current_user.id %>
+    <%= render partial: "layouts/post/newpost" %>
 
-  <%= render partial: "layouts/post/editpost", locals: {post: post} %>
+    <%= render partial: "layouts/post/deletepost", locals: {post: post} %>
 
-  <%= link_to "show post", user_post_url(current_user.id, post.id), method: :get%>
+    <%= render partial: "layouts/post/editpost", locals: {post: post} %>
+
+  <% end %>
 
   <%= render partial: "layouts/comment/postcomments", locals: {post: post} %>
 
