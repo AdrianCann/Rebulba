@@ -25,7 +25,8 @@ class User < ActiveRecord::Base
   has_many :people_he_follows, through: :outbound_followings, source: :followee
   has_many :followers, through: :inbound_followings, source: :follower
 
-
+  has_many :likes
+  has_many :comments, through: :posts, source: :comments
 
   def self.generate_token
     SecureRandom::urlsafe_base64(16)

@@ -2,9 +2,16 @@
 
     <%= comment.body %>
 
-    <%= render partial: "layouts/comment/edit", locals: {post: post, comment: comment} %>
+    <% if comment.user_id == current_user.id %>
+      <%= render partial: "layouts/comment/edit", locals: {post: post, comment: comment} %>
+    <% else %>
+        <%#= button_to "like", user_post_comment_likes_url(current_user.id, post.id, comment_id), method: :post %>
+    <% end %>
 
-    <%= render partial: "layouts/comment/delete", locals: {comment: comment} %>
+
+    <% if comment.user_id == current_user.id || post.user_id == current_user.id %>
+      <%= render partial: "layouts/comment/delete", locals: {comment: comment} %>
+    <% end %>
 
   <form action="<%= comment_url(comment.id) %>" method="post">
     <input type="hidden" name="_method" value="delete">

@@ -1,17 +1,26 @@
 <ul>
 <% @user.posts.each do |post| %>
 
-<li class=".post-options">
+<li class=".post">
 
   <%= link_to post.title, user_post_url(current_user.id, post.id), method: :get%>
 
   <%= post.body %>
+
+  <%= post.user.username %>
+  <%= post.updated_at %>
+
+  <%= post.likes.count.to_s + " likes" %>
 
   <% if params["id"].to_i == current_user.id %>
 
     <%= render partial: "layouts/post/deletepost", locals: {post: post} %>
 
     <%= render partial: "layouts/post/editpost", locals: {post: post} %>
+
+  <% else %>
+
+    <%= button_to "like", post_likes_url(post.id), method: :post %>
 
   <% end %>
 

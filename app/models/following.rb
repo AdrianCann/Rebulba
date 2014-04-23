@@ -1,6 +1,6 @@
 class Following < ActiveRecord::Base
 
-  validate :cannot_follow_same_person_twice
+  validates :follower, uniqueness: { scope: :followee }
 
   belongs_to :follower,
               class_name: "User",
@@ -11,12 +11,5 @@ class Following < ActiveRecord::Base
               class_name: "User",
               foreign_key: :followee_id,
               primary_key: :id
-
-  def cannot_follow_same_person_twice
-    count = Following.where("followee_id = ? AND follower_id = ?", self.followee_id, self.follower_id).count
-    if count > 0
-      errors.add(:followee_id, "You are already a follower!")
-    end
-  end
 
 end
