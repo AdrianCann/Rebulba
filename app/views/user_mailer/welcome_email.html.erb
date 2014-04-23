@@ -4,13 +4,13 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Welcome to example.com, <%= @user.username %></h1>
+    <h1>Welcome to Rebulba App, <%= @user.username %></h1>
     <p>
       You have are signed up for rebulba.com!
       your username is: <%= @user.username %>.<br/>
     </p>
     <p>
-      To login to the site, just follow this link: <%= @url %>.
+      To login to the site, just follow this link: <%= link_to "REBULBA!!!", new_session_url %>.
     </p>
     <p>Have a good time blogging, and may the time sorcerer never return!</p>
   </body>
