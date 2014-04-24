@@ -19,5 +19,6 @@ class LikesController < ApplicationController
 
   def destroy
     Like.find(params[:id]).destroy
+    redirect_to :back
   end
 end
