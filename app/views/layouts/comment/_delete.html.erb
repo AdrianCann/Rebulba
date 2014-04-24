@@ -1,0 +1,5 @@
+  <form action="<%= comment_url(comment.id) %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <%= auth_token %>
+    <input type="submit" value="delete">
+  </form>
