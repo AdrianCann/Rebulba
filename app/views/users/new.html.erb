@@ -1,26 +1,9 @@
 <h1>Sign Up</h1>
 
+
 <form action="<%= users_url %>" method="post" enctype="multipart/form-data">
   <%= auth_token %>
-  <label>
-    Username
-    <input type="text" name="user[username]" value="<%= @user.try(:username) %>">
-  </label>
-  <br>
 
-  <label>
-    Email
-    <input type="text" name="user[email]" value="<%= @user.try(:email) %>">
-  </label>
-  <br>
-
-  <label>
-    Password
-    <input type="password" name="user[password]" value="">
-  </label>
-  <br>
-
-  <input type="file" name="user[avatar]">
-
-  <input type="submit" value="Create Account">
+  <%= user_form("Sign Up") %>
 </form>
+

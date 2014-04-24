@@ -5,13 +5,17 @@
 <%# end %>
 
 
-
-<% if current_user.id == params[:id] %>
+<% if current_user.id.to_s == params[:id] %>
 
   <div class="feed">
 
     <%= render partial: "layouts/user/feed" %>
   </div>
+
+  <nav class="current-user-nav">
+    <%= link_to "Edit My Profile", edit_user_url(current_user) %>
+  </nav>
+
 
 <% else %>
 

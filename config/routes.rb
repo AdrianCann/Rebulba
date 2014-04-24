@@ -1,5 +1,5 @@
 Rebulba::Application.routes.draw do
-  resources :users, only: [:show, :create, :new] do
+  resources :users, except: [:index] do
     resources :followings, only: [:create]
   end
 

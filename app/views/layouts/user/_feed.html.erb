@@ -1,6 +1,8 @@
-<h1>I am the feed page</h1>
+<form action="<%= posts_url %>" method="post">
+  <%= auth_token %>
 
-<%= render partial: "layouts/post/newpost" %>
+  <%= post_form("submit post") %>
+</form>
 
 <div class="feed-posts">
   <h3>My Feed</h3>

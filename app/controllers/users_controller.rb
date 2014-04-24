@@ -36,6 +36,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.new
+  end
+
+  def update
+    current_user.update_attributes
+    render :show
+  end
+
+  def destroy
+    current_user.destroy
+    redirect_to new_session_url
+  end
 
   private
   def user_params
