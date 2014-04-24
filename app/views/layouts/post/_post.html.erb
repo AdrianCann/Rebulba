@@ -1,38 +1,49 @@
-<ul>
-<% @user.posts.each do |post| %>
+<section class="posts">
+  <% @user.posts.each do |post| %>
 
-<li class=".post">
+  <article class="post">
 
-  <%= link_to post.title, post_url(post.id), method: :get%>
+    <header class="post-header group">
 
-  <%= post.body %>
+      <div class="post-header-info">
+        <h3><%= link_to post.title, post_url(post.id), method: :get %></h3>
+        <%= post.user.username %>
+        <time><%= post.updated_at %></time>
+      </div>
+    </header>
+    <div class="post-content">
+      <%= post.body %>
+    </div>
 
-  <%= post.user.username %>
-  <%= post.updated_at %>
+    <div class="post-options">
+      <%= post.likes.count.to_s + " likes" %>
 
-  <%= post.likes.count.to_s + " likes" %>
+      <% if params["id"].to_i == current_user.id %>
 
-  <% if params["id"].to_i == current_user.id %>
+        <%= render partial: "layouts/post/deletepost", locals: {post: post} %>
 
-    <%= render partial: "layouts/post/deletepost", locals: {post: post} %>
+        <%= render partial: "layouts/post/editpost", locals: {post: post} %>
 
-    <%= render partial: "layouts/post/editpost", locals: {post: post} %>
+      <% else %>
 
-  <% else %>
+        <% if post.likers.include?(current_user) %>
+          <%= button_to "unlike", like_url(post.likes.where("user_id = ?", current_user.id).first.id), method: :delete %>
+        <% else %>
+          <%= button_to "like", post_likes_url(post.id), method: :post %>
 
-    <% if post.likers.include?(current_user) %>
-      <%= button_to "unlike", like_url(post.likes.where("user_id = ?", current_user.id).first.id), method: :delete %>
-    <% else %>
-      <%= button_to "like", post_likes_url(post.id), method: :post %>
+        <% end %>
 
-    <% end %>
+      <% end %>
+    </div>
+
+
+    <div class="comment">
+      <%= render partial: "layouts/comment/postcomments", locals: {post: post} %>
+    </div>
+
+
+  </article>
 
   <% end %>
 
-  <%= render partial: "layouts/comment/postcomments", locals: {post: post} %>
-
-<li>
-
-<% end %>
-
-<ul>
+</section>
