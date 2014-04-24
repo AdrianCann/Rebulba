@@ -7,5 +7,11 @@
 <% if params["id"].to_i == current_user.id %>
   <%= render partial: "layouts/post/newpost" %>
 <% else %>
-  <%= render partial: "layouts/following/new" %>
+
+  <% if current_user.people_he_follows.include?(@user) %>
+    <%= render partial: "layouts/following/deletefollowee", locals: {followee: @user} %>
+  <% else %>
+    <%= render partial: "layouts/following/new" %>
+  <% end %>
+
 <% end %>
