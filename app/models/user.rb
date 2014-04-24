@@ -2,6 +2,10 @@ class User < ActiveRecord::Base
   validates :username, :email, :token, presence: true, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+  validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/]
+
   before_validation :ensure_session_token
   attr_reader :password
 
@@ -57,6 +61,10 @@ class User < ActiveRecord::Base
 
   def ensure_session_token
     self.token ||= User.generate_token
+  end
+
+  def generate_feed_posts
+    self.people_he_follows.includes(:posts).map(&:posts).flatten
   end
 
 end

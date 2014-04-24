@@ -1,6 +1,6 @@
 <h1>Sign Up</h1>
 
-<form action="<%= users_url %>" method="post">
+<form action="<%= users_url %>" method="post" enctype="multipart/form-data">
   <%= auth_token %>
   <label>
     Username
@@ -19,6 +19,8 @@
     <input type="password" name="user[password]" value="">
   </label>
   <br>
+
+  <input type="file" name="user[avatar]">
 
   <input type="submit" value="Create Account">
 </form>

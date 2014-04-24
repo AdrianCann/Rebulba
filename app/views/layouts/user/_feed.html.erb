@@ -1,0 +1,17 @@
+<h1>I am the feed page</h1>
+
+<%= render partial: "layouts/post/newpost" %>
+
+<div class="feed-posts">
+  <h3>My Feed</h3>
+  <%= render partial: "layouts/post/post", locals: {feed_posts: @feed_posts} %>
+
+</div>
+
+
+<div class="user-posts">
+<h3>Posts by <%= @user.username %></h3>
+
+  <%= render partial: "layouts/post/post", locals: {feed_posts: @user.posts} %>
+
+<div>

@@ -1,17 +1,24 @@
 <h1><%= @user.username + "\'s page" %></h1>
 
-<%= render partial: "layouts/post/post" %>
+<%# if @user.avatar %>
+  <img src="<%= @user.avatar.url %>">
+<%# end %>
 
-<%= render partial: "layouts/following/followings" %>
 
-<% if params["id"].to_i == current_user.id %>
-  <%= render partial: "layouts/post/newpost" %>
+
+<% if current_user.id = params[:id] %>
+
+  <div class="feed">
+
+    <%= render partial: "layouts/user/feed" %>
+  </div>
+
 <% else %>
 
-  <% if current_user.people_he_follows.include?(@user) %>
-    <%= render partial: "layouts/following/deletefollowee", locals: {followee: @user} %>
-  <% else %>
-    <%= render partial: "layouts/following/new" %>
-  <% end %>
+  <div class="show-page">
+
+    <%= render partial: "layouts/user/show" %>
+
+  </div>
 
 <% end %>

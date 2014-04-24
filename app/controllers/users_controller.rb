@@ -21,14 +21,23 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
 
-    @new_post = Post.new
-    @new_following = Following.new
+    if @user == current_user
+      @new_post = Post.new
+      @new_following = Following.new
+
+
+      @feed_posts = @user.generate_feed_posts
+
+    else
+      @feed_posts = @user.posts
+
+    end
   end
 
 
   private
   def user_params
-    params.require(:user).permit(:username, :email, :password)
+    params.require(:user).permit(:username, :email, :password, :avatar)
   end
 
 end

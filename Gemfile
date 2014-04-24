@@ -38,7 +38,8 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'omniauth-facebook'
 # Use unicorn as the app server
 # gem 'unicorn'
-
+gem "paperclip", "~> 4.1"
+#gem 'aws-sdk', '~> 1.5.7'
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
