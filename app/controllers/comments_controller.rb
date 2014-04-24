@@ -5,13 +5,14 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
-    @comment.post_id = params["post_id"]
+    comment = Comment.new(comment_params)
+    comment.post_id = params["post_id"]
+    comment.user_id = current_user.id
 
-    if @comment.save
+    if comment.save
       redirect_to(:back)
     else
-      flash.now[:errors] = @comment.errors.full_messages
+      flash.now[:errors] = comment.errors.full_messages
       redirect_to current_user
     end
   end

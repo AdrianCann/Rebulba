@@ -20,3 +20,26 @@ User.create({
   username: "Adrian",
   email: 'atcann@bu.edu',
   password: "123456"})
+
+User.create({
+  username: "Andrew",
+  email: 'andrew',
+  password: "123456"})
+  
+Post.create({
+  title: "Sam", 
+  body: "My brother's best friend made this app", 
+  user_id: 2})
+  
+Post.create({
+  title: "Best Friend", 
+  body: "My best friend is Adrian! He is cool and not weird for eating a lot", 
+  user_id: 1})
+  
+Post.create({
+  title: "Jeans", 
+  body: "Sam wore jeans. they wore blue. Our outfits matched as they should.", 
+  user_id: 3})
+  
+Comment.create({post_id: 2, body: "lol agree", user_id: 2})
+Comment.create({post_id: 2, body: "So true", user_id: 4})
