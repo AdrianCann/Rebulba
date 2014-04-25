@@ -5,8 +5,7 @@ class FollowingsController < ApplicationController
   end
 
   def create
-    following = Following.new
-    following.follower_id = current_user.id
+    following = current_user.outbound_followings.new
     following.followee_id = params[:user_id]
     if following.save
     else
@@ -16,7 +15,8 @@ class FollowingsController < ApplicationController
   end
 
   def destroy
-    following = Following.find_by_follower_id_and_followee_id(current_user.id, params[:id])
+    following = current_user.outbound_followings
+                            .where(:followee_id == params[:id]).first
     following.destroy
     redirect_to current_user
   end

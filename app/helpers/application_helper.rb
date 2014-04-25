@@ -25,6 +25,8 @@ module ApplicationHelper
       <label for="user-password">Password</label>
       <input type="password" id="user-password" name="user[password]" value="">
     </div>
+    
+    <input type="file" name="user[avatar]">
 
     <div class="submit">
       <input type="submit" value="#{submit_value}">
@@ -40,7 +42,6 @@ module ApplicationHelper
 
       <label for="post-body">Post Body</label>
       <input type="text_area" id="post-body" name="post[body]" value="">
-
 
       <input type="submit" value="#{submit_value}">
     HTML

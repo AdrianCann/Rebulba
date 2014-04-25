@@ -5,9 +5,8 @@ class CommentsController < ApplicationController
   end
 
   def create
-    comment = Comment.new(comment_params)
+    comment = current_user.comments.new(comment_params)
     comment.post_id = params["post_id"]
-    comment.user_id = current_user.id
 
     if comment.save
       redirect_to(:back)
@@ -18,13 +17,13 @@ class CommentsController < ApplicationController
   end
 
   def update
-    comment = Comment.find(params[:id])
+    comment = current_user.comments.find(params[:id])
     comment.update(comment_params)
     redirect_to(:back)
   end
 
   def destroy
-    comment = Comment.find(params[:id])
+    comment = current_user.comments.find(params[:id])
     comment.destroy
     redirect_to :back
   end

@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-
-  before_action :require_logged_in
+  skip_before_action :require_logged_in, :only => [:new, :create]
 
   def new
     @user = User.new
@@ -26,8 +25,6 @@ class UsersController < ApplicationController
     if @user == current_user
       @new_post = Post.new
       @new_following = Following.new
-
-
       @feed_posts = @user.generate_feed_posts
 
     else
