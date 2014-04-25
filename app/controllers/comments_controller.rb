@@ -6,10 +6,10 @@ class CommentsController < ApplicationController
 
   def create
     comment = current_user.comments.new(comment_params)
-    fail
-    comment.post_id = params["post_id"]
-
+    comment.post_id = params[:post_id]
+    comment.user_id = current_user.id
     if comment.save
+
       redirect_to(:back)
     else
       flash.now[:errors] = comment.errors.full_messages

@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   has_many :posts,
   class_name: "Post",
   foreign_key: :user_id,
-  primary_key: :id, 
+  primary_key: :id,
   inverse_of: :user
 
   has_many :comments, through: :post, source: :user, inverse_of: :user
