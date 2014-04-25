@@ -13,7 +13,7 @@ User.create({
 
 User.create({
   username: "Sara Sweeney",
-  email: 'sara',
+  email: 'sara@hot.com',
   password: "i love adrian"})
 
 User.create({
@@ -23,17 +23,17 @@ User.create({
 
 User.create({
   username: "Andrew",
-  email: 'andrew',
+  email: 'andrew@roommate.com',
   password: "123456"})
 
 User.create({
   username: "Jorge",
-  email: 'Jorge',
+  email: 'jorge@chill.com',
   password: "123456"})
 
 User.create({
   username: "Jorge-Sister",
-  email: 'Jorge-Sister',
+  email: 'jorgesister@chill.com',
   password: "123456"})
 
 Post.create({

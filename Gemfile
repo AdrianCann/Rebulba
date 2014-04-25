@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.1'
+ruby '2.1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
@@ -41,11 +41,12 @@ gem 'omniauth-facebook'
 # Use unicorn as the app server
 # gem 'unicorn'
 gem "paperclip", "~> 4.1"
-#gem 'aws-sdk', '~> 1.5.7'
+gem 'aws-sdk', '~> 1.5.7'
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
 # Use debugger
+gem 'figaro'
 
 group :development do
   gem 'better_errors'

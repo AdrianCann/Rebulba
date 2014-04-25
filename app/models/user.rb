@@ -13,19 +13,28 @@ class User < ActiveRecord::Base
   class_name: "Post",
   foreign_key: :user_id,
   primary_key: :id,
-  inverse_of: :user
+  inverse_of: :user,
+  dependent: :destroy
 
-  has_many :comments, through: :post, source: :user, inverse_of: :user
+  has_many :comments, through: :post, source: :user
+
+  has_many :sent_comments,
+  class_name: "Comment",
+  foreign_key: :user_id,
+  primary_key: :id,
+  inverse_of: :comment_sender
 
   has_many :inbound_followings,
   class_name: "Following",
   foreign_key: :followee_id,
-  primary_key: :id
+  primary_key: :id,
+  dependent: :destroy
 
   has_many :outbound_followings,
   class_name: "Following",
   foreign_key: :follower_id,
-  primary_key: :id
+  primary_key: :id,
+  dependent: :destroy
 
   has_many :people_he_follows, through: :outbound_followings, source: :followee
   has_many :followers, through: :inbound_followings, source: :follower

@@ -1,7 +1,8 @@
+
   <% post.comments.each do |comment| %>
 
     <%= comment.body %>
-    <%= comment.user.username %>
+    <%= comment.comment_sender.username %>
     <%= comment.updated_at %>
     <%= comment.likes.count.to_s + " likes" %>
 
