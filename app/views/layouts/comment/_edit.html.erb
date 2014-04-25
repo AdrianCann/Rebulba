@@ -1,8 +1,6 @@
 <form action="<%= post_comment_url(post.id, comment.id) %>" method="post">
   <input type="hidden" name="_method" value="put">
   <%= auth_token %>
-  <label for="comment-body" name>Edit Comment</label>
-  <input type="textarea" id="comment-body" name=comment[body] value="<%= comment.body %>">
 
-  <input type="submit" value="Update">
+  <%= comment_form("update comment") %>
 </form>

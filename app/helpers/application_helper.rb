@@ -8,24 +8,24 @@ module ApplicationHelper
     HTML
   end
 
-  def user_form(submit_value)
+  def user_form(submit_value, username = "", useremail = "")
     <<-HTML.html_safe
 
     <div class="input">
       <label for="user-username">Username</label>
-      <input type="text" id="user-username" name="user[username]" value="">
+      <input type="text" id="user-username" name="user[username]" value="#{username}">
     </div>
 
     <div class="input">
       <label for="user-email">Email</label>
-      <input type="email" id="user-email" name="user[email]" value="">
+      <input type="email" id="user-email" name="user[email]" value="#{useremail}">
     </div>
 
     <div class="input">
       <label for="user-password">Password</label>
       <input type="password" id="user-password" name="user[password]" value="">
     </div>
-    
+
     <input type="file" name="user[avatar]">
 
     <div class="submit">
@@ -34,16 +34,29 @@ module ApplicationHelper
     HTML
   end
 
-  def post_form(submit_value)
+  def post_form(submit_value, title = "", body="")
     <<-HTML.html_safe
       <label for="post-title">Post Title </label>
-      <input type="text" id="post-title" name="post[title]" value="">
+      <input type="text" id="post-title" name="post[title]" value="#{title}">
 
 
       <label for="post-body">Post Body</label>
-      <input type="text_area" id="post-body" name="post[body]" value="">
+      <input type="text_area" id="post-body" name="post[body]" value="#{body}">
 
       <input type="submit" value="#{submit_value}">
+    HTML
+  end
+
+  def comment_form(submit_value, value = "")
+    <<-HTML.html_safe
+      <div class="input">
+        <label for="comment-body" name>Edit Comment</label>
+        <input type="textarea" id="comment-body" name=comment[body] value="#{value}">
+      </div>
+
+      <div class="submit">
+        <input type="submit" value="#{submit_value}">
+      </div>
     HTML
   end
 

@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Rebulba::Application.config.secret_key_base = '9a661681a14ad3be9b1925d04be1a5194e0e23bfcc8d6b1acc22ab88a5f489364ee34371550faee9a2ee67bcf9137f92fcd29186d8c9332fb8d9dcc52775e57b'
+Rebulba::Application.config.secret_key_base = ENV["SECRET_TOKEN"]

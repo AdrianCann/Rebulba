@@ -11,3 +11,53 @@
  *= require_self
  *= require_tree .
  */
+html, body, form, h1, div, label {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="submit"] {
+  -webkit-appearance: none;
+  box-sizing: content-box;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  vertical-align: baseline;
+  width: auto;
+  background: transparent;
+  color: inherit;
+}
+
+input[type="submit"] {
+  display: inline;
+  cursor: pointer;
+}
+
+body {
+  padding: 100px;
+  background: #ddd;
+  font-family: sans-serif;
+}
+
+form {
+  background: #fff;
+  padding: 50px;
+  width: 300px;
+  margin: auto;
+  border-radius: 5px;
+}
+
+h1 {
+  font-size: 60px;
+  font-weight: bold;
+  line-height: 1.0;
+}
