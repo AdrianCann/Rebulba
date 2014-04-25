@@ -51,5 +51,10 @@ Post.create({
   body: "Sam wore jeans. they wore blue. Our outfits matched as they should.",
   user_id: 3})
 
+Post.create({
+  title: "Who let the dogs out?",
+  body: "Seriously, who let them out because I am very allergic",
+  user_id: 12})
+
 Comment.create({post_id: 2, body: "lol agree", user_id: 2})
 Comment.create({post_id: 2, body: "So true", user_id: 4})
