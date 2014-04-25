@@ -5,3 +5,28 @@
 
   color: blue;
 }
+
+.feed-posts {
+  background: #fff;
+  padding: 50px;
+  width: 300px;
+  margin: auto;
+  border-radius: 5px;
+}
+
+.user-posts {
+  background: #fff;
+  padding: 50px;
+  width: 300px;
+  margin: auto;
+  border-radius: 5px;
+}
+
+.post-options {
+  display: none;
+}
+
+.post:hover > .post-options {
+  display: inline-block;
+  background: red;
+}
