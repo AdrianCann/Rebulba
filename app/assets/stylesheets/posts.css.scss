@@ -28,5 +28,30 @@
 
 .post:hover > .post-options {
   display: inline-block;
-  background: red;
 }
+
+.post-form-input > input[type="text_area"],
+.post-form-input > input[type="text"] {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 300px;
+}
+
+.post-form-input > input[type="text_area"] {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 300px;
+  height: 100px;
+}
+
+
+.post-form {
+  margin: 20px 0;
+  background: #eee;
+  padding: 20px 80px;
+}
+

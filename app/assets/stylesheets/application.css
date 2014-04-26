@@ -38,8 +38,13 @@ input[type="submit"] {
 }
 
 input[type="submit"] {
-  display: inline;
+  display: block;
   cursor: pointer;
+	display: block;
+	width: 300;
+	height: 300;
+	background: white;
+  
 }
 
 body {
@@ -49,11 +54,16 @@ body {
 }
 
 form {
-  background: #fff;
+  background: blue;
   padding: 50px;
   width: 300px;
   margin: auto;
   border-radius: 5px;
+}
+
+label {
+	display: block;
+	font-size: 24px;
 }
 
 h1 {
@@ -61,6 +71,7 @@ h1 {
   font-weight: bold;
   line-height: 1.0;
   text-align: center;
+  margin: 20px;
 }
 
 h3 {
@@ -68,3 +79,36 @@ h3 {
   font-weight: bold;
   line-height: 1.0;
 }
+
+.submit > input {
+  position: relative;
+  display: inline-block;
+  background: #0c0;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  box-shadow: 0 3px 0 0 #070;
+}
+
+/*navbar*/
+
+.navbar form {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  float: right;
+}
+
+
+.input input {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 300px;
+}
+

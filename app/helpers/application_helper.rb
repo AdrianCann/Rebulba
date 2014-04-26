@@ -36,14 +36,19 @@ module ApplicationHelper
 
   def post_form(submit_value, title = "", body="")
     <<-HTML.html_safe
+    
+    <div class="post-form-input">
       <label for="post-title">Post Title </label>
       <input type="text" id="post-title" name="post[title]" value="#{title}">
 
 
       <label for="post-body">Post Body</label>
       <input type="text_area" id="post-body" name="post[body]" value="#{body}">
-
+    </div>
+    
+    <div class="submit">
       <input type="submit" value="#{submit_value}">
+    </div>
     HTML
   end
 
