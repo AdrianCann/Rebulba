@@ -88,7 +88,7 @@ Comment.create({post_id: 2, body: "So true", user_id: 4})
 
 comments = ["lol", "lame post", "haha", "troll!", "spam spam spam"]
 
-100.times do
+50.times do
   Comment.create!(post_id: (rand(25)+1), body: comments[rand(4)], user_id: (rand(6)+1))
 end
 

@@ -1,9 +1,22 @@
+<header>
+  <div class="greeting">
+    <%= "Hello " + current_user.username %>
+  </div>
+  <nav class="navbar">
+  
+    <%= link_to "Edit Profile", edit_user_url(current_user) %>
+    <%= link_to "Dashboard", user_url(current_user.id) %>
+    <%= button_to "Sign Out", session_url, method: :delete %>
+  
+  </nav>
+
+<header>
+
 <h1><%= @user.username + "\'s page" %></h1>
 
 <%# if @user.avatar %>
   <img src="<%= @user.avatar.url %>">
 <%# end %>
-
 
 <% if current_user.id.to_s == params[:id] %>
 
@@ -11,10 +24,8 @@
 
     <%= render partial: "layouts/user/feed" %>
   </div>
+  
 
-  <nav class="current-user-nav">
-    <%= link_to "Edit My Profile", edit_user_url(current_user) %>
-  </nav>
 
 
 <% else %>
