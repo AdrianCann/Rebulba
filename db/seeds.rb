@@ -41,6 +41,12 @@ User.create({
   email: 'jorgesister@chill.com',
   password: "123456"})
 
+(1..6).each do |i|
+  (1..6).each do |j|
+    Following.create({followee_id: i, follower_id: j}) unless i == j
+  end
+end
+
 Post.create({
   title: "Sam",
   body: "My brother's best friend made this app",
@@ -62,14 +68,15 @@ Post.create({
   user_id: 12})
 
 post_title = ["Some Thoughts of Mine", "Penny for my thoughts", "Hey Friends", "NEWS FLASH!"]
-post_body = ["I am going vegan today", "My gerbil passed away. RIP.", "cats make great pets", "my life rocks!"]
+post_body = ["I am going vegan today", "My gerbil passed away. RIP.", "cats make great pets", "my life rocks!",
+  "Sennacy is a pretty-kitty!"]
 
 6.times do |i|
   Post.create!(title: "I love using Rebulba...", body: "I go on it #{i*3} times a day!", user_id: (i+1))
 end
 
 20.times do |i|
-  Post.create!(title: post_title[rand(4)], body: post_body[rand(4)], user_id: (rand(6)+1))
+  Post.create!(title: post_title[rand(4)], body: post_body[rand(5)], user_id: (rand(6)+1))
 end
 
 6.times do |i|
