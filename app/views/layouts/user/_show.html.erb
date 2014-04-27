@@ -1,8 +1,6 @@
-
-
 <%= render partial: "layouts/post/post", locals: {feed_posts: @user.posts} %>
 
-<%= render partial: "layouts/following/followings" %>
+<%= render partial: "layouts/following/followings", locals: {user: @user} %>
 
 
 <% if current_user.people_he_follows.include?(@user) %>
@@ -10,4 +8,6 @@
 <% else %>
   <%= render partial: "layouts/following/new" %>
 <% end %>
+
+
 

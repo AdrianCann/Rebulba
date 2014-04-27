@@ -1,8 +1,8 @@
 <h1>Edit Your Profile</h1>
 
 <form action="<%= user_url(current_user) %>" method="post" enctype="multipart/form-data">
-  <input type="hidden" name="_method" method="put">
+  <input type="hidden" name="_method" value="put">
   <%= auth_token %>
 
-  <%= user_form("Update Profile") %>
+  <%= user_form("Update Profile", current_user.username, current_user.email) %>
 </form>

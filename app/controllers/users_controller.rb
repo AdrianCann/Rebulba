@@ -38,8 +38,12 @@ class UsersController < ApplicationController
   end
 
   def update
-    current_user.update_attributes
-    render :show
+    if current_user.update_attributes(user_params)
+      redirect_to current_user
+    else
+      flash.now[:errors] = current_user.errors.full_messages
+      render :edit
+    end
   end
 
   def destroy
