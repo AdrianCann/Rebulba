@@ -62,6 +62,8 @@ body {
 }
 
 form {
+	background: red;
+	
 /*	background: #223F5C;
 	width: 320px;
 	padding: 35px;

@@ -6,7 +6,9 @@
 
     <%= link_to followee.username, user_url(followee) %>
 
-    <%= render partial: "layouts/following/deletefollowee", locals: {followee: followee}  %>
+	<% if current_user.id == params[:id].to_i %>
+    	<%= render partial: "layouts/following/deletefollowee", locals: {followee: followee}  %>
+	<% end %>
   
   </div>
 

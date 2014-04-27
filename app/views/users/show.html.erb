@@ -28,12 +28,13 @@
     <div class="following group">
       <%= render partial: "layouts/following/followings", locals: {user: @user} %>
 
-
-      <% if current_user.people_he_follows.include?(@user) %>
-        <%= render partial: "layouts/following/deletefollowee", locals: {followee: @user} %>
-      <% else %>
-        <%= render partial: "layouts/following/new" %>
-      <% end %>
+	  	<% if current_user.id.to_s != params[:id] %>
+	      <% if current_user.people_he_follows.include?(@user) %>
+	        <%= render partial: "layouts/following/deletefollowee", locals: {followee: @user} %>
+	      <% else %>
+	        <%= render partial: "layouts/following/new" %>
+	      <% end %>
+		<% end %>
     </div>
   </section>
 
@@ -45,7 +46,7 @@
   <% end %>
 
   <section class="show-page group">
-    <%= render partial: "layouts/user/show" %>
+    <%= render partial: "layouts/user/show", locals: {user: @user} %>
   </section>
 
 </div>
