@@ -50,22 +50,29 @@ input[type="submit"] {
 	width: 300;
 	height: 300;
 	background: white;
-  
+  	margin: 5px 0 0 0;
 }
 
 body {
   padding: 100px;
-  background: #ddd;
+  background: white;
   font-family: sans-serif;
+  margin: auto;
+  width: 960px;
 }
 
 form {
-
+/*	background: #223F5C;
+	width: 320px;
+	padding: 35px;
+	border-radius: 10px;*/
 }
 
 label {
 	display: block;
 	font-size: 24px;
+	color: white;
+	margin: 4px 0;
 }
 
 h1 {
@@ -80,6 +87,15 @@ h3 {
   font-size: 40px;
   font-weight: bold;
   line-height: 1.0;
+  font-color: gray;
+}
+
+/* --- CLEARFIX --- */
+
+.group:after {
+  content: "";
+  clear: both;
+  display: block;
 }
 
 .submit > input {
@@ -92,6 +108,7 @@ h3 {
   font-weight: bold;
   box-shadow: 0 3px 0 0 #070;
 }
+
 
 /*navbar*/
 
@@ -137,7 +154,7 @@ h3 {
 .profile {
 	width: 300px;
 	float: left;
-	position: relative;
+/*	position: absolute;*/
 }
 
 .profile img {
@@ -172,5 +189,6 @@ h3 {
 	float: right;
 	background: red;
 	padding: 2px;
+	width: auto
 }
 

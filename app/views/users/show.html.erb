@@ -10,47 +10,44 @@
   
   </nav>
 
-<header>
+</header>
 
-<h1><%= @user.username + "\'s page" %></h1>
+<div class="content group">
 
-<div class="profile">
+  <h1><%= @user.username + "\'s page" %></h1>
+
+  <section class="profile group">
   
-  <% if @user.avatar %>
-    <img src="<%= @user.avatar.url %>">
-  <% else %>
-    <img src="http://s3.amazonaws.com/rebulba_dev/users/avatars/000/000/007/original/puppy.jpg?1398551275">
-
-  <% end %>
- 
-
-  <div class="following">
-    <%= render partial: "layouts/following/followings", locals: {user: @user} %>
-
-
-    <% if current_user.people_he_follows.include?(@user) %>
-      <%= render partial: "layouts/following/deletefollowee", locals: {followee: @user} %>
+    <% if @user.avatar %>
+      <img src="<%= @user.avatar.url %>">
     <% else %>
-      <%= render partial: "layouts/following/new" %>
+      <img src="http://s3.amazonaws.com/rebulba_dev/users/avatars/000/000/007/original/puppy.jpg?1398551275">
+
     <% end %>
-  </div>
+ 
+    <div class="following group">
+      <%= render partial: "layouts/following/followings", locals: {user: @user} %>
+
+
+      <% if current_user.people_he_follows.include?(@user) %>
+        <%= render partial: "layouts/following/deletefollowee", locals: {followee: @user} %>
+      <% else %>
+        <%= render partial: "layouts/following/new" %>
+      <% end %>
+    </div>
+  </section>
+
+
+  <% if current_user.id.to_s == params[:id] %>
+    <section class="feed group">
+      <%= render partial: "layouts/user/feed" %>
+    </section>
+  <% end %>
+
+  <section class="show-page group">
+    <%= render partial: "layouts/user/show" %>
+  </section>
+
 </div>
-
-
-<% if current_user.id.to_s == params[:id] %>
-
-  <div class="feed">
-
-    <%= render partial: "layouts/user/feed" %>
-  </div>
-
-<% end %>
-
-<div class="show-page">
-
-  <%= render partial: "layouts/user/show" %>
-
-</div>
-
 
 

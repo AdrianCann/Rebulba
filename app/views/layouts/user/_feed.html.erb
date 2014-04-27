@@ -1,4 +1,4 @@
-<div class="post-form">
+<div class="post-form group">
   <form action="<%= posts_url %>" method="post">
     <%= auth_token %>
 
@@ -6,14 +6,14 @@
   </form>
 </div>
 
-<div class="feed-posts">
+<div class="feed-posts group">
   <h3>My Feed</h3>
   <%= render partial: "layouts/post/post", locals: {feed_posts: @feed_posts} %>
 
 </div>
 
 
-<div class="user-posts">
+<div class="user-posts group">
   <h3>Posts by <%= @user.username %></h3>
 
   <%= render partial: "layouts/post/post", locals: {feed_posts: @user.posts} %>

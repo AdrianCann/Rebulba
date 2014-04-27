@@ -1,9 +1,10 @@
+<div class="post-form">
+	<form action="<%= post_url(post) %>" method="post">
+	  <input type="hidden" name="_method" value="put">
 
-<form action="<%= post_url(post) %>" method="post">
-  <input type="hidden" name="_method" value="put">
+	  <%= auth_token %>
 
-  <%= auth_token %>
+	  <%= post_form("update post") %>
 
-  <%= post_form("update post") %>
-
-</form>
+	</form>
+</div>
