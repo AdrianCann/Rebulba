@@ -26,8 +26,11 @@ module ApplicationHelper
       <input type="password" id="user-password" name="user[password]" value="">
     </div>
 
-    <input type="file" name="user[avatar]">
-
+    <div class="file-input">
+      <label for="profile-picture">Profile Picture</label>
+      <input type="file" id="profile-picture" name="user[avatar]">
+    </div>
+    
     <div class="submit">
       <input type="submit" value="#{submit_value}">
     </div>
@@ -55,7 +58,7 @@ module ApplicationHelper
   def comment_form(submit_value, value = "")
     <<-HTML.html_safe
       <div class="input">
-        <label for="comment-body" name>Edit Comment</label>
+        <label for="comment-body" name>Comment</label>
         <input type="textarea" id="comment-body" name=comment[body] value="#{value}">
       </div>
 

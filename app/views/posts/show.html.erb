@@ -1,7 +1,9 @@
-<h1>Post Show</h1>
+<h1><%= @post.title %></h1>
 
-<%= @post.title %>
+<time><%= @post.updated_at %></time>
+<strong><%= @post.user.username %></strong>
 
-<%= @post.body %>
+<p><%= @post.body %><p>
+	
 
 <%= render partial: "layouts/comment/postcomments", locals: { post: @post } %>

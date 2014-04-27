@@ -1,28 +1,32 @@
-
+<section class="comments-wrap">
   <% post.comments.each do |comment| %>
+	
+	<article>
+	      <p><%= comment.body %><p>
+	      <%= comment.comment_sender.username %>
+	      <time><%= comment.updated_at %></time>
+	      <%= comment.likes.count.to_s + " likes" %>
 
-    <%= comment.body %>
-    <%= comment.comment_sender.username %>
-    <%= comment.updated_at %>
-    <%= comment.likes.count.to_s + " likes" %>
+	      <% if comment.user_id == current_user.id %>
+	        <%= render partial: "layouts/comment/edit", locals: {post: post, comment: comment} %>
+	      <% else %>
+	        <% if comment.likers.include?(current_user) %>
+	          <%= button_to "unlike", like_url(comment.likes.where("user_id = ?", current_user.id).first.id), method: :delete %>
+	        <% else %>
+	          <%= button_to "like", comment_likes_url(comment.id), method: :post %>
 
-    <% if comment.user_id == current_user.id %>
-      <%= render partial: "layouts/comment/edit", locals: {post: post, comment: comment} %>
-    <% else %>
-      <% if comment.likers.include?(current_user) %>
-        <%= button_to "unlike", like_url(comment.likes.where("user_id = ?", current_user.id).first.id), method: :delete %>
-      <% else %>
-        <%= button_to "like", comment_likes_url(comment.id), method: :post %>
-
-      <% end %>
-    <% end %>
+	        <% end %>
+	      <% end %>
 
 
-    <% if comment.user_id == current_user.id || post.user_id == current_user.id %>
-      <%= render partial: "layouts/comment/delete", locals: {comment: comment} %>
-    <% end %>
+	      <% if comment.user_id == current_user.id || post.user_id == current_user.id %>
+	        <%= render partial: "layouts/comment/delete", locals: {comment: comment} %>
+	      <% end %>
 
-  <% end %>
+	    <% end %>
+		
+	</article>
+	
+</section>
 
-  <%= render partial: "layouts/comment/new", locals: {post: post} %>
-
+<%= render partial: "layouts/comment/new", locals: {post: post} %>
