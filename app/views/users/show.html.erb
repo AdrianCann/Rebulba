@@ -14,9 +14,12 @@
 
 <h1><%= @user.username + "\'s page" %></h1>
 
-<%# if @user.avatar %>
+<% if @user.avatar %>
   <img src="<%= @user.avatar.url %>">
-<%# end %>
+<% else %>
+  <img src="http://s3.amazonaws.com/rebulba_dev/users/avatars/000/000/007/original/puppy.jpg?1398551275">
+
+<% end %>
 
 <% if current_user.id.to_s == params[:id] %>
 
