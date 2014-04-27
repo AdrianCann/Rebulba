@@ -11,13 +11,19 @@
  *= require_self
  *= require_tree .
  */
-html, body, form, h1, div, label {
+/*RESET*/
+html, body, header, footer, section, article, div,
+strong, a, img, p, h1, h2, h3, time, ul, li, small,
+form, label {
   margin: 0;
   padding: 0;
   border: 0;
+  font-size: 100%;
   font: inherit;
   vertical-align: baseline;
 }
+
+/*ELEMENTS*/
 
 input[type="text"],
 input[type="email"],
@@ -54,11 +60,7 @@ body {
 }
 
 form {
-  background: blue;
-  padding: 50px;
-  width: 300px;
-  margin: auto;
-  border-radius: 5px;
+
 }
 
 label {
@@ -128,5 +130,47 @@ h3 {
   padding-top: 5px;
   padding-bottom: 5px;
   width: 300px;
+}
+
+/*profile*/
+
+.profile {
+	width: 300px;
+	float: left;
+	position: relative;
+}
+
+.profile img {
+	float: left;
+	margin-bottom: 10px;
+}
+
+.following {
+
+}
+
+.following h3 {
+	
+}
+
+.followee {
+	padding: 5px 70px 5px 0;
+	height: 20px;
+	width: auto;
+}
+
+.following a {
+	padding: 2px;
+	float: left;
+}
+
+.following form {
+	
+}
+
+.followee form {
+	float: right;
+	background: red;
+	padding: 2px;
 }
 

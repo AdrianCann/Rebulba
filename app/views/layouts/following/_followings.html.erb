@@ -1,10 +1,14 @@
 <h3>Following:</h3>
 
 <% user.people_he_follows.each do |followee| %>
+  
+  <div class="followee">
 
-  <%= link_to followee.username, user_url(followee) %>
+    <%= link_to followee.username, user_url(followee) %>
 
-  <%= render partial: "layouts/following/deletefollowee", locals: {followee: followee}  %>
+    <%= render partial: "layouts/following/deletefollowee", locals: {followee: followee}  %>
+  
+  </div>
 
 <% end %>
 

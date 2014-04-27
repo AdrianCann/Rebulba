@@ -1,8 +1,10 @@
-<form action="<%= posts_url %>" method="post">
-  <%= auth_token %>
+<div class="post-form">
+  <form action="<%= posts_url %>" method="post">
+    <%= auth_token %>
 
-  <%= post_form("submit post") %>
-</form>
+    <%= post_form("submit post") %>
+  </form>
+</div>
 
 <div class="feed-posts">
   <h3>My Feed</h3>
@@ -12,7 +14,7 @@
 
 
 <div class="user-posts">
-<h3>Posts by <%= @user.username %></h3>
+  <h3>Posts by <%= @user.username %></h3>
 
   <%= render partial: "layouts/post/post", locals: {feed_posts: @user.posts} %>
 
