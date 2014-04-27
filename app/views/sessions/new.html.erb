@@ -1,21 +1,23 @@
-<h1>Welcome to Rebulba</h1>
+<!-- <div class="session-form"> -->
+	<form class="session-form" action="<%= session_url %>" method="post">
+	  <%= auth_token %>
 
-<form action="<%= session_url %>" method="post">
-  <%= auth_token %>
+	<h3>Sign In</h3>
 
-  <div class="input">
-    <label for="user-email">Email</label>
-    <input type="email" id="user-email" name="user[email]" value="">
-  </div>
+	  <div class="input">
+	    <label for="user-email">Email</label>
+	    <input type="email" id="user-email" name="user[email]" value="">
+	  </div>
 
-  <div class="input">
-    <label for="user-password">Password</label>
-    <input type="password" id="user-password" name="user[password]" value="">
-  </div>
+	  <div class="input">
+	    <label for="user-password">Password</label>
+	    <input type="password" id="user-password" name="user[password]" value="">
+	  </div>
 
-  <div class="submit">
-    <input type="submit" value="Sign In">
-  </div>
+	  <div class="submit">
+	    <input type="submit" value="Sign In">
+	  </div>
 
 
-</form>
+	</form>
+<!-- </div> -->
