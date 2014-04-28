@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.includes(:posts).find(params[:id])
 
     if @user == current_user
       @new_post = Post.new

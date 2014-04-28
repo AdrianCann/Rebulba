@@ -59,7 +59,7 @@ body {
   background: #213E5C;
   font-family: sans-serif;
   margin: auto;
-  width: 960px;
+  width: 1100px;
 }
 
 form {
@@ -175,12 +175,14 @@ a:hover {
 .profile {
 	width: 300px;
 	float: left;
+	border-right: 3px solid black;
 /*	position: absolute;*/
 }
 
 .profile img {
 	float: left;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
+	border: 5px solid black;
 }
 
 .following {
@@ -200,6 +202,8 @@ a:hover {
 .following a {
 	padding: 2px;
 	float: left;
+	color: black;
+	font-size: 20px;
 }
 
 .following form {
@@ -208,7 +212,7 @@ a:hover {
 
 .followee form {
 	float: right;
-	background: #223F5C;
+	background: green;
 	padding: 4px;
 	width: auto;
 	font-color: white;
