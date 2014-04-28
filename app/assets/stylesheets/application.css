@@ -49,8 +49,9 @@ input[type="submit"] {
 	display: block;
 	width: 300;
 	height: 300;
-	background: white;
-  	margin: 5px 0 0 0;
+  	margin: 0;
+	
+	font-color: white;
 }
 
 body {
@@ -62,7 +63,7 @@ body {
 }
 
 form {
-	background: red;
+	background: #223F5C;
 	width: auto;
 	padding: 20px;
 	border-radius: 10px;
@@ -103,7 +104,8 @@ h3 {
   display: block;
 }
 
-.submit > input {
+
+/*.submit > input {
   position: relative;
   display: inline-block;
   background: #0c0;
@@ -113,7 +115,7 @@ h3 {
   font-weight: bold;
   box-shadow: 0 3px 0 0 #070;
 }
-
+*/
 
 /*navbar*/
 
@@ -187,13 +189,16 @@ h3 {
 }
 
 .following form {
-	
+	font-color: white;
 }
 
 .followee form {
 	float: right;
 	background: #223F5C;
-	padding: 2px;
-	width: auto
+	padding: 4px;
+	width: auto;
+	font-color: white;
+	margin: 0 0 0 0;
+	
 }
 
