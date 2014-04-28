@@ -2,6 +2,10 @@
   <% feed_posts.each do |post| %>
 
   <article class="post">
+	  
+    <div class="post-thumb">
+      <a href="#"><img src="<%= post.user.avatar %>" width="54" height="54" alt=""></a>
+    </div>
 	<div class="post-content">
 	    <header class="post-header group">
 			<h3><%= link_to post.title, post_url(post.id), method: :get %></h3>

@@ -73,8 +73,8 @@ class User < ActiveRecord::Base
     self.token ||= User.generate_token
   end
 
-  def generate_feed_posts
-    self.people_he_follows.includes(:posts).map(&:posts).flatten
+  def generate_feed_posts(num=5)
+    self.people_he_follows.includes(:posts).limit(num).map(&:posts).flatten
   end
 
 end

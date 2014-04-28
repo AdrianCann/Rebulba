@@ -3,19 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .post-content {
 	width: 860px;
-  color: blue;
   margin: auto;
+  color: white;
 }
 
 .feed-posts {
-  background: #fff;
-  padding: 50px;
-  width: 300px;
-  margin: auto;
-  border-radius: 5px;
-}
-
-.user-posts {
   background: #fff;
   padding: 50px;
   width: 300px;
@@ -27,19 +19,18 @@
   display: none;
 }
 
-.post:hover > .post-options {
+/*.post:hover > .post-options {
   display: inline-block;
-}
+}*/
 
-.post-form-input > input[type="text_area"],
-.post-form-input > input[type="text"] {
+.post-form-input > input[type="text"],
+.post-form-input > textarea {
   background: #fff;
   border: 1px solid #ccc;
   padding-top: 5px;
   padding-bottom: 5px;
   width: 300px;
   font-size: 16px;
-  
 }
 
 .post-form-input > input[type="text_area"] {
@@ -51,6 +42,11 @@
   height: 100px;
   font-size: 16px;
 }
+
+.post-form-input > textarea {
+  height: 100px;
+}
+
 
 
 .post-form {
@@ -67,6 +63,12 @@
 	border-radius: 10px;
 }
 
+.post-form form h3 {
+	color: white;
+	text-align: center;
+	padding-bottom: 5px;
+}
+
 /*FEED*/
 .feed-posts {
 
@@ -75,29 +77,50 @@
 /*USER POSTS*/
 
 
+.user-posts {
+	width: 800px;
+  background: #fff;
+/*  margin: auto;*/
+  margin-top: 20px;
+}
 
 .posts {
+	
+	
 	
 }
 
 .post {
+	width: 700px;
+	height: 300px;
+	background: gray;
+	display: block;
+	margin-bottom: 30px;
+}
 
+.post-thumb {
+	float: left;
+}
+
+.post-thumb a img {
+	width: 200px;
+	height: auto;
 }
 
 .post-content {
-	
-	
-	
-	
-	
+	width: 500px;
+	float: right;
+	background: #223F5C;
 }
 
 .post-header-info {
 	
 }
 
-.post-header-info h3 {
-	
+.post-header > h3 > a {
+	color: white;
+	font-family: sans-serif;
+	font: 40px;
 }
 
 .post-header-info h3 a {
