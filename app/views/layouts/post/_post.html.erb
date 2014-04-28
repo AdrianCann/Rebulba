@@ -15,12 +15,17 @@
 	        <time><%= post.updated_at %></time>
 	      </div>
 	    </header>
-	     <p class="post-body"><%= post.body %><p>
-		<a class="likes" href="#"><%= post.likes.count.to_s + " likes" %></a>
+	     <p class="post-body"><%= post.body %></p>
+			 <nav class="post-bottom-nav">
+				 <a class="likes" href="#"><%= post.likes.count.to_s + " likes" %></a>
+				 <button class="post-option-toggle">option</button>
+			</nav>
 	</div>
 
     <div class="post-options">
 
+		
+		
       <% if params["id"].to_i == current_user.id %>
 
         <%= render partial: "layouts/post/deletepost", locals: {post: post} %>

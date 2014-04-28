@@ -8,7 +8,7 @@
 }*/
 
 .feed-posts {
-  background: #fff;
+  background: #213E5C;
   padding: 50px;
   width: 300px;
   margin: auto;
@@ -57,7 +57,7 @@
 }
 
 .post-form form {
-	background: gray;
+	background: #213E5C;
 	width: 320px;
 	padding: 35px;
 	border-radius: 10px;
@@ -80,7 +80,7 @@
 
 .user-posts {
 	width: 800px;
-  background: #fff;
+  background: #213E5C;
 /*  margin: auto;*/
   margin-top: 20px;
 }
@@ -94,7 +94,7 @@
 .post {
 	width: 900px;
 	height: auto;
-	background: gray;
+	background: #213E5C;
 	display: block;
 	margin-bottom: 30px;
 }
@@ -114,13 +114,20 @@
 
 .post-content {
 	width: 600px;
-	background: yellow;
+	background: white;
 	display: inline-block;
 	height: auto;
+	border-radius: 20px;
 }
 
 .post-header {
-	
+	text-align: center;
+}
+
+.post-header h4 {
+	text-align: left;
+	margin: 0;
+	padding: 0 0 10px 20px;
 }
 
 .post-header-info a:hover {
@@ -152,4 +159,23 @@
 	font-size: 30px;
 	color: black;
 	padding: 20px;
+}
+
+.post-bottom-nav {
+	
+}
+
+.post-bottom-nav a {
+	float: left;
+	margin-left: 30px;
+	margin-bottom: 40px;
+}
+.post-bottom-nav button {
+	float: right;
+	margin-right: 50px;
+    padding: 10px 15px;
+    color: #fff;
+    background: #0c6;
+    font-weight: bold;
+	margin-bottom: 40px;
 }
