@@ -19,5 +19,5 @@ Rebulba::Application.routes.draw do
   resources :followings, only: [:destroy]
 
 
-  root to: "users#new"
+  root to: "sessions#new"
 end
