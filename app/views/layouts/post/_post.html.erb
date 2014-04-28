@@ -2,19 +2,18 @@
   <% feed_posts.each do |post| %>
 
   <article class="post">
-
-    <header class="post-header group">
-
-      <div class="post-header-info">
-        <h3><%= link_to post.title, post_url(post.id), method: :get %></h3>
-        <%= post.user.username %>
-        <time><%= post.updated_at %></time>
-        <%= post.likes.count.to_s + " likes" %>
-      </div>
-    </header>
-    <div class="post-body">
-      <%= post.body %>
-    </div>
+	<div class="post-content">
+	    <header class="post-header group">
+			<h3><%= link_to post.title, post_url(post.id), method: :get %></h3>
+		
+	      <div class="post-header-info">  
+	        <%= link_to post.user.username, user_url(post.user) %>
+	        <time><%= post.updated_at %></time>
+	        <a class="likes" href="#"><%= post.likes.count.to_s + " likes" %></a>
+	      </div>
+	    </header>
+	      <p class="post-body"><%= post.body %><p>
+	</div>
 
     <div class="post-options">
 
@@ -41,9 +40,9 @@
       <%= render partial: "layouts/comment/postcomments", locals: {post: post} %>
     </div>
 
-
+	
   </article>
 
   <% end %>
-
+  
 </section>
