@@ -56,14 +56,14 @@ input[type="submit"] {
 
 body {
   padding: 100px;
-  background: white;
+  background: #213E5C;
   font-family: sans-serif;
   margin: auto;
   width: 960px;
 }
 
 form {
-	background: #223F5C;
+	background: gray;
 	width: auto;
 	padding: 20px;
 	border-radius: 10px;
@@ -96,6 +96,14 @@ h3 {
   font-color: gray;
 }
 
+li {
+	list-style: none;
+}
+
+a:hover {
+	color: green;
+}
+
 /* --- CLEARFIX --- */
 
 .group:after {
@@ -125,12 +133,8 @@ h3 {
 	background: green;
 }
 
-.greeting {
-	padding: 5px;
-	font-weight: bold;
-}
 
-.navbar form {
+/*.navbar form {
   margin: 0;
   padding: 0;
   border: 0;
@@ -138,13 +142,23 @@ h3 {
   font: inherit;
   vertical-align: baseline;
   float: right;
-}
+}*/
 
 .navbar a {
+	font-size: 30px;
 	padding: 5px;
 	border-left: 1px solid black;
+	float: left;
 }
 
+.navebar ul {
+	float: right;
+}
+
+.navbar ul li {
+	float: left;
+	font-size: 30px;
+}
 
 /*signout and buttons*/
 

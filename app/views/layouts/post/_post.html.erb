@@ -8,15 +8,15 @@
     </div>
 	<div class="post-content">
 	    <header class="post-header group">
+			<h4><%= link_to post.user.username, user_url(post.user) %><h4>
 			<h3><%= link_to post.title, post_url(post.id), method: :get %></h3>
 		
 	      <div class="post-header-info">  
-	        <%= link_to post.user.username, user_url(post.user) %>
 	        <time><%= post.updated_at %></time>
-	        <a class="likes" href="#"><%= post.likes.count.to_s + " likes" %></a>
 	      </div>
 	    </header>
-	      <p class="post-body"><%= post.body %><p>
+	     <p class="post-body"><%= post.body %><p>
+		<a class="likes" href="#"><%= post.likes.count.to_s + " likes" %></a>
 	</div>
 
     <div class="post-options">

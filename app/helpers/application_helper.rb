@@ -46,7 +46,7 @@ module ApplicationHelper
 
 
       <label for="post-body">Post Body</label>
-      <input type="text_area" id="post-body" name="post[body]" value="#{body}">
+      <textarea id="post-body" name="post[body]">#{body}</textarea>
     </div>
     
     <div class="submit">

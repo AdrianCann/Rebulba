@@ -1,11 +1,11 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.post-content {
+/*.post-content {
 	width: 860px;
   margin: auto;
   color: white;
-}
+}*/
 
 .feed-posts {
   background: #fff;
@@ -33,7 +33,7 @@
   font-size: 16px;
 }
 
-.post-form-input > input[type="text_area"] {
+.post-form-input > textarea {
   background: #fff;
   border: 1px solid #ccc;
   padding-top: 5px;
@@ -57,7 +57,7 @@
 }
 
 .post-form form {
-	background: #223F5C;
+	background: gray;
 	width: 320px;
 	padding: 35px;
 	border-radius: 10px;
@@ -67,6 +67,7 @@
 	color: white;
 	text-align: center;
 	padding-bottom: 5px;
+	margin: 30px 0 30px 0;
 }
 
 /*FEED*/
@@ -91,8 +92,8 @@
 }
 
 .post {
-	width: 700px;
-	height: 300px;
+	width: 900px;
+	height: auto;
 	background: gray;
 	display: block;
 	margin-bottom: 30px;
@@ -100,34 +101,55 @@
 
 .post-thumb {
 	float: left;
+	margin-right: 30px;
+	
 }
 
 .post-thumb a img {
 	width: 200px;
 	height: auto;
+	border: 5px solid black;
+	
 }
 
 .post-content {
-	width: 500px;
-	float: right;
-	background: #223F5C;
+	width: 600px;
+	background: yellow;
+	display: inline-block;
+	height: auto;
 }
 
-.post-header-info {
+.post-header {
 	
+}
+
+.post-header-info a:hover {
+	color: green;
+	font-size: 30px;
+}
+
+.post-header > h4 {
+	color: black;
+	font-size: 40px;	
+}
+
+.post-header > h3 {
+	text-align: center;
 }
 
 .post-header > h3 > a {
-	color: white;
+	color: black;
 	font-family: sans-serif;
-	font: 40px;
-}
-
-.post-header-info h3 a {
-	
+	font-size: 50px;
 }
 
 .post-header-info time {
-	
+	font-size: 40px;
+	color: black;
 }
 
+.post-content p {
+	font-size: 30px;
+	color: black;
+	padding: 20px;
+}
