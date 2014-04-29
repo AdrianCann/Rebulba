@@ -1,19 +1,20 @@
-<h3>Following:</h3>
+<ul>
+	<h3>Following:</h3>
 
-<% user.people_he_follows.each do |followee| %>
+	<% user.people_he_follows.each do |followee| %>
   
-  <div class="followee">
+	  <li class="followee">
 
-    <%= link_to followee.username, user_url(followee) %>
+	    <%= link_to followee.username, user_url(followee) %>
 
-	<% if current_user.id == params[:id].to_i %>
-    	<%= render partial: "layouts/following/deletefollowee", locals: {followee: followee}  %>
+		<% if current_user.id == params[:id].to_i %>
+	    	<%= render partial: "layouts/following/deletefollowee", locals: {followee: followee}  %>
+		<% end %>
+  
+	  </li>
+
 	<% end %>
-  
-  </div>
-
-<% end %>
-
+</ul>
 
 
 

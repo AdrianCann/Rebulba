@@ -76,8 +76,8 @@ form {
 
 label {
 	display: block;
-	font-size: 24px;
-	color: white;
+	font-size: 30px;
+	color: black;
 	margin: 4px 0;
 }
 
@@ -98,6 +98,10 @@ h3 {
 
 li {
 	list-style: none;
+}
+
+a {
+	text-decoration: none;
 }
 
 a:hover {
@@ -133,17 +137,6 @@ a:hover {
 	background: green;
 }
 
-
-/*.navbar form {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-  float: right;
-}*/
-
 .navbar a {
 	font-size: 30px;
 	padding: 5px;
@@ -158,6 +151,10 @@ a:hover {
 .navbar ul li {
 	float: left;
 	font-size: 30px;
+}
+
+.navbar ul li:hover {
+	background: blue;
 }
 
 /*signout and buttons*/
@@ -189,8 +186,17 @@ a:hover {
 
 }
 
-.following h3 {
+.following ul h3 {
 	
+}
+
+.following li {
+	display: block;
+	margin-top: 20px;
+}
+
+.following li a {
+	font-size: 25px;
 }
 
 .followee {
@@ -207,13 +213,14 @@ a:hover {
 }
 
 .following form {
-	font-color: white;
+	color: white;
+	margin-top: 20px;
 }
 
 .followee form {
 	float: right;
 	background: green;
-	padding: 4px;
+	padding: 10px;
 	width: auto;
 	font-color: white;
 	margin: 0 0 0 0;
