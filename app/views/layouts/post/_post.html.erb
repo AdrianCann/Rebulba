@@ -1,4 +1,4 @@
-<section class="posts group">
+<section id="feed" class="posts group">
   <% feed_posts.each do |post| %>
 
   <article class="post">
@@ -6,7 +6,7 @@
 	  <%= render partial: "layouts/post/postoptions", locals: {post: post} %>
 	  
     <div class="post-thumb">
-      <a href="#"><img src="<%= post.user.avatar %>" width="54" height="54" alt=""></a>
+      <a href="#"><img src="<%= @user.avatar %>" width="54" height="54" alt=""></a>
     </div>
 	<div class="post-content">
 	    <header class="post-header group">

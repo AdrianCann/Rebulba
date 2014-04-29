@@ -59,7 +59,7 @@ body {
   background: #213E5C;
   font-family: sans-serif;
   margin: auto;
-  width: 1200px;
+  width: 1110px;
 }
 
 form {
@@ -188,7 +188,7 @@ a:hover {
 .profile {
 	width: 300px;
 	float: left;
-	border-right: 3px solid black;
+	margin: 0;
 /*	position: absolute;*/
 }
 
@@ -206,9 +206,10 @@ a:hover {
 	
 }
 
-.following li {
+.following ul li {
 	display: block;
 	margin-top: 20px;
+	height: auto;
 }
 
 .following li a {
@@ -222,12 +223,11 @@ a:hover {
 }
 
 .following a {
-	padding: 2px;
 	float: left;
 	color: black;
 	font-size: 20px;
-	width: 150px;
-	margin-bottom: 20px;
+	width: 140px;
+	margin-bottom: 30px;
 }
 
 .following form {
@@ -255,5 +255,9 @@ a:hover {
 	color: red;
 	font-size: 30px;
 	text-align: center;
+}
+
+.feed h1 {
+	float: left;
 }
 
