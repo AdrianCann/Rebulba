@@ -38,17 +38,17 @@
     </div>
   </section>
 
+	<div id="feed">
+	  <% if current_user.id.to_s == params[:id] %>
+	    <section class="feed group">
+	      <%= render partial: "layouts/user/feed" %>
+	    </section>
+	  <% end %>
 
-  <% if current_user.id.to_s == params[:id] %>
-    <section class="feed group">
-      <%= render partial: "layouts/user/feed" %>
-    </section>
-  <% end %>
-
-  <section class="show-page group">
-    <%= render partial: "layouts/user/show", locals: {user: @user} %>
-  </section>
-
+	  <section class="show-page group">
+	    <%#= render partial: "layouts/user/show", locals: {user: @user} %>
+	  </section>
+	</div>
 </div>
 
 

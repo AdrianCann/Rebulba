@@ -20,4 +20,12 @@ Rebulba::Application.routes.draw do
 
 
   root to: "sessions#new"
+  
+  namespace :api, :defaults => { :format => :json } do
+
+    resources :posts, only: [:index, :create, :update, :destroy, :show] do
+      resources :comments, only: [:create, :update]
+      resources :likes, only: [:create]
+    end
+  end
 end
