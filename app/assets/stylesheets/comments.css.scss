@@ -1,6 +1,8 @@
 // Place all the styles related to the Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*ADD NEW COMMENT*/
 .new-comment-wrap {
 	display: none;
 }
@@ -10,5 +12,24 @@
 }
 
 .comments-wrap {
+	display: block;
+}
+
+/*comments themselves*/
+
+.comments-wrap article {
+	background: white;
+	width: 400px;
+	float: right;
+	padding: 10px;
+	border: 3px solid black;
+	border-radius: 20px;
+}
+
+.comments-wrap article p {
+	font-size: 30px;
+}
+
+.comments-wrap article form {
 	display: none;
 }

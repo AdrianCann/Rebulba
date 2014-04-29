@@ -210,6 +210,8 @@ a:hover {
 	float: left;
 	color: black;
 	font-size: 20px;
+	width: 150px;
+	margin-bottom: 20px;
 }
 
 .following form {
