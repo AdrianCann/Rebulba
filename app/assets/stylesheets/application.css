@@ -132,15 +132,11 @@ a:hover {
 /*navbar*/
 
 .navbar {
-	border: 1px solid black;
-	padding: 3px;
-	background: green;
+
 }
 
 .navbar a {
 	font-size: 30px;
-	padding: 5px;
-	border-left: 1px solid black;
 	float: left;
 }
 
@@ -149,19 +145,39 @@ a:hover {
 }
 
 .navbar ul li {
+	width: 160px;
+	margin: 10px;
+	background: green;
+	padding: 10px;
 	float: left;
 	font-size: 30px;
+	border-radius: 10px;
 }
 
 .navbar ul li:hover {
 	background: blue;
 }
 
+.navbar ul li a {
+	color: yellow;
+}
+
+.navbar ul li form {
+	background: green;
+	height: auto;
+	padding: 0;
+}
+
+.button_to {
+	color: black;
+	background: green;
+}
+
+
 /*signout and buttons*/
 
 .input input {
   background: #fff;
-  border: 1px solid #ccc;
   padding-top: 5px;
   padding-bottom: 5px;
   width: 300px;
