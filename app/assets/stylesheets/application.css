@@ -227,3 +227,15 @@ a:hover {
 	
 }
 
+/*ERRORS*/
+
+.error-list {
+	
+}
+
+.error {
+	color: red;
+	font-size: 30px;
+	text-align: center;
+}
+
