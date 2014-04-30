@@ -172,13 +172,29 @@
 	margin-bottom: 40px;
 }
 
-.post-options {
+/*default*/
+
+.show-post-options {
 	display: none;
-	width: 300px;
-	position: absolute;
+
 }
 
-.post-options form {
+
+
+/*modified*/
+
+.is-visible .show-post-options {
+	display: block;
+}
+
+
+/*.is-visible .post-options {
+	display: block;
+	width: 300px;
+	position: absolute;
+}*/
+
+.show-post-options form {
 	background: gray;
 }
 

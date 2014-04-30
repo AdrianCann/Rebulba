@@ -76,5 +76,13 @@ class User < ActiveRecord::Base
   def generate_feed_posts(num=5)
     self.people_he_follows.includes(:posts).limit(num).map(&:posts).flatten
   end
+  
+  def avatar_picture
+    if self.avatar
+      
+    else
+      
+    end
+  end
 
 end

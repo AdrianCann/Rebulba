@@ -27,7 +27,7 @@ Rebulba.Routers.PostsRouter = Backbone.Router.extend({
 
     index: function () {
       var indexView = new Rebulba.Views.PostsIndex({
-        collection: Rebulba.posts
+        collection: this.posts
       });
       this._swapView(indexView);
     },

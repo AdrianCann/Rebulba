@@ -2,16 +2,18 @@
   <% posts.each(function(post){ %>
   
   <div class="post-options">
-  	<form class="delete-post"><input type="submit" value="delete"></form>
+	  <div class="show-post-options">
+	  	<form class="delete-post"><input type="submit" value="delete"></form>
 	
-	<form> RENDER JST FORM HERE </form>
-	<button class="like" data-id="<% posts.get("id")%>"><button>
+		<form> RENDER JST FORM HERE </form>
+		<button class="like" data-id="<%= post.id %>"></button>
+	</div>
   </div>
   
   	<article class="post">
 	    <div class="post-thumb">
 			<a href="#">
-				<img src=​"http:​/​/​s3.amazonaws.com/​rebulba_dev/​users/​avatars/​000/​000/​007/​original/​puppy.jpg?1398551275" width=​"54" height=​"54" alt>​
+				<img src="http://s3.amazonaws.com/rebulba_dev/users/avatars/000/000/007/original/puppy.jpg?1398551275" width="54" height="54" alt="">
 			</a>
 	    </div>
 		
@@ -26,11 +28,20 @@
 		    </header>
 		     <p class="post-body"><%= post.escape("body") %></p>
 				 <nav class="post-bottom-nav">
-					 <button class="post-option-toggle">option</button>
+					 <button class="post-option-toggle" data-id="<%= post.id %>">option</button>
 					 <a class="likes" href="#"><%= "fix model first of:" + " likes" %></a>
 			 
 				</nav>
 
+		</div>
+		
+		<div class="comment">
+			<div class="comment-wrap">
+				<article>
+				<p></p>
+				</article>
+			</div>
+		
 		</div>
 	
 	
