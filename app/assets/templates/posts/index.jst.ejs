@@ -1,6 +1,13 @@
 <section class="posts group">
   <% posts.each(function(post){ %>
   
+  <div class="post-options">
+  	<form class="delete-post"><input type="submit" value="delete"></form>
+	
+	<form> RENDER JST FORM HERE </form>
+	<button class="like" data-id="<% posts.get("id")%>"><button>
+  </div>
+  
   	<article class="post">
 	    <div class="post-thumb">
 			<a href="#">
