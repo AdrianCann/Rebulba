@@ -50,4 +50,6 @@
 	
 </div>
 
-
+<script type="application/json" id="bootstrapped_user_json">
+  { "user": <%= @user.to_json.html_safe %>, "feed-posts": <%= @feed_posts.to_json.html_safe %>, "user-posts": <%= @user_posts.to_json.html_safe %> }
+</script>

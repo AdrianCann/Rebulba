@@ -20,17 +20,16 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.includes(:posts).find(params[:id])
+    @user = User.includes(:posts).includes(:comments).find(params[:id])
 
-    if @user == current_user
-      @new_post = Post.new
-      @new_following = Following.new
-      @feed_posts = @user.generate_feed_posts
+    
+    @new_post = Post.new
+    @new_following = Following.new
+    
+    @feed_posts = @user.generate_feed_posts
 
-    else
-      @feed_posts = @user.posts
+    @user_posts = @user.posts
 
-    end
   end
 
   def edit

@@ -1,0 +1,34 @@
+<section class="posts group">
+  <% posts.each(function(post){ %>
+  
+  	<article class="post">
+	    <div class="post-thumb">
+			<a href="#">
+				<img src=​"http:​/​/​s3.amazonaws.com/​rebulba_dev/​users/​avatars/​000/​000/​007/​original/​puppy.jpg?1398551275" width=​"54" height=​"54" alt>​
+			</a>
+	    </div>
+		
+		<div class="post-content">
+			<header class="post-header group">
+			<h4><a href="#">Demo User</a></h4>
+			<h3><a href="#"><%= post.escape("title")%></a></h3>
+			
+		      <div class="post-header-info">  
+		        <time><%= post.escape("updated_at") %></time>
+		      </div>
+		    </header>
+		     <p class="post-body"><%= post.escape("body") %></p>
+				 <nav class="post-bottom-nav">
+					 <button class="post-option-toggle">option</button>
+					 <a class="likes" href="#"><%= "fix model first of:" + " likes" %></a>
+			 
+				</nav>
+
+		</div>
+	
+	
+	</article>
+	
+	<% }); %>
+  
+</section>

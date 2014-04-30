@@ -18,7 +18,8 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 
   render: function () {
     var renderedContent = this.template({
-      posts: this.collection
+      posts: this.collection,
+	  user: this.user
     });
     this.$el.html(renderedContent);
     return this;
