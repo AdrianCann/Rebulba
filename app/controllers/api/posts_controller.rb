@@ -12,7 +12,7 @@ class Api::PostsController < ApplicationController
 
   def index
     @posts = current_user.posts
-    render json: @posts
+    render json: @posts.to_json(:include => :user)
     # @feed_posts = current_user.genereate_feed_posts(5)
 #     render json: @feed_posts
 

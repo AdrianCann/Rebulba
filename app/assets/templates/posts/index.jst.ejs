@@ -28,10 +28,12 @@
 		
 	    <div class="post-options">
 	  	  <div class="show-post-options">
-	  	  	<form class="delete-post"><input type="submit" value="delete"></form>
-	
-	  		<form> RENDER JST FORM HERE </form>
-	  		<button class="like" data-id="<%= post.id %>"></button>
+		  
+		  	<nav class="post-option-nav">
+				<button class="delete-post" data-id="<%= post.id %>">Delete</button>
+	  			<button class="edit-post" data-id="<%= post.id %>">Edit</button>
+	  			<button class="like-post" data-id="<%= post.id %>">Like</button>
+			</nav>
 	  	</div>
 	    </div>
 		

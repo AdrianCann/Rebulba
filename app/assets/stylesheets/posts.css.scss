@@ -176,10 +176,7 @@
 
 .show-post-options {
 	display: none;
-
 }
-
-
 
 /*modified*/
 
@@ -187,17 +184,19 @@
 	display: block;
 }
 
-
-/*.is-visible .post-options {
-	display: block;
-	width: 300px;
-	position: absolute;
-}*/
-
-.show-post-options form {
-	background: gray;
+.post-option-nav {
+	background: black;
+	height: 90px;
+	width: 720px;
+	border-radius: 10px;
 }
 
-.delete-post {
+.post-option-nav button {
+	background: green;
 	color: white;
+	font-size: 40px;
+	width: 200px;
+	margin: 15px;
+	border-radius: 10px;
+	
 }
