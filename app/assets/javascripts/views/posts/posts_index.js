@@ -14,7 +14,7 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
     var $target = $(event.target);
     // var post = this.collection.get($target.attr("data-id"));
     
-	$scope = $target.closest("article").prev("div")
+	$scope = $target.parent().parent().next("div")
 	
 	if ($scope.is(".is-visible")) {
 		$scope.removeClass("is-visible")
