@@ -235,6 +235,7 @@ a:hover {
 .following form {
 	color: white;
 	margin-top: 20px;
+	background: green;
 }
 
 .followee form {
