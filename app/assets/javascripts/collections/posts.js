@@ -9,9 +9,9 @@ Rebulba.Collections.Posts = Backbone.Collection.extend({
 	  }
 	  
 	  if (post1.get("created_at") < post2.get("created_at")) {
-		  return -1
-	  } else {
 		  return 1
+	  } else {
+		  return -1
 	  }
   }
 

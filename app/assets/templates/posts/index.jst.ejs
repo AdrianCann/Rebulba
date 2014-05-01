@@ -10,6 +10,8 @@
 	  <label for="post-body">Post Body</label>
 	  <textarea id="post-body" name="post[body]"></textarea>
 	</div>
+	
+	
 
 	<div class="submit">
 	  <input id="new-post-button" type="submit" value="Submit Post">
@@ -30,8 +32,8 @@
 		
 		<div class="post-content" data-id="<%= post.id %>">
 			<header class="post-header group">
-				<h4><a href="#">Demo User</a></h4>
-				<h3><a href="#"><%= post.escape("title")%></a></h3>
+				<h4><a href="#"><%= post._user.get("username") %></a></h4>
+				<h3><a href="#"><%= post.escape("title") %></a></h3>
 			
 		      	<div class="post-header-info">  
 		       	 <time><%= post.escape("updated_at") %></time>

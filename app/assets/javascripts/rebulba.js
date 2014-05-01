@@ -4,22 +4,31 @@ window.Rebulba = {
   Views: {},
   Routers: {},
   initialize: function() {
-	Rebulba.posts = new Rebulba.Collections.Posts();
-	// Rebulba.feedposts = new Rebulba.Collections.Posts();
-    Rebulba.posts.fetch({
-      success: function () {
-        new Rebulba.Routers.PostsRouter({
-          $rootEl: $("#feed"),
-          posts: Rebulba.posts
-		  
-        });
-        Backbone.history.start();
-      },
+	 Rebulba.users = new Rebulba.Collections.Users();
 	  
-	  error: function() {
-		  console.log("oh no")
-	  }
+	dataJSON = JSON.parse($("#bootstrapped_user_json").html());
+	
+	var coll = new Rebulba.Collections.Posts(dataJSON["user-posts"], {parse: true});
+	
+	
+	Rebulba.posts = coll;
+	
+	// console.log(dataJSON)
+	
+	// console.log(data["user-posts"])
+	
+	// Rebul
+	// Rebulba.feedposts = new Rebulba.Collections.Posts();
+	
+	
+    new Rebulba.Routers.PostsRouter({
+      $rootEl: $("#feed"),
+      posts: Rebulba.posts,
+	  users: Rebulba.users
+    	  
     });
+    Backbone.history.start();
+	
   }
 };
 

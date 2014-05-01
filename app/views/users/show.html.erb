@@ -52,14 +52,14 @@
 
 <script type="application/json" id="bootstrapped_user_json">
   { "user": <%= @user.to_json.html_safe %>, 
-  	"feed-posts": <%= @feed_posts.to_json.html_safe %>,
-  	"user-posts": <%= @user_posts.to_json.html_safe %> }
+  	"feed-posts": <%= @feed_posts.to_json(include: :user).html_safe %>,
+  	"user-posts": <%= @user_posts.to_json(include: :user).html_safe %> }
 </script>
 
 <script>
 	$(document).ready(function(){
-		var data = JSON.parse($("#bootstrapped_user_json").html());
-	  Rebulba.initialize(data);
+		
+	  Rebulba.initialize();
 	});
 </script>
 
