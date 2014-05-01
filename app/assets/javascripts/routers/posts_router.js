@@ -10,7 +10,7 @@ Rebulba.Routers.PostsRouter = Backbone.Router.extend({
       '': 'index',
       'posts/new': 'new',
       'posts/:id': 'show',
-      'posts/:id/edit': 'edit',
+      'posts/:id/edit': 'edit'
     },
 	
 
@@ -61,6 +61,25 @@ Rebulba.Routers.PostsRouter = Backbone.Router.extend({
         collection: this.posts
       });
       this._swapView(indexView);
+    },
+	
+    _getPost: function (id, callback) {
+      var that = this;
+      var post = Rebulba.posts.get(id);
+      if (!post) {
+        post = new Rebulba.Models.Post({
+          id: id
+        });
+        post.collection = this.posts;
+        post.fetch({
+          success: function () {
+            that.posts.add(post);
+            callback(post);
+          }
+        });
+      } else {
+        callback(post);
+      }
     },
 
     _swapView: function (view) {

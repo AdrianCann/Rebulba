@@ -6,8 +6,9 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
     "click .post-option-toggle": "toggle",
 	"click .delete-post": "delete",
 	"click .edit-post": "edit",
+	"click .update-post": "updatePost",
 	"click .like-post": "like",
-	"click .post-content": "edit",
+	// "click .post-content": "edit",
 	"click #new-post-button": "newpost"
   },
 
@@ -25,7 +26,6 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 	
 	// var data = JSON.parse($("#bootstrapped_user_json").html());
 	// model.user_id = data.user.id dont need cuz controller does it
-	
 	
 	this.collection.create(postData, {success: function(model) {
 		
@@ -57,18 +57,29 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 	post.destroy();
   },
   
-  edit: function(event) {
-	  var $target = $(event.target);
-	  var $scope = $target.parent("div")
-	  // works for clicking on body
-	  console.log($scope.attr("data-id"))
-	  var post = this.collection.get($scope.attr("data-id"));
-	  // modal time
+  like: function(event) {
+	  
   	
   },
   
-  like: function(event) {
-  	
+  edit: function(event) {
+	  var $target = $(event.target);
+	  var id = $target.attr("data-id")
+	  console.log(id)
+  	Backbone.history.navigate('posts/' + id + '/edit', { trigger: true });
+  },
+  
+  updatePost: function(event) {
+	var that = this;
+	var $target = $(event.target);
+	var post = this.collection.get($target.attr("data-id"));
+	var formData = $("#update-post-form").serializeJSON();
+	post.save(formData, {patch: true, success: function(){
+        that.collection.add(post);
+        Backbone.history.navigate("", { trigger: true });
+		}
+	});
+	// post.save({})
   },
 
   render: function () {
@@ -81,7 +92,7 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
   },
   
   add: function(event) {
-	  console.log(event)
+	  
   }
 
 });

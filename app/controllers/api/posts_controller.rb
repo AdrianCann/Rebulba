@@ -1,6 +1,7 @@
 class Api::PostsController < ApplicationController
   def create
     @post = current_user.posts.new(post_params)
+    @post.likes_count = 0
 
     if @post.save
 
@@ -42,6 +43,6 @@ class Api::PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, :likes_count)
   end
 end
