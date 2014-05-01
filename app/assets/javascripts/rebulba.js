@@ -11,6 +11,7 @@ window.Rebulba = {
         new Rebulba.Routers.PostsRouter({
           $rootEl: $("#feed"),
           posts: Rebulba.posts
+		  
         });
         Backbone.history.start();
       },
@@ -22,6 +23,3 @@ window.Rebulba = {
   }
 };
 
-$(document).ready(function(){
-  Rebulba.initialize();
-});

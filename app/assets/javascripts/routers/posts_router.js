@@ -3,6 +3,7 @@ Rebulba.Routers.PostsRouter = Backbone.Router.extend({
     initialize: function (options) {
       this.posts = options.posts;
       this.$rootEl = options.$rootEl;
+	  
     },
 	
     routes: {

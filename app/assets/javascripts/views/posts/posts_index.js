@@ -12,35 +12,29 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
   },
 
   initialize: function () {
-    this.listenTo(this.collection, "add change:title remove reset", this.render);
+    this.listenTo(this.collection, "add change remove reset", this.render);
 	// $("html").on("click") try sams thing of clicking elsewhere to hide menu
   },
   
   newpost: function (event) {
     var that = this;
     event.preventDefault();
-	var object = $("#new-post-form").serializeJSON();
+	var postData = $("#new-post-form").serializeJSON();
+	
+	var model = new Rebulba.Models.Post()
+	
+	// var data = JSON.parse($("#bootstrapped_user_json").html());
+	// model.user_id = data.user.id dont need cuz controller does it
 	
 	
-	console.log(object)
-	this.model.collection = this.collection;
-	this.model.save(object, {
-		success: function (newpost) {
-			that.collection.add(newpost);
-			Backbone.history.navigate("", { trigger: true });
-		}
+	this.collection.create(postData, {success: function(model) {
+		
+		model.collection = that.collection
+		
+		Backbone.history.navigate("", { trigger: true });
+	}
 	});
-	  //     var attrs = this.$el.serializeJSON();
-	  //     this.model.collection = this.collection;
-	  //     this.model.save(attrs, {
-	  //       success: function (post) {
-	  //         that.collection.add(post);
-	  //         Backbone.history.navigate("", { trigger: true });
-	  //       },
-	  // error: function() {
-	  // 		  alert("error")
-	  // }
-	  //     });
+	
   },
 
   toggle: function (event) {
@@ -80,8 +74,7 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
   render: function () {
     var renderedContent = this.template({
       posts: this.collection,
-	  newpost: this.model,
-	  user: this.user
+	  post: this.model
     });
     this.$el.html(renderedContent);
     return this;
