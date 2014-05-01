@@ -196,6 +196,8 @@ a:hover {
 	float: left;
 	margin-bottom: 20px;
 	border: 5px solid black;
+	width: 300px;
+	height: auto;
 }
 
 .following {

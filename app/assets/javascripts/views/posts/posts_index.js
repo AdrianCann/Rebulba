@@ -6,7 +6,8 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
     "click .post-option-toggle": "toggle",
 	"click .delete-post": "delete",
 	"click .edit-post": "edit",
-	"click .like-post": "like"
+	"click .like-post": "like",
+	"click .post-content": "edit"
   },
 
   initialize: function () {
@@ -30,15 +31,17 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
   
   delete: function(event) {
 	var $target = $(event.target);
-  	post = this.collection.get($target.attr("data-id"));
-	console.log(post.escape("title"))
-	console.log(post)
+  	var post = this.collection.get($target.attr("data-id"));
 	post.destroy();
-	// I just destroyed my user
   },
   
   edit: function(event) {
-	  
+	  var $target = $(event.target);
+	  var $scope = $target.parent("div")
+	  // works for clicking on body
+	  console.log($scope.attr("data-id"))
+	  var post = this.collection.get($scope.attr("data-id"));
+	  // modal time
   	
   },
   
@@ -53,6 +56,10 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
     });
     this.$el.html(renderedContent);
     return this;
+  },
+  
+  add: function(event) {
+	  console.log(event)
   }
 
 });

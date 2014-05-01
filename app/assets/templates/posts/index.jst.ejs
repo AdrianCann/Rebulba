@@ -8,14 +8,14 @@
 			</a>
 	    </div>
 		
-		<div class="post-content">
+		<div class="post-content" data-id="<%= post.id %>">
 			<header class="post-header group">
-			<h4><a href="#">Demo User</a></h4>
-			<h3><a href="#"><%= post.escape("title")%></a></h3>
+				<h4><a href="#">Demo User</a></h4>
+				<h3><a href="#"><%= post.escape("title")%></a></h3>
 			
-		      <div class="post-header-info">  
-		        <time><%= post.escape("updated_at") %></time>
-		      </div>
+		      	<div class="post-header-info">  
+		       	 <time><%= post.escape("updated_at") %></time>
+		      	</div>
 		    </header>
 		     <p class="post-body"><%= post.escape("body") %></p>
 				 <nav class="post-bottom-nav">
@@ -52,3 +52,5 @@
 	<% }); %>
   
 </section>
+
+<div class="modal-screen close-modal"></div>
