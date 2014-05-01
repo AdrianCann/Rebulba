@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require underscore
+//= require jquery.serializeJSON
 //= require backbone
 //= require rebulba
 //= require_tree ../templates

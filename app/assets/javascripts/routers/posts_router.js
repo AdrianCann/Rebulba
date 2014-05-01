@@ -26,8 +26,10 @@ Rebulba.Routers.PostsRouter = Backbone.Router.extend({
     },
 
     index: function () {
+	var newPost = new Rebulba.Models.Post();
       var indexView = new Rebulba.Views.PostsIndex({
-        collection: this.posts
+        collection: this.posts,
+		model: newPost
       });
       this._swapView(indexView);
     },
