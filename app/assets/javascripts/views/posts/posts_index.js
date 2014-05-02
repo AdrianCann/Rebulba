@@ -23,25 +23,25 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
   newpost: function (event) {
     var that = this;
     event.preventDefault();
-	var postData = $("#new-post-form").serializeJSON();
-	postData["post"]["user_id"] = dataJSON.user.id + "";
-	var user = dataJSON["user"]
-	postData["user"] = user
+		var postData = $("#new-post-form").serializeJSON();
+		postData["post"]["user_id"] = dataJSON.user.id + "";
+		var user = dataJSON["user"];
+		postData["user"] = user;
 	
 	
 	
 	// var data = JSON.parse($("#bootstrapped_user_json").html());
 	// model.user_id = data.user.id dont need cuz controller does it
 	
-	this.collection.create(postData, {
-		parse: true,
-		success: function(model) {
+		this.postsCollection.create(postData, {
+			parse: true,
+			success: function(model) {
 					
-			model.collection = that.collection
+				model.collection = that.collection;
 			
-			Backbone.history.navigate("", { trigger: true });
-		}
-	});
+				Backbone.history.navigate("", { trigger: true });
+			}
+		});
   },
 
   toggle: function (event) {
