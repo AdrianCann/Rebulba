@@ -3,6 +3,7 @@ Rebulba.Routers.PostsRouter = Backbone.Router.extend({
     initialize: function (options) {
       this.posts = options.posts;
       this.$rootEl = options.$rootEl;
+			this.feed = options.feed;
 	  
     },
 	
@@ -29,8 +30,9 @@ Rebulba.Routers.PostsRouter = Backbone.Router.extend({
     index: function () {
 	var newPost = new Rebulba.Models.Post();
       var indexView = new Rebulba.Views.PostsIndex({
-        collection: this.posts,
-		model: newPost
+        postsCollection: this.posts,
+				feedsCollection: this.feed,
+				model: newPost
       });
       this._swapView(indexView);
     },
@@ -58,7 +60,8 @@ Rebulba.Routers.PostsRouter = Backbone.Router.extend({
 
     index: function () {
       var indexView = new Rebulba.Views.PostsIndex({
-        collection: this.posts
+        postsCollection: this.posts,
+				feedsCollection: this.feed
       });
       this._swapView(indexView);
     },

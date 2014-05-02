@@ -9,7 +9,9 @@ window.Rebulba = {
 	dataJSON = JSON.parse($("#bootstrapped_user_json").html());
 	
 	var coll = new Rebulba.Collections.Posts(dataJSON["user-posts"], {parse: true});
+	var feed = new Rebulba.Collections.Posts(dataJSON["feed-posts"], {parse: true});
 	
+	Rebulba.feed = feed
 	
 	Rebulba.posts = coll;
 	
@@ -24,7 +26,8 @@ window.Rebulba = {
     new Rebulba.Routers.PostsRouter({
       $rootEl: $("#feed"),
       posts: Rebulba.posts,
-	  users: Rebulba.users
+			feed: Rebulba.feed,
+	  	users: Rebulba.users
     	  
     });
     Backbone.history.start();

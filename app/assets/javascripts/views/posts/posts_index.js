@@ -3,17 +3,20 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
   template: JST['posts/index'],
   
   events: {
-    "click .post-option-toggle": "toggle",
-	"click .delete-post": "delete",
-	"click .edit-post": "edit",
-	"click .update-post": "updatePost",
-	"click .like-post": "like",
-	// "click .post-content": "edit",
-	"click #new-post-button": "newpost"
+	  "click .post-option-toggle": "toggle",
+		"click .delete-post": "delete",
+		"click .edit-post": "edit",
+		"click .update-post": "updatePost",
+		"click .like-post": "like",
+		// "click .post-content": "edit",
+		"click #new-post-button": "newpost",
+		"click .toggle-feed": "toggleFeed"
   },
 
-  initialize: function () {
-    this.listenTo(this.collection, "add change remove reset", this.render);
+  initialize: function (options) {
+		this.postsCollection = options.postsCollection;
+		this.feedsCollection = options.feedsCollection;
+    this.listenTo(this.feedsCollection, "add change remove reset", this.render);
 	// $("html").on("click") try sams thing of clicking elsewhere to hide menu
   },
   
@@ -85,11 +88,16 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 	});
 	// post.save({})
   },
+	
+	toggleFeed: function() {
+		
+	},
 
   render: function () {
     var renderedContent = this.template({
-      posts: this.collection,
-	  post: this.model
+      posts: this.postsCollection,
+			feed: this.feedsCollection,
+	  	post: this.model
     });
     this.$el.html(renderedContent);
 		// debugger

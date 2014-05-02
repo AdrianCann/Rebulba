@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require underscore
 //= require jquery.serializeJSON
 //= require jquery.timeago
