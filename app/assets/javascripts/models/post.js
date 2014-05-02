@@ -29,6 +29,7 @@ Rebulba.Models.Post = Backbone.Model.extend({
 		this._user = newUser
 		
 		return this._user
+
 	}
 	
 });

@@ -21,7 +21,10 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
     var that = this;
     event.preventDefault();
 	var postData = $("#new-post-form").serializeJSON();
-	postData["post"]["user_id"] = dataJSON.user.id + ""
+	postData["post"]["user_id"] = dataJSON.user.id + "";
+	var user = dataJSON["user"]
+	postData["user"] = user
+	
 	
 	
 	// var data = JSON.parse($("#bootstrapped_user_json").html());
@@ -29,8 +32,10 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 	
 	this.collection.create(postData, {
 		parse: true,
-		success: function(model) {		
+		success: function(model) {
+					
 			model.collection = that.collection
+			
 			Backbone.history.navigate("", { trigger: true });
 		}
 	});
