@@ -8,51 +8,35 @@
 
 /*NEW USER PAGE*/
 .welcome {
-	position: relative;
 }
 
 .welcome h1 {
-	position: absolute;
-	left: 280px;
-	bottom: 10px;
+
 }
 
 .welcome h4 {
 	font-size: 25px;
-	position: absolute;
-	left: 350px;
-	top: -45px;
-	z-index: 100;
-}
-
-.feed-posts {
-	display: none;
+	text-align: center;
 }
 
 .user-form {
 	margin: auto;
-    text-align: left;
-		position: relative;
+   text-align: left;
 }
 
 
-.user-form h3 {
-	color: black;
+h3 {
 	text-align: center;
-	margin: 20px;
-	width: 300px;
+	width: auto;
 	
 }
 
-.user-form h3 a {
+h3 a {
 	color: black;
-	position: absolute;
-	width: 500px;
-	left: 0px;
 }
 
-.user-form h3 a:hover {
-	color: gray;
+h3 a:hover {
+	color: darkgray;
 }
 
 form.user-form {
@@ -99,6 +83,12 @@ form.user-form {
 .file-input {
 	margin-top: 20px;
 	margin-bottom: 20px;
+}
+
+/*FEED*/
+
+.feed-posts {
+	display: none;
 }
 
 #profile-picture {

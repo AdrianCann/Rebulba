@@ -92,6 +92,8 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 	  post: this.model
     });
     this.$el.html(renderedContent);
+		// debugger
+		this.$el.find('.timeago').timeago();
     return this;
   },
   

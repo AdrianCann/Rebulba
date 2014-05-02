@@ -28,16 +28,33 @@
 	border-radius: 10px;
 }
 
+.session-form div {
+	width: auto;
+}
+
+div.input {
+	width: 300px;
+	align: center;
+}
+
+div.submit {
+	width: 300px;
+	align: center;
+}
+
+div.submit input {
+	align: left;
+}
+
 .session-form h3 {
 	margin-top: 50px;
-	position: relative;
+	width: auto;
 	
 }
 
 .session-form h3 a {
 	color: black;
 	font-size: 30px;
-	position: absolute;
 	left: 410px;
 }
 
