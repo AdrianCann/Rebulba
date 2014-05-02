@@ -48,11 +48,19 @@
 
 .post-form form {
 	background: #213E5C;
-	width: 450px;
-	padding: 35px;
+/*	width: 450px;*/
+/*	padding: 35px;*/
 	border-radius: 10px;
 	height: auto;
-	float: left;
+/*	float: left;*/
+}
+
+#new-post-form {
+	align: left;
+}
+
+#new-post-form div {
+	width: 400px;
 }
 
 .post-form form h3 {
@@ -111,40 +119,46 @@
 	border-radius: 20px;
 }
 
-.post-header {
-	text-align: center;
+.post-header-info {
+	min-height: 40px;
 }
 
-.post-header h4 {
-	text-align: left;
-	margin: 0;
-	padding: 0 0 10px 20px;
+.post-header-info h4 a {
+	float: left;
+	font-size: 30px;
+	padding-left: 20px;
+	max-width: 150px;
+}
+
+.post-header-info time {
+	font-size: 25px;
+	color: black;
+	float: right;
+	padding-right: 20px;
+	max-width: 150px;
 }
 
 .post-header-info a:hover {
-	font-size: 30px;
 }
 
 .post-header > h4 {
 	color: black;
-	font-size: 40px;	
+	font-size: 30px;	
 }
 
-.post-header > h3 {
-	text-align: center;
-	
-}
 
-.post-header > h3 > a {
+.post-header h3 {
 	color: black;
 	font-family: sans-serif;
-	font-size: 50px;
-	
+	font-size: 40px;
+	text-align: center;
 }
 
-.post-header-info time {
-	font-size: 40px;
-	color: black;
+.post-title-wrap {
+
+}
+.post-title-link {
+	width: 500px;
 }
 
 .post-content p {

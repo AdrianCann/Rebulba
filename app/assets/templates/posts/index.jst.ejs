@@ -32,12 +32,15 @@
 		
 		<div class="post-content" data-id="<%= post.id %>">
 			<header class="post-header group">
-				<h4><a href="#"><%= post._user.get("username") %></a></h4>
-				<h3><a href="#"><%= post.escape("title") %></a></h3>
+      	<div class="post-header-info group">
+					<h4><a href="#"><%= post._user.get("username") %></a></h4>  
+       	 <time class="timeago" datetime="<%= post.escape("updated_at") %>"></time>
+      	</div>
+				<div class="post-title-wrap">
+					<h3><a class="post-title-link" href="#"><%= post.escape("title") %></a></h3>
+				</div>
 			
-		      	<div class="post-header-info">  
-		       	 <time class="timeago" datetime="<%= post.escape("updated_at") %>"></time>
-		      	</div>
+		      	
 		    </header>
 		     <p class="post-body"><%= post.escape("body") %></p>
 				 <nav class="post-bottom-nav">

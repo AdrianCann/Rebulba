@@ -82,7 +82,7 @@ end
 end
 
 6.times do |i|
-  Post.create!(title: "I just did #{rand(20)+2} push ups!.", body: "Right after running #{(rand(5)+2)} miles", user_id: (i+1))
+  Post.create!(title: "I just did #{rand(20)+2} push ups!", body: "Right after running #{(rand(5)+2)} miles. I am such a beast. Hear me roar!", user_id: (i+1))
 end
 
 Comment.create({post_id: 2, body: "lol agree", user_id: 2})
