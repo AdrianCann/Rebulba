@@ -11,6 +11,7 @@
 	color: black;
 	text-align: center;
 	margin-bottom: 20px;
+	
 }
 
 .session-form form {
@@ -22,22 +23,26 @@
 
 .session-form {
 	background: #223F5C;
-	width: 320px;
+	width: auto;
 	padding: 35px;
 	border-radius: 10px;
 }
 
 .session-form h3 {
 	margin-top: 50px;
+	position: relative;
+	
 }
 
 .session-form h3 a {
 	color: black;
 	font-size: 30px;
+	position: absolute;
+	left: 410px;
 }
 
 .session-form h3 a:hover {
-	color: blue;
+	color: gray;
 	font-size: 31px;
 }
 

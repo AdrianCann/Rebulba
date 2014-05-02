@@ -6,6 +6,25 @@
 	float: left;
 }
 
+/*NEW USER PAGE*/
+.welcome {
+	position: relative;
+}
+
+.welcome h1 {
+	position: absolute;
+	left: 280px;
+	bottom: 10px;
+}
+
+.welcome h4 {
+	font-size: 25px;
+	position: absolute;
+	left: 350px;
+	top: -45px;
+	z-index: 100;
+}
+
 .feed-posts {
 	display: none;
 }
@@ -13,6 +32,7 @@
 .user-form {
 	margin: auto;
     text-align: left;
+		position: relative;
 }
 
 
@@ -20,15 +40,19 @@
 	color: black;
 	text-align: center;
 	margin: 20px;
+	width: 300px;
+	
 }
 
 .user-form h3 a {
 	color: black;
-	text-align: center;
+	position: absolute;
+	width: 500px;
+	left: 0px;
 }
 
 .user-form h3 a:hover {
-	color: blue;
+	color: gray;
 }
 
 form.user-form {
@@ -57,4 +81,27 @@ form.user-form {
   top: 3px;
   box-shadow: none;
   background: #0a0;
+}
+
+/*EDIT PROFILE*/
+
+.edit-profile-title {
+	position: relative;
+	width: auto;
+}
+
+.edit-profile-title h1 {
+	position: absolute;
+	top: -100px;
+	left: 400px;
+}
+
+.file-input {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#profile-picture {
+/*		padding-top: 20px;
+		padding-bottom: 20px;*/
 }
