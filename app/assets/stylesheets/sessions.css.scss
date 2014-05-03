@@ -1,6 +1,10 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
 .session-form {
 	margin: auto;
     text-align:left;
@@ -8,9 +12,16 @@
 
 
 .session-form h3 {
-	color: black;
+	color: white;
 	text-align: center;
 	margin-bottom: 20px;
+	background: #7F8FA0;
+	width: 200px;
+	margin: auto;
+	padding: 20px;
+	border: 4px solid black;
+	border-radius: 20px;
+	margin-bottom: 40px;
 	
 }
 
@@ -46,14 +57,8 @@ div.submit input {
 	align: left;
 }
 
-.session-form h3 {
-	margin-top: 50px;
-	width: auto;
-	
-}
-
 .session-form h3 a {
-	color: black;
+	color: #7F8FA0;
 	font-size: 30px;
 	left: 410px;
 }

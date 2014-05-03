@@ -51,7 +51,7 @@ input[type="submit"] {
 	height: 300;
   	margin: 0;
 	
-	font-color: white;
+	font-color: #7F8FA0;
 }
 
 body {
@@ -77,8 +77,9 @@ form {
 label {
 	display: block;
 	font-size: 30px;
-	color: black;
+	color: #7F8FA0;
 	margin: 4px 0;
+
 }
 
 h1 {
@@ -169,7 +170,7 @@ a:hover {
 }
 
 .button_to {
-	color: black;
+	color: #7F8FA0;
 	background: green;
 }
 
@@ -226,14 +227,14 @@ a:hover {
 
 .following a {
 	float: left;
-	color: black;
+	color: #7F8FA0;
 	font-size: 20px;
 	width: 140px;
 	margin-bottom: 30px;
 }
 
 .following form {
-	color: white;
+	color: #7F8FA0;
 	margin-top: 20px;
 	background: green;
 }
@@ -269,7 +270,6 @@ a:hover {
 }
 
 
-
 form div {
 	display: block;
 	    position: relative;
@@ -284,7 +284,8 @@ form div {
 
 
 
-.new-post-form {
+#new-post-form h3 {
+	color: white;
 	
 }
 

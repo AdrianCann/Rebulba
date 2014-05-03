@@ -8,15 +8,23 @@
 
 /*NEW USER PAGE*/
 .welcome {
+	background: #7F8FA0;
+	align: center;
+	width: 700px;
+	padding: 20px;
+	margin: auto;
+	border-radius: 40px;
+	border: 6px solid black;
 }
 
 .welcome h1 {
-
+	color: white;
 }
 
 .welcome h4 {
 	font-size: 25px;
 	text-align: center;
+	color: white;
 }
 
 .user-form {
@@ -25,14 +33,20 @@
 }
 
 
-h3 {
+.user-form h3 {
 	text-align: center;
 	width: auto;
+	color: #7F8FA0;
+	margin-bottom: 20px;
 	
 }
 
+h3 {
+	text-align: center;
+}
+
 h3 a {
-	color: black;
+	color: #7F8FA0;
 }
 
 h3 a:hover {
