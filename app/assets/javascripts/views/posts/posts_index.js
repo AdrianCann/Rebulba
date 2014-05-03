@@ -16,30 +16,33 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
   initialize: function (options) {
 		this.postsCollection = options.postsCollection;
 		this.feedsCollection = options.feedsCollection;
-    this.listenTo(this.feedsCollection, "add change remove reset", this.render);
+    this.listenTo(this.postsCollection, "add change remove reset", this.render);
 	// $("html").on("click") try sams thing of clicking elsewhere to hide menu
   },
   
   newpost: function (event) {
+		
     var that = this;
     event.preventDefault();
 		var postData = $("#new-post-form").serializeJSON();
 		postData["post"]["user_id"] = dataJSON.user.id + "";
 		var user = dataJSON["user"];
-		postData["user"] = user;
-	
-	
-	
+		postData["user"] = user;		
+		
 	// var data = JSON.parse($("#bootstrapped_user_json").html());
 	// model.user_id = data.user.id dont need cuz controller does it
 	
 		this.postsCollection.create(postData, {
 			parse: true,
 			success: function(model) {
-					
-				model.collection = that.collection;
-			
+				console.log("here")
+				// debugger	
+				// model.collection = that.postsCollection;
+				
 				Backbone.history.navigate("", { trigger: true });
+			},
+			error: function() { 
+				console.log("error: didnt create post for collection")
 			}
 		});
   },
@@ -60,7 +63,7 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
   
   delete: function(event) {
 	var $target = $(event.target);
-  	var post = this.collection.get($target.attr("data-id"));
+  	var post = this.postsCollection.get($target.attr("data-id"));
 	post.destroy();
   },
   
