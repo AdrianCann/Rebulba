@@ -2,8 +2,8 @@
   <nav class="navbar">
 	  
   	<ul class="group">
-		<li><a href="#">View Feed</a></li>
-		<li><%= link_to "Dashboard", user_url(current_user.id) %></li>
+			<li><a href="#">View Feed</a></li>
+			<li><%= link_to "Dashboard", user_url(current_user.id) %></li>
 	    <li><%= link_to "Edit Profile", edit_user_url(current_user) %></li>
 	    <li><a href="#">Notifications</a></li>
 	    <li><%= button_to "sign out", session_url, method: :delete %></li>
@@ -32,7 +32,7 @@
 	      <% else %>
 	        <%= render partial: "layouts/following/new" %>
 	      <% end %>
-		<% end %>
+			<% end %>
     </div>
   </section>
 

@@ -220,3 +220,39 @@
 
 /*EDIT POSTS IN BACKBONE*/
 
+/*TOGGLE FEED*/
+/*default*/
+
+.show-feed-button {
+	display: none;
+}
+
+.show-wall-button {
+	display: none;
+}
+
+.post-feed-toggle {
+	display: none;
+}
+
+.post-user-toggle {
+	display: none;
+}
+
+/*modified*/
+
+.visible .post-feed-toggle {
+	display: block;
+}
+
+.visible .show-wall-button {
+	display: block;
+}
+
+.visible .post-user-toggle {
+	display: block;
+}
+
+.visible .show-feed-button {
+	display: block;
+}

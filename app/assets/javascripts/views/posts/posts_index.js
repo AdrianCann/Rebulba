@@ -10,8 +10,8 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 		"click .like-post": "like",
 		// "click .post-content": "edit",
 		"click #new-post-button": "newpost",
-		"click .render-feed": "renderFeed",
-		"click .render-user-posts": "renderUserPosts"
+		"click .show-feed-button": "renderFeed",
+		"click .show-wall-button": "renderWall"
   },
 
   initialize: function (options) {
@@ -29,17 +29,11 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 		postData["post"]["user_id"] = dataJSON.user.id + "";
 		var user = dataJSON["user"];
 		postData["user"] = user;		
-		
-	// var data = JSON.parse($("#bootstrapped_user_json").html());
-	// model.user_id = data.user.id dont need cuz controller does it
 	
 		this.postsCollection.create(postData, {
 			parse: true,
 			success: function(model) {
-				console.log("here")
-				// debugger	
-				// model.collection = that.postsCollection;
-				
+				console.log("here")				
 				Backbone.history.navigate("", { trigger: true });
 			},
 			error: function() { 
@@ -48,19 +42,19 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 		});
   },
 
-	//   toggle: function (event) {
-	//     var $target = $(event.target);
-	//     
-	// $scope = $target.parent().parent().next("div")
-	// 
-	// if ($scope.is(".is-visible")) {
-	// 	$scope.removeClass("is-visible")
-	// 	
-	// } else {
-	// 	$scope.addClass("is-visible")
-	// }
-	// 
-	//   },
+	  toggle: function (event) {
+	    var $target = $(event.target);
+	    
+	$scope = $target.parent().parent().next("div")
+	
+	if ($scope.is(".is-visible")) {
+		$scope.removeClass("is-visible")
+		
+	} else {
+		$scope.addClass("is-visible")
+	}
+	
+	  },
   
   delete: function(event) {
 	var $target = $(event.target);
@@ -93,12 +87,18 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 	// post.save({})
   },
 	
-	renderUserPosts: function() {
-		
+	renderWall: function() {
+		$(".feed-wrap").removeClass("visible")
+		$(".wall-wrap").addClass("visible")
+		$(".wall-button-wrap").removeClass("visible")
+		$(".feed-button-wrap").addClass("visible")
 	},
 	
 	renderFeed: function() {
-		
+		$(".feed-wrap").addClass("visible")
+		$(".wall-wrap").removeClass("visible")
+		$(".wall-button-wrap").addClass("visible")
+		$(".feed-button-wrap").removeClass("visible")
 	},
 
   render: function () {
@@ -108,7 +108,6 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 	  	post: this.model
     });
     this.$el.html(renderedContent);
-		// debugger
 		this.$el.find('.timeago').timeago();
     return this;
   }

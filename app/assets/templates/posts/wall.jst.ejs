@@ -1,14 +1,14 @@
-<section class="post-feed-toggle">
-  <% feedPosts.each(function(post){ %>
-  
+<section class="post-user-toggle">
+  <% userPosts.each(function(post){ %>
+
   	<article class="post">
 	    <div class="post-thumb">
 			<a href="#">
 				<img src="http://s3.amazonaws.com/rebulba_dev/users/avatars/000/000/007/original/puppy.jpg?1398551275" width="54" height="54" alt="">
 			</a>
 	    </div>
-		
-		<div class="post-content" data-id="<%= post.id %>">
+	
+			<div class="post-content" data-id="<%= post.id %>">
 			<header class="post-header group">
       	<div class="post-header-info group">
 					<h4><a href="#"><%= post._user.get("username") %></a></h4>  
@@ -17,44 +17,44 @@
 				<div class="post-title-wrap">
 					<h3><a class="post-title-link" href="#"><%= post.escape("title") %></a></h3>
 				</div>
-			
-		      	
-		  </header>
+		
+	      	
+		    </header>
 		     <p class="post-body"><%= post.escape("body") %></p>
 				 <nav class="post-bottom-nav">
 					 <button class="post-option-toggle" data-id="<%= post.id %>">option</button>
 					 <a class="likes" href="#"><%= post.get("likes_count") + " likes" %></a>
-			 
+		 
 				</nav>
 
 		</div>
 		
+		
+	
 	    <div class="post-options">
 	  	  <div class="show-post-options">
-		  
+	  
 		  	<nav class="post-option-nav">
-					<button class="delete-post" data-id="<%= post.id %>">Delete
-					</button>
-		  			<button class="edit-post" data-id="<%= post.id %>">Edit
-						</button>
-		  			<button class="like-post" data-id="<%= post.id %>">Like
-						</button>
-					</nav>
+				<button class="delete-post" data-id="<%= post.id %>">Delete</button>
+	  			<button class="edit-post" data-id="<%= post.id %>">Edit</button>
+	  			<button class="like-post" data-id="<%= post.id %>">Like</button>
+				</nav>
 	  	</div>
+	   
 		</div>
 		
-		<div class="comment">
-			<div class="comment-wrap">
-				<article>
-				<p></p>
-				</article>
+			<div class="comment">
+				<div class="comment-wrap">
+					<article>
+					<p></p>
+					</article>
+				</div>
+	
 			</div>
-		
-		</div>
+
+		</article>
 	
-	
-	</article>
-	
+
 	<% }); %>
-  
+
 </section>
