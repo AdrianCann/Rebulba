@@ -63,14 +63,18 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
   },
   
   like: function(event) {
-	  
-  	
+		var that = this;
+	  var $target = $(event.target);
+	  var id = $target.attr("data-id")
+		
+  	var post = this.feedsCollection.get(id);
+		var likeTotal = post.likes_count + 1
+		
   },
   
   edit: function(event) {
 	  var $target = $(event.target);
 	  var id = $target.attr("data-id")
-	  console.log(id)
   	Backbone.history.navigate('posts/' + id + '/edit', { trigger: true });
   },
   
@@ -79,8 +83,10 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 	var $target = $(event.target);
 	var post = this.collection.get($target.attr("data-id"));
 	var formData = $("#update-post-form").serializeJSON();
-	post.save(formData, {patch: true, success: function(){
-        that.collection.add(post);
+	post.save(formData, {
+		patch: true,
+		success: function() {
+        that.postsCollection.add(post);
         Backbone.history.navigate("", { trigger: true });
 		}
 	});

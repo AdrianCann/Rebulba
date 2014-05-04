@@ -6,6 +6,8 @@ Rebulba.Models.Post = Backbone.Model.extend({
 	parse: function(json) {
 		this.user(json)
 		delete json["user"]
+		this.like(json)
+		delete json["like"]
 		return json;
 	},
 	
@@ -30,6 +32,10 @@ Rebulba.Models.Post = Backbone.Model.extend({
 		
 		return this._user
 
+	},
+	
+	like: function(json) {
+		
 	}
 	
 });

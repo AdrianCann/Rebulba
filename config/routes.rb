@@ -27,5 +27,7 @@ Rebulba::Application.routes.draw do
       resources :comments, only: [:create, :update]
       resources :likes, only: [:create]
     end
+		
+		resources :likes, only: [:destroy]
   end
 end

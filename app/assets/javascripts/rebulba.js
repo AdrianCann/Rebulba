@@ -6,21 +6,13 @@ window.Rebulba = {
   initialize: function() {
 	 Rebulba.users = new Rebulba.Collections.Users();
 	  
-	dataJSON = JSON.parse($("#bootstrapped_user_json").html());
+		dataJSON = JSON.parse($("#bootstrapped_user_json").html());
 	
-	var coll = new Rebulba.Collections.Posts(dataJSON["user-posts"], {parse: true});
-	var feed = new Rebulba.Collections.Posts(dataJSON["feed-posts"], {parse: true});
+		var coll = new Rebulba.Collections.Posts(dataJSON["user-posts"], {parse: true});
+		Rebulba.posts = coll;
 	
-	Rebulba.feed = feed
-	
-	Rebulba.posts = coll;
-	
-	// console.log(dataJSON)
-	
-	// console.log(data["user-posts"])
-	
-	// Rebul
-	// Rebulba.feedposts = new Rebulba.Collections.Posts();
+		var feed = new Rebulba.Collections.Posts(dataJSON["feed-posts"], {parse: true});	
+		Rebulba.feed = feed;
 	
 	
     new Rebulba.Routers.PostsRouter({
