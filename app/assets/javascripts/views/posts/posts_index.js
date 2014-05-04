@@ -10,7 +10,8 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 		"click .like-post": "like",
 		// "click .post-content": "edit",
 		"click #new-post-button": "newpost",
-		"click .toggle-feed": "toggleFeed"
+		"click .render-feed": "renderFeed",
+		"click .render-user-posts": "renderUserPosts"
   },
 
   initialize: function (options) {
@@ -47,19 +48,19 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 		});
   },
 
-  toggle: function (event) {
-    var $target = $(event.target);
-    
-	$scope = $target.parent().parent().next("div")
-	
-	if ($scope.is(".is-visible")) {
-		$scope.removeClass("is-visible")
-		
-	} else {
-		$scope.addClass("is-visible")
-	}
-
-  },
+	//   toggle: function (event) {
+	//     var $target = $(event.target);
+	//     
+	// $scope = $target.parent().parent().next("div")
+	// 
+	// if ($scope.is(".is-visible")) {
+	// 	$scope.removeClass("is-visible")
+	// 	
+	// } else {
+	// 	$scope.addClass("is-visible")
+	// }
+	// 
+	//   },
   
   delete: function(event) {
 	var $target = $(event.target);
@@ -92,24 +93,24 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 	// post.save({})
   },
 	
-	toggleFeed: function() {
+	renderUserPosts: function() {
+		
+	},
+	
+	renderFeed: function() {
 		
 	},
 
   render: function () {
     var renderedContent = this.template({
-      posts: this.postsCollection,
-			feed: this.feedsCollection,
+      userPosts: this.postsCollection,
+			feedPosts: this.feedsCollection,
 	  	post: this.model
     });
     this.$el.html(renderedContent);
 		// debugger
 		this.$el.find('.timeago').timeago();
     return this;
-  },
-  
-  add: function(event) {
-	  
   }
 
 });

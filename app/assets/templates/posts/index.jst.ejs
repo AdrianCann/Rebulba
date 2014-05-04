@@ -23,7 +23,7 @@
 </div>
 
 <section class="posts group">
-  <% posts.each(function(post){ %>
+  <% userPosts.each(function(post){ %>
   
   	<article class="post">
 	    <div class="post-thumb">
@@ -78,3 +78,6 @@
 	
 	<% }); %>
   
+</section>
+
+<%= JST["posts/feed"]({ feedPosts: feedPosts }) %>
