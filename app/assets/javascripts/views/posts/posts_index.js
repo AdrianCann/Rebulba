@@ -11,7 +11,8 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 		// "click .post-content": "edit",
 		"click #new-post-button": "newpost",
 		"click .show-feed-button": "renderFeed",
-		"click .show-wall-button": "renderWall"
+		"click .show-wall-button": "renderWall",
+		"click .view-comments": "viewComments"
   },
 
   initialize: function (options) {
@@ -105,6 +106,11 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 		$(".wall-wrap").removeClass("visible")
 		$(".wall-button-wrap").addClass("visible")
 		$(".feed-button-wrap").removeClass("visible")
+	},
+	
+	viewComments: function() {
+	  var $target = $(event.target);
+	  var id = $target.attr("data-id")
 	},
 
   render: function () {
