@@ -29,6 +29,7 @@ class UsersController < ApplicationController
     @feed_posts = @user.generate_feed_posts
 
     @user_posts = @user.posts
+    @own_page = (current_user == @user)
 
   end
 

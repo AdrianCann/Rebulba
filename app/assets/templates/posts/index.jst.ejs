@@ -1,27 +1,11 @@
+
+	
+
+
 <%= JST["users/nav"]() %>	
 
-
-
 <div class="post-form">
-	<form id="new-post-form">
-	<h3>New Post</h3>
-	
-	<div class="post-form-input">
-	  <label for="post-title">Post Title </label>
-	  <input type="text" id="post-title" name="post[title]" value="">
-
-
-	  <label for="post-body">Post Body</label>
-	  <textarea id="post-body" name="post[body]"></textarea>
-	</div>
-	
-	
-
-	<div class="submit">
-	  <input id="new-post-button" type="submit" value="Submit Post">
-	</div>
-	
-	</form>
+	<%= JST["posts/new"]({ post: post }) %>	
 </div>
 
 <div class="group wall-wrap visible">
@@ -30,8 +14,10 @@
 
 </div>
 
-<div class="group feed-wrap">
+<% if (dataJSON.ownPage) { %>
+	<div class="group feed-wrap">
 
-	<%= JST["posts/feed"]({ feedPosts: feedPosts }) %>
+		<%= JST["posts/feed"]({ feedPosts: feedPosts }) %>
 
-</div>
+	</div>
+<% } %>
