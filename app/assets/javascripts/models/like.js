@@ -1,3 +1,3 @@
 Rebulba.Models.Like = Backbone.Model.extend({
-	urlRoot: "/api/posts",
+	urlRoot: "/api/likes"
 });

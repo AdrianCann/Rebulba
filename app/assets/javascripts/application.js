@@ -15,6 +15,7 @@
 //= require underscore
 //= require jquery.serializeJSON
 //= require jquery.timeago
+//= require bootstrap
 //= require backbone
 //= require rebulba
 //= require_tree ../templates
