@@ -5,7 +5,6 @@
 			<li><a href="#">View Feed</a></li>
 			<li><%= link_to "Dashboard", user_url(current_user.id) %></li>
 	    <li><%= link_to "Edit Profile", edit_user_url(current_user) %></li>
-	    <li><a href="#">Notifications</a></li>
 	    <li><%= button_to "sign out", session_url, method: :delete %></li>
   	</ul>
   </nav>
@@ -14,7 +13,7 @@
 
 <div class="content group">
 
-  <section class="profile group">
+  <section class="profile">
   
     <% if @user.avatar %>
       <img src="<%= @user.avatar.url %>">
@@ -22,18 +21,21 @@
       <img src="http://s3.amazonaws.com/rebulba_dev/users/avatars/000/000/007/original/puppy.jpg?1398551275">
 
     <% end %>
- 
-    <div class="following group">
-      <%= render partial: "layouts/following/followings", locals: {user: @user} %>
-
+		
+		<div class="add-delete-follower">
 	  	<% if current_user.id.to_s != params[:id] %>
 	      <% if current_user.people_he_follows.include?(@user) %>
 	        <%= render partial: "layouts/following/deletefollowee", locals: {followee: @user} %>
 	      <% else %>
-	        <%= render partial: "layouts/following/new" %>
+	        	<%= render partial: "layouts/following/new" %>
 	      <% end %>
 			<% end %>
+		</div>
+ 
+    <div class="following">
+      <%= render partial: "layouts/following/followings", locals: {user: @user} %>	
     </div>
+		
   </section>
 
 	  <% if current_user.id.to_s == params[:id] %>

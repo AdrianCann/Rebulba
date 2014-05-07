@@ -202,7 +202,7 @@ a:hover {
 }
 
 .following {
-	height: 800px;
+	height: 700px;
 }
 
 .following ul h3 {
@@ -247,6 +247,10 @@ a:hover {
 	font-color: white;
 	margin: 0 0 0 0;
 	
+}
+
+.new-following-form {
+	color: green;
 }
 
 /*ERRORS*/
