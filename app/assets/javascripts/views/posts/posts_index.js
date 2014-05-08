@@ -12,7 +12,8 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 		"click #new-post-button": "newpost",
 		"click .show-feed-button": "renderFeed",
 		"click .show-wall-button": "renderWall",
-		"click .view-comments": "viewComments"
+		"click .view-comments": "viewComments",
+		"click #submit-comment-button": "submitComment"
   },
 
   initialize: function (options) {
@@ -111,6 +112,10 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 	viewComments: function() {
 	  var $target = $(event.target);
 	  var id = $target.attr("data-id")
+	},
+	
+	submitComment: function() {
+		
 	},
 
   render: function () {

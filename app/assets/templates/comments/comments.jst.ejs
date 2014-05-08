@@ -1,14 +1,35 @@
-
+<div class="comments-wrap">
 
 <% if (comments.length !== 0) { %>
-	<% comments.forEach(function(comment){ %>
+	<% comments.each(function(comment){ %>
 
-		<div class="comment-wrap">
+		
 			<article>
-				<p>comment.escape("body")</p>
+				<h4><a href="#"><%= comment.user.escape("username") %></a></h4> 
+				<p>
+					<%= comment.escape("body") %>
+				</p>
+				 
+      	 <time class="timeago" datetime="<%= comment.escape("updated_at") %>"></time>
+		
 			</article>
-		</div>
+		
 
 
 	<% }) %>
 <% }; %>
+
+	<article class="new-comment-wrap">
+		<form id="new-comment-form">
+	    <div class="input">
+	      <label for="comment-body" name>Comment</label>
+	      <input type="textarea" id="comment-body" name=comment[body] value="">
+	    </div>
+
+	    <div class="submit">
+	      <input id="submit-comment-button" type="submit" value="submit-comment">
+	    </div>
+		</form>
+	</article>
+
+</div>

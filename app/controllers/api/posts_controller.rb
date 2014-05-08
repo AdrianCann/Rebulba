@@ -21,7 +21,7 @@ class Api::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    render json: @post
+    render partial: "posts/post.json", locals: { post: @post }
   end
 
   def update

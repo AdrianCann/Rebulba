@@ -4,11 +4,10 @@
 
 /*ADD NEW COMMENT*/
 .new-comment-wrap {
-	display: none;
 }
 
 .new-comment-wrap form {
-	
+	display: none;
 }
 
 .comments-wrap {
@@ -31,5 +30,5 @@
 }
 
 .comments-wrap article form {
-	display: none;
+	display: block;
 }

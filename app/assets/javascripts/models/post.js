@@ -8,9 +8,8 @@ Rebulba.Models.Post = Backbone.Model.extend({
 		delete json["user"];
 		this.like(json);
 		delete json["like"];
-		debugger
-		this.comments = new Rebulba.Collections.Comments(json["comments"])
-		delete json["comment"]
+		this.comments = new Rebulba.Collections.Comments(json["comments"], {parse: true})
+		delete json["comments"]
 		return json;
 	},
 	
