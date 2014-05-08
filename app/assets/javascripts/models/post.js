@@ -4,10 +4,13 @@ Rebulba.Models.Post = Backbone.Model.extend({
 	},
 	
 	parse: function(json) {
-		this.user(json)
-		delete json["user"]
-		this.like(json)
-		delete json["like"]
+		this.user(json);
+		delete json["user"];
+		this.like(json);
+		delete json["like"];
+		debugger
+		this.comments = new Rebulba.Collections.Comments(json["comments"])
+		delete json["comment"]
 		return json;
 	},
 	
@@ -37,5 +40,16 @@ Rebulba.Models.Post = Backbone.Model.extend({
 	like: function(json) {
 		
 	}
+	
+	// comment: function(json) {
+	// 	debugger
+	// 	(json["comments"]).each(function(comment){
+	// 		console.log(comment)
+	// 		var model = new Rebulba.Models.Comment(comment)
+	// 		Rebulba.comments.add(model)
+	// 	})
+	// 	
+	// },
+	
 	
 });
