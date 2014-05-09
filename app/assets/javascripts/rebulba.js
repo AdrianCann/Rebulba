@@ -21,7 +21,8 @@ window.Rebulba = {
       $rootEl: $("#feed"),
       posts: Rebulba.posts,
 			feed: Rebulba.feed,
-	  	users: Rebulba.users
+	  	users: Rebulba.users,
+			comments: Rebulba.comments
     });
     Backbone.history.start();
 	

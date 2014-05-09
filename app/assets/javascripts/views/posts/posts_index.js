@@ -19,7 +19,9 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
   initialize: function (options) {
 		this.postsCollection = options.postsCollection;
 		this.feedsCollection = options.feedsCollection;
+		this.commentsCollection = Rebulba.comments;
     this.listenTo(this.postsCollection, "add change remove reset", this.render);
+		this.listenTo(Rebulba.comments, "add change remove reset", this.render);
 	// $("html").on("click") try sams thing of clicking elsewhere to hide menu
   },
   
@@ -58,7 +60,9 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 		post.comments.create(commentData, {
 			parse: true,
 			success: function(comment) {
+				Rebulba.comments.add(comment);
 				console.log("success with comment create")
+				Backbone.history.navigate("", { trigger: true });
 			},
 			error: function() {
 				console.log("oh no fail")
