@@ -4,7 +4,7 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
   
   events: {
 	  "click .post-option-toggle": "toggle",
-		"click .delete-post": "delete",
+		"click .delete-post": "deletePost",
 		"click .edit-post": "edit",
 		"click .update-post": "updatePost",
 		"click .like-post": "like",
@@ -13,7 +13,8 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 		"click .show-feed-button": "renderFeed",
 		"click .show-wall-button": "renderWall",
 		"click .view-comments": "viewComments",
-		"click .submit-comment-button": "submitComment"
+		"click .submit-comment-button": "submitComment",
+		"click .delete-comment": "deleteComment"
   },
 
   initialize: function (options) {
@@ -84,9 +85,9 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 	
 	  },
   
-  delete: function(event) {
+  deletePost: function(event) {
 	var $target = $(event.target);
-  	var post = this.postsCollection.get($target.attr("data-id"));
+  var post = this.postsCollection.get($target.attr("data-id"));
 	post.destroy();
   },
   
@@ -105,6 +106,21 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 	  var id = $target.attr("data-id")
   	Backbone.history.navigate('posts/' + id + '/edit', { trigger: true });
   },
+	
+	deleteComment: function(event) {
+		var $target = $(event.target);
+		var post_id = $target.closest("div").parent().prev().prev().attr("data-id")
+		
+		var post = this.postsCollection.get(post_id);
+		if (!post) {
+			post = this.feedsCollection.get(post_id)
+		};
+		//FIND THE COMMENT FROM WHATEVER COLLECTION (maybe the posts collection of comments...?)
+  	var comment = post.comments.get($target.attr("data-id"));
+		
+		comment.destroy();
+		this.render();
+	},
   
   updatePost: function(event) {
 	var that = this;

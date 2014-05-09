@@ -6,6 +6,7 @@ Rebulba.Models.Comment = Backbone.Model.extend({
 		// this.user = new Rebulba.Models.User(jsonComment.comment_sender)
 // 		delete jsonComment.comment_sender
 		this.setUser(jsonComment)
+		Rebulba.comments.add(this)
 		return jsonComment
 	},
 	
@@ -20,7 +21,12 @@ Rebulba.Models.Comment = Backbone.Model.extend({
 			this.user = commentUser;
 			return commentUser;
 		} else {
-			var newUser = new Rebulba.Models.User(dataJSON.user);
+			
+			var userData = json["comment_sender"]
+			if (!userData) {
+				userData = dataJSON["current_user"]
+			}
+			var newUser = new Rebulba.Models.User(userData);
 			Rebulba.users.add(newUser);
 			this.user = newUser;
 			return this.user;

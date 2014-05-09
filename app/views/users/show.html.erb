@@ -53,10 +53,9 @@
 </div>
 
 <script type="application/json" id="bootstrapped_user_json">
-  { "user": <%= @user.to_json.html_safe %>, 
-	
-	"feed-posts": <%= render(partial: "posts/posts.json", locals: { posts: @feed_posts}).html_safe %>,
-
+  { "current_user": <%= current_user.to_json.html_safe %>,
+		"user": <%= @user.to_json.html_safe %>, 
+		"feed-posts": <%= render(partial: "posts/posts.json", locals: { posts: @feed_posts}).html_safe %>,
   	"user-posts": <%= render(partial: "posts/posts.json", locals: { posts: @user_posts}).html_safe %>,
 		"ownPage": <%= @own_page %> }
 </script>
