@@ -3,29 +3,30 @@ Rebulba.Models.Comment = Backbone.Model.extend({
 	
 	parse: function(jsonComment) {
 		
-		this.user = new Rebulba.Models.User(jsonComment.comment_sender)
-		delete jsonComment.comment_sender
+		// this.user = new Rebulba.Models.User(jsonComment.comment_sender)
+// 		delete jsonComment.comment_sender
+		this.setUser(jsonComment)
 		return jsonComment
 	},
 	
 	setUser: function(json) {
 		
-		var user = this._user;
+		var user = this.user;
 		if (user) {
 			return user;
 		}
-		var postUser = Rebulba.users.get({id: this.get("user_id")})
-		if (postUser) {
-			this._user = postUser
-			return postUser;
+		var commentUser = Rebulba.users.get({id: this.get("user_id")})
+		if (commentUser) {			
+			this.user = commentUser;
+			return commentUser;
 		} else {
-			
-			var newUser = new Rebulba.Models.User(json["user"])
-			Rebulba.users.add(newUser)
-			
+			var newUser = new Rebulba.Models.User(dataJSON.user);
+			Rebulba.users.add(newUser);
+			this.user = newUser;
+			return this.user;
 		}
-		this._user = newUser
 		
-		return this._user
+		
+		
 	}
 });

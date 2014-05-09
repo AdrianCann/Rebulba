@@ -61,11 +61,9 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 			parse: true,
 			success: function(comment) {
 				Rebulba.comments.add(comment);
-				console.log("success with comment create")
 				Backbone.history.navigate("", { trigger: true });
 			},
 			error: function() {
-				console.log("oh no fail")
 			}
 		});
 		

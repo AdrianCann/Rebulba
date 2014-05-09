@@ -8,7 +8,6 @@ window.Rebulba = {
 	 Rebulba.comments = new Rebulba.Collections.Comments();
 	  
 		dataJSON = JSON.parse($("#bootstrapped_user_json").html());
-		console.log("BIG DATA JSON",dataJSON)
 		var coll = new Rebulba.Collections.Posts(dataJSON["user-posts"], {parse: true});
 		Rebulba.posts = coll;
 	
