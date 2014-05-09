@@ -24,9 +24,11 @@ Rebulba::Application.routes.draw do
   namespace :api, :defaults => { :format => :json } do
 
     resources :posts, only: [:index, :create, :update, :destroy, :show] do
-      resources :comments, only: [:create, :update]
-      resources :likes, only: [:create]
+      
     end
+    resources :likes, only: [:create]
+    
+    resources :comments, only: [:create, :update, :destroy]
 		
 		resources :likes, only: [:destroy]
   end

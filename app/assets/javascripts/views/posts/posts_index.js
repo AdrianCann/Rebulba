@@ -13,7 +13,7 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 		"click .show-feed-button": "renderFeed",
 		"click .show-wall-button": "renderWall",
 		"click .view-comments": "viewComments",
-		"click #submit-comment-button": "submitComment"
+		"click .submit-comment-button": "submitComment"
   },
 
   initialize: function (options) {
@@ -43,8 +43,32 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 			}
 		});
   },
+	
+	submitComment: function(event) {
+		event.preventDefault();
+		var $form = $(event.target).closest("form")
+		var commentData = $form.serializeJSON();
+		
+		var id = $(event.target).attr("data-id")
+		
+		var post = this.postsCollection.get(id)
+		if (!post) {
+			post = this.feedsCollection.get(id)
+		};
+		post.comments.create(commentData, {
+			parse: true,
+			success: function(comment) {
+				console.log("success with comment create")
+			},
+			error: function() {
+				console.log("oh no fail")
+			}
+		});
+		
+		
+	},
 
-	  toggle: function (event) {
+	toggle: function (event) {
 	    var $target = $(event.target);
 	    
 	$scope = $target.parent().parent().next("div")
@@ -112,10 +136,6 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 	viewComments: function() {
 	  var $target = $(event.target);
 	  var id = $target.attr("data-id")
-	},
-	
-	submitComment: function() {
-		
 	},
 
   render: function () {

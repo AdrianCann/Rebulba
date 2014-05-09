@@ -23,11 +23,13 @@
 		<form id="new-comment-form">
 	    <div class="input">
 	      <label for="comment-body" name>Comment</label>
-	      <input type="textarea" id="comment-body" name=comment[body] value="">
+	      <input type="textarea" id="comment-body" name="comment[body]" value="">
 	    </div>
+			
+				<input type="hidden" name="comment[post_id]" value="<%= post.id %>">
 
 	    <div class="submit">
-	      <input id="submit-comment-button" type="submit" value="submit-comment">
+	      <input data-id="<%= post.id %>" class="submit-comment-button" type="submit" value="submit-comment">
 	    </div>
 		</form>
 	</article>

@@ -1,4 +1,6 @@
 Rebulba.Models.Comment = Backbone.Model.extend({
+	urlRoot: "/api/comments",
+	
 	parse: function(jsonComment) {
 		
 		this.user = new Rebulba.Models.User(jsonComment.comment_sender)
