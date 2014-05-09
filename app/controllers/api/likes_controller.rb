@@ -1,8 +1,14 @@
 class Api::LikesController < ApplicationController
   def create
-    @like = Like.new(like_params).user_id = current_user.id
-    @like.save
-    render json: @like
+    @like = Like.new(like_params)
+    if @like.user_id == current_user.id
+      @like.save
+      render json: @like
+    else
+      render json: @like.errors.full_messages, status: :unprocessible_entity
+    end
+    
+    
   end
   
   def destroy
@@ -13,6 +19,6 @@ class Api::LikesController < ApplicationController
   
   private
   def like_params
-    params.require(:like).permit(:likeable_type, :likeable_id)
+    params.require(:like).permit(:likeable_type, :likeable_id, :user_id)
   end
 end

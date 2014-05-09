@@ -10,7 +10,7 @@ Rebulba.Models.Like = Backbone.Model.extend({
       this.user = new Rebulba.Models.User(json.user);
       delete json.user;
     } else {
-			debugger
+			
       this.user = Rebulba.currentUser;
     }
     return json;

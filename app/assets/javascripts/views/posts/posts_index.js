@@ -98,14 +98,22 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
   
   like: function(event) {
 		
-		
+		var that = this;
 	  var $target = $(event.target);
 	  var postId = $target.attr("data-id")
   	var post = this.feedsCollection.get(postId);
-		var like = new Rebulba.Models.Like({likeable_type: "post", likeable_id: postId, user_id: Rebulba.current_user.id})
-		post.likes.add(like)
-		post.likes_count += 1
-		Rebulba.likes.add(like)
+		var like = {likeable_type: "Post", likeable_id: postId, user_id: Rebulba.current_user.id}
+		
+		post.likes.create(like, {
+			success: function() {
+				
+				post.likes_count += 1
+				that.render();
+				that.renderFeed();
+			}
+		});
+		
+		
 		
 		
   },
