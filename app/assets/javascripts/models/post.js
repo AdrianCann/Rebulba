@@ -7,7 +7,7 @@ Rebulba.Models.Post = Backbone.Model.extend({
 		this.user(json);
 		delete json["user"];
 		this.like(json);
-		delete json["like"];
+		delete json["likes"];
 		this.comments = new Rebulba.Collections.Comments(json["comments"], {parse: true})
 		delete json["comments"]
 		return json;
@@ -37,6 +37,9 @@ Rebulba.Models.Post = Backbone.Model.extend({
 	},
 	
 	like: function(json) {
+		
+		this.likes = new Rebulba.Collections.Likes(json.likes, {parse: true})
+		this.likes_count = json.likes.length
 		
 	}
 	

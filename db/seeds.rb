@@ -20,7 +20,7 @@ User.create({
 User.create({
   username: "Sam Sweeney",
   email: 'sam.s.sweeney@gmail.com',
-  password: "i love adrian"})
+  password: "123456"})
 
 User.create({
   username: "Adrian",

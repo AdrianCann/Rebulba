@@ -18,11 +18,16 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
   },
 
   initialize: function (options) {
+		var that = this;
 		this.postsCollection = options.postsCollection;
 		this.feedsCollection = options.feedsCollection;
 		this.commentsCollection = Rebulba.comments;
     this.listenTo(this.postsCollection, "add change remove reset", this.render);
 		this.listenTo(Rebulba.comments, "add change remove reset", this.render);
+		this.listenTo(Rebulba.likes, "add remove reset", function() {
+			that.render
+			that.renderFeed
+		}) //will render wall... not feed.
 	// $("html").on("click") try sams thing of clicking elsewhere to hide menu
   },
   
@@ -92,12 +97,16 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
   },
   
   like: function(event) {
-		var that = this;
-	  var $target = $(event.target);
-	  var id = $target.attr("data-id")
 		
-  	var post = this.feedsCollection.get(id);
-		var likeTotal = post.likes_count + 1
+		
+	  var $target = $(event.target);
+	  var postId = $target.attr("data-id")
+  	var post = this.feedsCollection.get(postId);
+		var like = new Rebulba.Models.Like({likeable_type: "post", likeable_id: postId, user_id: Rebulba.current_user.id})
+		post.likes.add(like)
+		post.likes_count += 1
+		Rebulba.likes.add(like)
+		
 		
   },
   
