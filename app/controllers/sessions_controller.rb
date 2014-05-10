@@ -6,6 +6,8 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by_credentials(user_params[:email], user_params[:password])
+    # @user = User.find_or_create_by_auth_hash(request.env['omniauth.auth'])
+    
     if @user
       login(@user)
       redirect_to @user

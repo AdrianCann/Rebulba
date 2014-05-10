@@ -32,4 +32,6 @@ Rebulba::Application.routes.draw do
 		
 		resources :likes, only: [:destroy]
   end
+  
+  get 'auth/facebook/callback', to: 'sessions#create'
 end
