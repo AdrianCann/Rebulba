@@ -17,7 +17,16 @@
 				<div class="comment-bottom">
 				 <a href="#">likes go here</a>
       	 
-				 <button class="delete-comment" data-id="<%= comment.id %>">Delete</button>
+		 			<% if (post.user_id === Rebulba.current_user.id || comment.id === Rebulba.current_user.id) { %>
+						<button class="delete-comment" data-id="<%= comment.id %>">Delete</button>
+				 	<% } %>
+					
+					<% if (comment.id !== Rebulba.current_user.id) { %>
+						
+						<button class="like-comment">Like</button>
+						<button class="like-comment">unlike</button>
+						
+					<% } %>
 				</div>
 			</article>
 		
