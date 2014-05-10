@@ -3,6 +3,8 @@ class Api::LikesController < ApplicationController
     @like = Like.new(like_params)
     if @like.user_id == current_user.id
       @like.save
+      # likeable = @like.likeable
+      # likeable.update_attributes({likes_count: (likeable.likes_count + 1)})
       render json: @like
     else
       render json: @like.errors.full_messages, status: :unprocessible_entity

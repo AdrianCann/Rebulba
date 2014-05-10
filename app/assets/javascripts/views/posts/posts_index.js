@@ -7,14 +7,14 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 		"click .delete-post": "deletePost",
 		"click .edit-post": "edit",
 		"click .update-post": "updatePost",
-		"click .like-post": "like",
-		// "click .post-content": "edit",
+		"click .like-post": "likePost",
 		"click #new-post-button": "newpost",
 		"click .show-feed-button": "renderFeed",
 		"click .show-wall-button": "renderWall",
 		"click .view-comments": "viewComments",
 		"click .submit-comment-button": "submitComment",
-		"click .delete-comment": "deleteComment"
+		"click .delete-comment": "deleteComment",
+		"click .unlike-post": "unlikePost"
   },
 
   initialize: function (options) {
@@ -96,7 +96,7 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 	post.destroy();
   },
   
-  like: function(event) {
+  likePost: function(event) {
 		
 		var that = this;
 	  var $target = $(event.target);
@@ -106,22 +106,37 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 		
 		post.likes.create(like, {
 			success: function() {
-				
-				post.likes_count += 1
-				debugger
-				post.save()
 				that.render();
-				that.renderFeed();
+				that.renderFeed();		
 			},
 			error: function() {
 				
 			}
 		});
+	},
+		
+	unlikePost: function(event) {
+		var that = this;
+	  var $target = $(event.target);
+	  var postId = $target.attr("data-id")
+  	var post = this.feedsCollection.get(postId);
+		var like = post.likes.findWhere({user_id: Rebulba.current_user.id})
+		like.destroy({
+			success: function() {
+				that.render();
+				that.renderFeed();
+			},
+			
+			error: function() {
+				console.log("fail")
+			}
+		})
 		
 		
+	},
 		
 		
-  },
+  
   
   edit: function(event) {
 	  var $target = $(event.target);

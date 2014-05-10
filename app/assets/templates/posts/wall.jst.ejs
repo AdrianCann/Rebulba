@@ -23,7 +23,7 @@
 		     <p class="post-body"><%= post.escape("body") %></p>
 				 <nav class="post-bottom-nav">
 					 <button class="post-option-toggle" data-id="<%= post.id %>">option</button>
-					 <a class="likes" href="#"><%= post.get("likes_count") + " likes" %></a>
+					 <a class="likes" href="#"><%= post.likes.length + " likes" %></a>
 		 
 				</nav>
 

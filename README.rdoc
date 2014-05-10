@@ -2,4 +2,7 @@
 
 This app is a Tumblr clone with a Ruby on Rails backend and a Backbone.js front end. I can be seen live at www.rebulba.com.
 
+Polymorphic associations between
+
+Action mailer
 
