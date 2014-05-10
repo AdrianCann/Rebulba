@@ -60,27 +60,6 @@ form.user-form {
 	border-radius: 10px;
 }
 
-.submit > input {
-  position: relative;
-  display: inline-block;
-  background: #0c0;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-weight: bold;
-  box-shadow: 0 3px 0 0 #070;
-}
-
-.submit > input:hover {
-  background: #0b0;
-}
-
-.submit > input:active {
-  top: 3px;
-  box-shadow: none;
-  background: #0a0;
-}
-
 /*EDIT PROFILE*/
 
 .edit-profile-title {

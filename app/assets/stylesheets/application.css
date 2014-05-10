@@ -14,7 +14,7 @@
 /*RESET*/
 html, body, header, footer, section, article, div,
 strong, a, img, p, h1, h2, h3, time, ul, li, small,
-form, label {
+form, label, button {
   margin: 0;
   padding: 0;
   border: 0;
@@ -28,7 +28,10 @@ form, label {
 input[type="text"],
 input[type="email"],
 input[type="password"],
-input[type="submit"] {
+input[type="submit"],
+button,
+.button_to,
+ {
   -webkit-appearance: none;
   box-sizing: content-box;
   display: inline-block;
@@ -43,7 +46,7 @@ input[type="submit"] {
   color: inherit;
 }
 
-input[type="submit"] {
+input[type="submit"], button, .button_to {
   display: block;
   cursor: pointer;
 	display: block;
@@ -52,6 +55,27 @@ input[type="submit"] {
   	margin: 0;
 	
 	font-color: #7F8FA0;
+}
+
+.submit > input, button, .button_to {
+  position: relative;
+  display: inline-block;
+  background: #0c0;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  box-shadow: 0 3px 0 0 #070;
+}
+
+.submit > input:hover, button:hover, .button_to:hover, form.delete-followee:hover {
+  background: #0b0;
+}
+
+.submit > input:active, button:active, .button_to:active, form.delete-followee:active {
+  top: 3px;
+  box-shadow: none;
+  background: #0a0;
 }
 
 body {
@@ -109,6 +133,8 @@ a:hover {
 	color: green;
 }
 
+
+
 /* --- CLEARFIX --- */
 
 .group:after {
@@ -116,19 +142,6 @@ a:hover {
   clear: both;
   display: block;
 }
-
-
-/*.submit > input {
-  position: relative;
-  display: inline-block;
-  background: #0c0;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-weight: bold;
-  box-shadow: 0 3px 0 0 #070;
-}
-*/
 
 /*navbar*/
 
@@ -164,14 +177,9 @@ a:hover {
 }
 
 .navbar ul li form {
-	background: green;
+	/*background: green;
 	height: auto;
-	padding: 0;
-}
-
-.button_to {
-	color: #7F8FA0;
-	background: green;
+	padding: 0;*/
 }
 
 
@@ -234,23 +242,23 @@ a:hover {
 }
 
 .following form {
-	color: #7F8FA0;
+/*	color: #7F8FA0;
 	margin-top: 20px;
-	background: green;
+	background: green;*/
 }
 
 .followee form {
 	float: right;
+/*	float: right;
 	background: green;
 	padding: 10px;
 	width: auto;
 	font-color: white;
-	margin: 0 0 0 0;
+	margin: 0 0 0 0;*/
 	
 }
 
 .new-following-form {
-	color: green;
 }
 
 /*ERRORS*/

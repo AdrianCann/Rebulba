@@ -1,5 +1,7 @@
 <form class="delete-followee" action="<%= following_url(followee.id) %>" method="post">
   <input type="hidden" name="_method" value="delete">
   <%= auth_token %>
-  <input type="submit" value="unfollow">
+	<div class="submit">
+  	<input type="submit" value="unfollow">
+	</div>
 </form>
