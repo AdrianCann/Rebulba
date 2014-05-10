@@ -39,7 +39,7 @@ Rebulba.Models.Post = Backbone.Model.extend({
 	like: function(json) {
 		
 		this.likes = new Rebulba.Collections.Likes(json.likes, {parse: true})
-		this.likes_count = json.likes.length
+		this.likes_count = json.likes_count
 		
 	}
 	

@@ -131,12 +131,13 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 	
 	deleteComment: function(event) {
 		var $target = $(event.target);
-		var post_id = $target.closest("div").parent().prev().prev().attr("data-id")
+		var post_id = $target.closest("article.post").find("div.post-content").attr("data-id")
 		
 		var post = this.postsCollection.get(post_id);
 		if (!post) {
 			post = this.feedsCollection.get(post_id)
 		};
+		
 		//FIND THE COMMENT FROM WHATEVER COLLECTION (maybe the posts collection of comments...?)
   	var comment = post.comments.get($target.attr("data-id"));
 		

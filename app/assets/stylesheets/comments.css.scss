@@ -29,6 +29,44 @@
 	font-size: 30px;
 }
 
+.comments-wrap article h4 {
+	padding: 10px;
+}
+
+.comments-wrap article p {
+	text-align: center;
+}
+
 .comments-wrap article form {
 	display: block;
+}
+
+.comments-wrap article h4 time {
+	float: right;
+}
+
+.comments-wrap article h4 a {
+	float: left;
+}
+
+.comment-bottom {
+	
+}
+
+.comment-bottom a {
+	float: right;
+	margin-top: 20px;
+	
+}
+
+.delete-comment {
+	float: left;
+	
+	
+	background: #1BC606;
+	color: white;
+	font-size: 25px;
+	width: 100px;
+	margin: 10px;
+	border-radius: 5px;
 }

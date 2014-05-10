@@ -5,13 +5,20 @@
 
 		
 			<article>
-				<h4><a href="#"><%= comment.user.escape("username") %></a></h4> 
+				<h4>
+						<a href="#"><%= comment.user.escape("username") %></a>
+						<time class="timeago" datetime="<%= comment.escape("updated_at") %>"></time>
+				</h4> 
+				
 				<p>
 					<%= comment.escape("body") %>
 				</p>
+				
+				<div class="comment-bottom">
 				 <a href="#">likes go here</a>
-      	 <time class="timeago" datetime="<%= comment.escape("updated_at") %>"></time>
-				 <button class="delete-comment" data-id="<%= comment.id %>">Delete<button>
+      	 
+				 <button class="delete-comment" data-id="<%= comment.id %>">Delete</button>
+				</div>
 			</article>
 		
 
