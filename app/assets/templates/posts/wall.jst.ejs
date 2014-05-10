@@ -24,10 +24,19 @@
 				 <nav class="post-bottom-nav">
 					 <a class="likes" href="#"><%= post.likes.length + " likes" %></a>
 		 			<% if (!Rebulba.ownPage) { %>
-		  			<button class="like-post" data-id="<%= post.id %>">Like
-						</button>
-		  			<button class="unlike-post" data-id="<%= post.id %>">Unlike
-						</button>
+						
+						<% if (post.likes.findWhere({user_id: Rebulba.current_user.id})) { %>
+							
+			  			<button class="unlike-post" data-id="<%= post.id %>">Unlike
+							</button>
+						
+						<% } else { %>
+			  			<button class="like-post" data-id="<%= post.id %>">Like
+							</button>
+						
+						<% } %>
+
+		  			
 					<% } else { %>
 					
 					 <button class="post-option-toggle" data-id="<%= post.id %>">option</button>

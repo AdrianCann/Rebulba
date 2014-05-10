@@ -22,26 +22,17 @@
 		  </header>
 		     <p class="post-body"><%= post.escape("body") %></p>
 				 <nav class="post-bottom-nav">
-					 <button class="post-option-toggle" data-id="<%= post.id %>">option</button>
+	  			<button class="like-post" data-id="<%= post.id %>">Like
+					</button>
+	  			<button class="unlike-post" data-id="<%= post.id %>">Unlike
+					</button>
 					 <a class="likes" href="#"><%= post.likes.length + " likes" %></a>
 			 
 				</nav>
 
 		</div>
 		
-	    <div class="post-options">
-	  	  <div class="show-post-options">
-		  
-		  	<nav class="post-option-nav">
-		  			<button class="view-comments" data-id="<%= post.id %>">Comments
-						</button>
-		  			<button class="like-post" data-id="<%= post.id %>">Like
-						</button>
-		  			<button class="unlike-post" data-id="<%= post.id %>">Unlike
-						</button>
-					</nav>
-	  	</div>
-		</div>
+
 		
 			<div class="comment">
 				<%= JST["comments/comments"]({comments: post.comments, post: post})%>

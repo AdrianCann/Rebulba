@@ -102,12 +102,17 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 	  var $target = $(event.target);
 	  var postId = $target.attr("data-id")
   	var post = this.feedsCollection.get(postId);
+		if (!post) {
+			post = this.postsCollection.get(postId);
+		};
 		var like = {likeable_type: "Post", likeable_id: postId, user_id: Rebulba.current_user.id}
 		
 		post.likes.create(like, {
 			success: function() {
 				that.render();
-				that.renderFeed();		
+				if (Rebulba.ownPage) {
+					that.renderFeed();
+				};	
 			},
 			error: function() {
 				
@@ -120,11 +125,16 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 	  var $target = $(event.target);
 	  var postId = $target.attr("data-id")
   	var post = this.feedsCollection.get(postId);
+		if (!post) {
+			post = this.postsCollection.get(postId);
+		};
 		var like = post.likes.findWhere({user_id: Rebulba.current_user.id})
 		like.destroy({
 			success: function() {
 				that.render();
-				that.renderFeed();
+				if (Rebulba.ownPage) {
+					that.renderFeed();
+				};
 			},
 		})
 		
