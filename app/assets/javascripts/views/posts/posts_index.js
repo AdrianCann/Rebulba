@@ -126,10 +126,6 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 				that.render();
 				that.renderFeed();
 			},
-			
-			error: function() {
-				console.log("fail")
-			}
 		})
 		
 		

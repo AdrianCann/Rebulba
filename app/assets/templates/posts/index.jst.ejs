@@ -1,12 +1,9 @@
-
-	
-
-
-<%= JST["users/nav"]() %>	
-
-<div class="post-form">
-	<%= JST["posts/new"]({ post: post }) %>	
-</div>
+<% if (Rebulba.ownPage) { %>
+	<%= JST["users/nav"]() %>	
+	<div class="post-form">
+		<%= JST["posts/new"]({ post: post }) %>	
+	</div>
+<% }; %>
 
 <div class="group wall-wrap visible">
 	

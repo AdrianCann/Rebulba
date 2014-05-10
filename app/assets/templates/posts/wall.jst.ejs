@@ -22,9 +22,17 @@
 		    </header>
 		     <p class="post-body"><%= post.escape("body") %></p>
 				 <nav class="post-bottom-nav">
-					 <button class="post-option-toggle" data-id="<%= post.id %>">option</button>
 					 <a class="likes" href="#"><%= post.likes.length + " likes" %></a>
-		 
+		 			<% if (!Rebulba.ownPage) { %>
+		  			<button class="like-post" data-id="<%= post.id %>">Like
+						</button>
+		  			<button class="unlike-post" data-id="<%= post.id %>">Unlike
+						</button>
+					<% } else { %>
+					
+					 <button class="post-option-toggle" data-id="<%= post.id %>">option</button>
+					 
+					<% }; %>
 				</nav>
 
 		</div>

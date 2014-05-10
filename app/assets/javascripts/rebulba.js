@@ -6,7 +6,7 @@ window.Rebulba = {
   initialize: function() {
 		
 		dataJSON = JSON.parse($("#bootstrapped_user_json").html());
-	 	
+	 	Rebulba.ownPage = dataJSON["ownPage"]
 		Rebulba.users = new Rebulba.Collections.Users();
 	 	Rebulba.comments = new Rebulba.Collections.Comments();
 	 	Rebulba.likes = new Rebulba.Collections.Likes();
