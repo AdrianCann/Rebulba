@@ -6,6 +6,7 @@ Rebulba.Models.Comment = Backbone.Model.extend({
 		// this.user = new Rebulba.Models.User(jsonComment.comment_sender)
 // 		delete jsonComment.comment_sender
 		this.setUser(jsonComment)
+		this.like(jsonComment)
 		Rebulba.comments.add(this)
 		return jsonComment
 	},
@@ -31,8 +32,12 @@ Rebulba.Models.Comment = Backbone.Model.extend({
 			this.user = newUser;
 			return this.user;
 		}
+	},
+	
+	like: function(jsonComment) {
 		
 		
+		this.likes = new Rebulba.Collections.Likes(jsonComment.likes, {parse: true})
 		
 	}
 });

@@ -14,7 +14,10 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 		"click .view-comments": "viewComments",
 		"click .submit-comment-button": "submitComment",
 		"click .delete-comment": "deleteComment",
-		"click .unlike-post": "unlikePost"
+		"click .unlike-post": "unlikePost",
+		"click .like-comment": "likeComment",
+		"click .unlike-comment": "unlikeComment"
+		
   },
 
   initialize: function (options) {
@@ -141,7 +144,53 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 		
 	},
 		
+	likeComment: function(event) {
+		var that = this;
+	  var $target = $(event.target);
+	  var commentId = $target.attr("data-id");
+		var postId = $target.closest("article.post").find("div.post-content").attr("data-id");
 		
+		var post = this.postsCollection.get(postId);
+		if (!post) {
+			post = this.feedsCollection.get(postId)
+		};
+		var comment = post.comments.get($target.attr("data-id"));
+		var like = {likeable_type: "Comment", likeable_id: commentId, user_id: Rebulba.current_user.id}
+		comment.likes.create(like, {
+			success: function() {
+				that.render();
+				
+				if (Rebulba.ownPage && post.get("user_id") !== Rebulba.current_user.id) {
+					
+					that.renderFeed();
+				};	
+			}
+		});
+		
+	},
+	
+	unlikeComment: function(event) {
+		var that = this;
+	  var $target = $(event.target);
+	  var commentId = $target.attr("data-id")
+		var postId = $target.closest("article.post").find("div.post-content").attr("data-id");
+		
+		var post = this.postsCollection.get(postId);
+		if (!post) {
+			post = this.feedsCollection.get(postId)
+		};
+		var comment = post.comments.get($target.attr("data-id"));
+		
+		var like = comment.likes.findWhere({user_id: Rebulba.current_user.id})
+		like.destroy({
+			success: function() {
+				that.render();
+				if (Rebulba.ownPage) {
+					// that.renderFeed();
+				};
+			},
+		})
+	},
   
   
   edit: function(event) {

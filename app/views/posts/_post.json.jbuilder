@@ -13,6 +13,16 @@ json.comments do
 			json.id comment.comment_sender.id
 			json.username comment.comment_sender.username
 		end
+		json.likes do 
+			json.array!(comment.likes) do |like|
+				json.id like.id
+				json.user_id like.user_id
+				json.user do
+					json.id like.user.id
+					json.username like.user.username
+				end
+			end
+		end
 	end
 end
 json.likes do 
