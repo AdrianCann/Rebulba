@@ -12,7 +12,7 @@
 			<header class="post-header group">
       	<div class="post-header-info group">
 					<h4><a href="#"><%= post._user.get("username") %></a></h4>  
-       	 <time class="timeago" datetime="<%= post.escape("updated_at") %>"></time>
+       	 <time class="timeago" datetime="<%= post.escape("created_at") %>"></time>
       	</div>
 				<div class="post-title-wrap">
 					<h3><a class="post-title-link" href="#"><%= post.escape("title") %></a></h3>

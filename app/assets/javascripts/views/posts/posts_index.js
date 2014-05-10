@@ -108,8 +108,13 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 			success: function() {
 				
 				post.likes_count += 1
+				debugger
+				post.save()
 				that.render();
 				that.renderFeed();
+			},
+			error: function() {
+				
 			}
 		});
 		
