@@ -30,7 +30,7 @@ input[type="email"],
 input[type="password"],
 input[type="submit"],
 button,
-.button_to,
+.button_to
  {
   -webkit-appearance: none;
   box-sizing: content-box;
@@ -46,7 +46,7 @@ button,
   color: inherit;
 }
 
-input[type="submit"], button, .button_to {
+input[type="submit"], button, .button_to, .navbar ul li {
   display: block;
   cursor: pointer;
 	display: block;
@@ -57,7 +57,7 @@ input[type="submit"], button, .button_to {
 	font-color: #7F8FA0;
 }
 
-.submit > input, button, .button_to {
+.submit > input, button, .button_to, .navbar ul li {
   position: relative;
   display: inline-block;
   background: #0c0;
@@ -68,11 +68,11 @@ input[type="submit"], button, .button_to {
   box-shadow: 0 3px 0 0 #070;
 }
 
-.submit > input:hover, button:hover, .button_to:hover, form.delete-followee:hover {
+.submit > input:hover, button:hover, .button_to:hover, .navbar ul li:hover {
   background: #0b0;
 }
 
-.submit > input:active, button:active, .button_to:active, form.delete-followee:active {
+.submit > input:active, button:active, .button_to:active, .navbar ul li:active {
   top: 3px;
   box-shadow: none;
   background: #0a0;
@@ -88,7 +88,7 @@ body {
 
 form {
 	background: none;
-	width: auto;
+	
 	padding: 20px;
 	border-radius: 10px;
 	
@@ -159,21 +159,21 @@ a:hover {
 }
 
 .navbar ul li {
-	width: 160px;
-	margin: 10px;
+	/*width: 160px;
+	
 	background: green;
-	padding: 10px;
+	padding: 10px;*/
+	margin: 10px;
 	float: left;
-	font-size: 30px;
-	border-radius: 10px;
+/*	font-size: 30px;
+	border-radius: 10px;*/
 }
 
 .navbar ul li:hover {
-	background: blue;
 }
 
 .navbar ul li a {
-	color: yellow;
+/*	color: yellow;*/
 }
 
 .navbar ul li form {
@@ -217,38 +217,28 @@ a:hover {
 	
 }
 
-.following ul li {
-	display: block;
-	margin-top: 20px;
-	height: auto;
-}
 
 .following li a {
 	font-size: 25px;
+	padding-top: 20px;
 }
 
 .followee {
-	padding: 5px 70px 5px 0;
-	height: 20px;
-	width: auto;
+	padding-top: 80px;
 }
 
 .following a {
 	float: left;
 	color: #7F8FA0;
 	font-size: 20px;
-	width: 140px;
-	margin-bottom: 30px;
+/*	width: 140px;*/
+	
 }
 
-.following form {
-/*	color: #7F8FA0;
-	margin-top: 20px;
-	background: green;*/
-}
 
 .followee form {
 	float: right;
+	width: 100px;
 /*	float: right;
 	background: green;
 	padding: 10px;
@@ -256,6 +246,11 @@ a:hover {
 	font-color: white;
 	margin: 0 0 0 0;*/
 	
+}
+
+.followee form .input {
+	margin: 0;
+	padding: 0;
 }
 
 .new-following-form {
