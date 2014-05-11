@@ -1,32 +1,23 @@
 class Like < ActiveRecord::Base
   validates :user_id, uniqueness: {scope: [:likeable_id, :likeable_type]}
-  # before_save :up_count
-  # before_destroy :adjust_like_count
 
   belongs_to :likeable, polymorphic: true
   belongs_to :user
   
-  # def up_count
-  #   if self.likeable_type == "Post"
-  #     likeable = Post.find(self.likeable_id)
-  #   else
-  #     likeable = Comment.find(self.likeable_id)
-  #   end
-  #   
-  #   likeable.likes_count += 1
-  #   likeable.save
-  # end
+  has_many :notifications, as: :notifiable, inverse_of: :notifiable, dependent: :destroy
   
-  # def adjust_like_count
-  #   if self.likeable_type == "Post"
-  #     likeable = Post.find(self.likeable_id)
-  #     likeable.likes_count = 0
-  #     likeable.save
-  #   else
-  #     likeable = Comment.find(self.likeable_id)
-  #     likeable.likes_count = 0
-  #     likeable.save
-  #   end
-  # end
+  after_commit :set_notification, on: [:create]
+
+  def set_notification   
+    if self.likeable_type == "Post"
+      like_note = self.notifications.unread.event(:liked_post).new
+      like_note.user = self.likeable.user
+    else
+      like_note = self.notifications.unread.event(:liked_comment).new
+      like_note.user = self.likeable.comment_sender
+    end
+    like_note.save
+
+  end
 
 end
