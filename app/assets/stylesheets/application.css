@@ -299,3 +299,7 @@ form div {
 #update-post-form {
 	background: red;
 }
+
+.timeago {
+	font-size: 25px;
+}

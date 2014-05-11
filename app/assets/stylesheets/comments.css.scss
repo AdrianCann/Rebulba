@@ -25,15 +25,14 @@
 	border-radius: 20px;
 }
 
-.comments-wrap article p {
-	font-size: 30px;
-}
+
 
 .comments-wrap article h4 {
-	padding: 10px;
+	min-height: 30px;
 }
 
 .comments-wrap article p {
+	font-size: 30px;
 	text-align: center;
 }
 
@@ -46,6 +45,7 @@
 }
 
 .comments-wrap article h4 a {
+	font-size: 30px;
 	float: left;
 }
 
@@ -56,6 +56,7 @@
 .comment-bottom a {
 	float: right;
 	margin-top: 20px;
+	font-size: 30px;
 	
 }
 
@@ -69,4 +70,9 @@
 	width: 100px;
 	margin: 10px;
 	border-radius: 5px;*/
+}
+
+.like-comment {
+	float: right;
+	margin: 10px;
 }

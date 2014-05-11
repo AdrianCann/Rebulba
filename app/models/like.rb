@@ -19,5 +19,4 @@ class Like < ActiveRecord::Base
     like_note.save
 
   end
-
 end

@@ -10,9 +10,7 @@
 						<time class="timeago" datetime="<%= comment.escape("updated_at") %>"></time>
 				</h4> 
 				
-				<p>
-					<%= comment.escape("body") %>
-				</p>
+				<p><%= comment.escape("body") %></p>
 				
 				<div class="comment-bottom">
 				 <a href="#"><%= comment.likes.length %> likes</a>
