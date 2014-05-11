@@ -20,10 +20,12 @@ class Comment < ActiveRecord::Base
     notification.user = self.post.user
     notification.save
     
+    
     self.post.comments.each do |comment|
-      after_comment_notification = comment.notifications.unread.event(:comment_after_comment).new
-      after_comment_notifiaction.user = comment.comment_sender
-      after_comment_notification.save
+      next if comment == self
+      n = comment.notifications.unread.event(:comment_after_comment).new
+      n.user = comment.comment_sender
+      n.save
     end
   end
 end
