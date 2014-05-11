@@ -16,12 +16,12 @@
 				
 				<div class="comment-bottom">
 				 <a href="#"><%= comment.likes.length %> likes</a>
-      	 
-		 			<% if (post.user_id === Rebulba.current_user.id || comment.id === Rebulba.current_user.id) { %>
+				 	
+		 			<% if (post.get("user_id") === Rebulba.current_user.id || comment.user.get("id") === Rebulba.current_user.id) { %>
 						<button class="delete-comment" data-id="<%= comment.id %>">Delete</button>
-				 	<% } %>
+				 	<% }; %>
 					
-					<% if (comment.id !== Rebulba.current_user.id) { %>
+					<% if (comment.user.get("id") !== Rebulba.current_user.id) { %>
 						
 						<% if (comment.likes.findWhere({user_id: Rebulba.current_user.id})) { %>
 							<button data-id="<%= comment.id %>" class="unlike-comment">Unlike</button>
