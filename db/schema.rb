@@ -18,11 +18,12 @@ ActiveRecord::Schema.define(version: 20140425081302) do
 
   create_table "comments", force: true do |t|
     t.integer  "post_id"
-    t.text     "body",        null: false
+    t.text     "body",                null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "likes_count"
+    t.integer  "notifications_count"
   end
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
@@ -32,6 +33,7 @@ ActiveRecord::Schema.define(version: 20140425081302) do
     t.integer  "followee_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "notifications_count"
   end
 
   create_table "likes", force: true do |t|
@@ -40,6 +42,7 @@ ActiveRecord::Schema.define(version: 20140425081302) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "notifications_count"
   end
 
   create_table "notifications", force: true do |t|

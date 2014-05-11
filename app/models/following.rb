@@ -18,9 +18,9 @@ class Following < ActiveRecord::Base
               
   
   def set_notification
-    notification = self.notifications.unread.event(:new_follower).new
-    notification.user = self.followee
-    notifiaction.save
+    note = self.notifications.unread.event(:new_follower).new
+    note.user = self.followee
+    note.save
 
   end
 
