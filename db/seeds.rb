@@ -5,11 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-User.destroy_all
-Post.destroy_all
-Comment.destroy_all
-Like.destroy_all
-Following.destroy_all
+# User.destroy_all
+# Post.destroy_all
+# Comment.destroy_all
+# Like.destroy_all
+# Following.destroy_all
 
 User.create({
   username: "Demo User",

@@ -41,6 +41,8 @@ class User < ActiveRecord::Base
 
   has_many :likes
   has_many :comments, through: :posts, source: :comments
+  
+  has_many :notifications, inverse_of: :user, dependent: :destroy
 
   def self.generate_token
     SecureRandom::urlsafe_base64(16)

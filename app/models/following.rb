@@ -11,5 +11,17 @@ class Following < ActiveRecord::Base
               class_name: "User",
               foreign_key: :followee_id,
               primary_key: :id
+  
+  has_many :notifications, as: :notifiable, inverse_of: :notifiable, dependent: :destroy
+              
+  after_commit :set_notification, on: [:create]
+              
+  
+  def set_notification
+    notification = self.notifications.unread.event(:new_follower).new
+    notification.user = self.followee
+    notifiaction.save
+
+  end
 
 end

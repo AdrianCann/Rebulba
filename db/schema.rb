@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20140425081302) do
     t.integer  "notifiable_id"
     t.string   "notifiable_type"
     t.integer  "event_id"
-    t.boolean  "read?"
+    t.boolean  "is_read"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

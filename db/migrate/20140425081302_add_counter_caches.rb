@@ -9,5 +9,7 @@ class AddCounterCaches < ActiveRecord::Migration
     
     add_column :posts, :likes_count, :integer
     add_column :comments, :likes_count, :integer
+    add_column :comments, :notifications_count, :integer
+    
   end
 end
