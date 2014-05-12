@@ -15,6 +15,7 @@
 	- log in with Facebook (TK)
 	- update  their own posts
 	- delete a post or comment they authored. They may also delete comments on their posts.
+	- receive notifications when they have new followers, comments, and likes. Comments made on a post generates notifications for the post author and all users that have commented on that post. (TK)
 	
 ### Technical Details
 * The Rails backend includes a polymorphic association likes (one can like a comment or a post).
