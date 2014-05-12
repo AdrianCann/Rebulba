@@ -177,9 +177,23 @@ a:hover {
 }
 
 .navbar ul li form {
+	width: 50px;
 	/*background: green;
 	height: auto;
 	padding: 0;*/
+}
+
+.notifications-list {
+	display: none;
+}
+
+.visible .notifications-list {
+	display: block;
+	width: 100px;
+}
+
+.notifications-list li {
+	width: 100px;
 }
 
 

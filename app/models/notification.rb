@@ -81,7 +81,7 @@ class Notification < ActiveRecord::Base
       "#{liker.username} liked your #{self.notifiable.likeable_type}: #{comment.body}"
       
     when :liked_post
-      comment = self.notifiable.likeable
+      post = self.notifiable.likeable
       liker = self.notifiable.user
       
       "#{liker.username} liked your #{self.notifiable.likeable_type}: #{post.title}"

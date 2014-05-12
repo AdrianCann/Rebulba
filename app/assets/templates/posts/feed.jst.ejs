@@ -41,8 +41,9 @@
 
 		
 			<div class="comment">
-				<%= JST["comments/comments"]({comments: post.comments, post: post})%>
-				
+				<div class="comments-wrap">
+					<%= JST["comments/comments"]({comments: post.comments, post: post})%>
+				</div>
 			</div>
 	
 	

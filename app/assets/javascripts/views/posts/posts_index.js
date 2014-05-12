@@ -244,9 +244,12 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 		$(".feed-button-wrap").removeClass("visible")
 	},
 	
-	viewComments: function() {
+	viewComments: function(event) {
 	  var $target = $(event.target);
 	  var id = $target.attr("data-id")
+		
+		var $tag = $target.closest("div").parent("div").parent().children("div.comment").children();
+		
 	},
 
   render: function () {

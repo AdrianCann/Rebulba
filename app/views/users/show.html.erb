@@ -5,8 +5,19 @@
 			<li><a href="#">View Feed</a></li>
 			<li><%= link_to "Dashboard", user_url(current_user.id) %></li>
 	    <li><%= link_to "Edit Profile", edit_user_url(current_user) %></li>
-	    <li><%= button_to "sign out", session_url, method: :delete %></li>
+			<li><%= button_to "sign out", session_url, method: :delete %></li>
+			
+			<li><button id="notifications">Notifications</button></li>
   	</ul>
+		
+		<div class="notifications-wrap">
+			<ul class="notifications-list">
+			<% @user.notifications.each do |note| %>
+				<li><a href="<%= note.url %>"><%= note.text %></a></li>
+			<% end %>
+		</ul>
+	</div>
+		
   </nav>
 
 </header>
@@ -62,6 +73,17 @@
 
 <script>
 	$(document).ready(function(){
+		
+		$("#notifications").on("click", function(){
+			
+			if ($(".notifications-wrap").hasClass("visible")){
+				$(".notifications-wrap").removeClass("visible")
+			} else {
+				$(".notifications-wrap").addClass("visible")
+			};
+			
+		});
+		
 	  Rebulba.initialize();
 		
 	});

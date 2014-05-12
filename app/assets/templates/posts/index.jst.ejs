@@ -1,4 +1,7 @@
 <% if (Rebulba.ownPage) { %>
+	
+	
+	
 	<%= JST["users/nav"]() %>	
 	<div class="post-form">
 		<%= JST["posts/new"]({ post: post }) %>	
@@ -13,7 +16,8 @@
 
 <% if (dataJSON.ownPage) { %>
 	<div class="group feed-wrap">
-
+		
+		
 		<%= JST["posts/feed"]({ feedPosts: feedPosts }) %>
 
 	</div>
