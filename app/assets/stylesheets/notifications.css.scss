@@ -1,3 +1,43 @@
 // Place all the styles related to the Notifications controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.notifications-list {
+	display: none;
+}
+
+.visible .notifications-list {
+	display: block;
+	width: 300px;
+}
+
+.notifications-list li a {
+	font-size: 20px;
+	color: #8190A1;
+	float: left;
+	width: 280px;
+}
+
+.notifications-list li button {
+	float: right;
+	padding: 0;
+	width: 20px;
+	height: 20px;
+}
+
+.notifications-list li {
+	min-height: 50px;
+	margin-top: 10px;
+}
+
+.notifications-list li:hover {
+	background: #C7DEFA;
+}
+
+.notifications-list li.read {
+
+}
+
+.notifications-list li.unread {
+
+}

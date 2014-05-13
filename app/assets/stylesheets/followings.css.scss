@@ -12,3 +12,90 @@
 	margin-top: 10px;
 	border-radius: 20px;*/
 }
+
+.profile {
+	width: 300px;
+	float: left;
+	margin: 0;
+/*	position: absolute;*/
+}
+
+.profile img {
+	margin-bottom: 20px;
+	border: 5px solid black;
+	width: 300px;
+	height: auto;
+}
+
+
+.following {
+	display: none;
+}
+
+.visible .following {
+	display: block;
+}
+
+.following {
+	height: auto;
+}
+
+.following ul {
+	height: auto;
+}
+
+.following ul h3 {
+	
+}
+
+
+.following li a {
+	font-size: 20px;
+	width: auto;
+}
+
+.followee {
+	min-height: 80px;
+}
+
+.following a {
+	float: left;
+	color: #7F8FA0;
+	font-size: 20px;
+	max-width: 160px;
+/*	width: 140px;*/
+	
+}
+
+
+.followee form {
+	float: right;
+	width: 100px;
+/*	float: right;
+	background: green;
+	padding: 10px;
+	width: auto;
+	font-color: white;
+	margin: 0 0 0 0;*/
+	
+}
+
+.followee form .input {
+	margin: 0;
+	padding: 0;
+}
+
+.new-following-form {
+}
+
+
+/*SIDE NAV BAR*/
+
+.profile-side-nav {
+	
+}
+
+.profile-side-nav button {
+	width: 200px;
+	margin-top: 20px;
+}

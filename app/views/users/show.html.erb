@@ -6,17 +6,7 @@
 			<li><%= link_to "Dashboard", user_url(current_user.id) %></li>
 	    <li><%= link_to "Edit Profile", edit_user_url(current_user) %></li>
 			<li><%= button_to "sign out", session_url, method: :delete %></li>
-			
-			<li><button id="notifications">Notifications</button></li>
   	</ul>
-		
-		<div class="notifications-wrap">
-			<ul class="notifications-list">
-			<% @user.notifications.each do |note| %>
-				<li><a href="<%= note.url %>"><%= note.text %></a></li>
-			<% end %>
-		</ul>
-	</div>
 		
   </nav>
 
@@ -42,10 +32,44 @@
 	      <% end %>
 			<% end %>
 		</div>
- 
-    <div class="following">
-      <%= render partial: "layouts/following/followings", locals: {user: @user} %>	
-    </div>
+ 	 	
+		<nav class="profile-side-nav">
+			<button class="side-nav-button" id="followings">Followings</button>
+			<button class="side-nav-button" id="followers">Follwers</button>
+			<button class="side-nav-button" id="notifications">Notifications</button>
+		</nav>
+		
+		<div class="following-wrap">
+	    <div class="following">
+	      <%= render partial: "layouts/following/followings", locals: {user: @user} %>	
+	    </div>
+		</div>
+		
+			<div class="notifications-wrap">
+				<ul class="notifications-list">
+				<% @current_user.notifications.each do |note| %>
+					<% if note.is_read %>
+						<li class="read">
+							<a href="<%= notification_url(note) %>"><%= note.text %></a>
+							<form action="<%= notification_url(note) %>" method="post">
+								<%= auth_token %>
+								<input type="hidden" name="_method" value="delete">
+								<button>X</button>
+							</form>
+						</li>
+					<% else %>
+						<li class="unread">
+							<a href="<%= notification_url(note) %>"><%= note.text %></a>
+							<form action="<%= notification_url(note) %>" method="post">
+								<%= auth_token %>
+								<input type="hidden" name="_method" value="delete">
+								<button>X</button>
+							</form>
+						</li>
+					<% end %>
+				<% end %>
+			</ul>
+		</div>
 		
   </section>
 
@@ -75,18 +99,29 @@
 	$(document).ready(function(){
 		
 		$("#notifications").on("click", function(){
-			
 			if ($(".notifications-wrap").hasClass("visible")){
 				$(".notifications-wrap").removeClass("visible")
 			} else {
 				$(".notifications-wrap").addClass("visible")
 			};
-			
 		});
 		
-	  Rebulba.initialize();
+		$("#followings").on("click", function(){
+			if ($(".following-wrap").hasClass("visible")){
+				$(".following-wrap").removeClass("visible")
+			} else {
+				$(".following-wrap").addClass("visible")
+			};
+		});
 		
+
+		
+	  Rebulba.initialize();
 	});
+	
+
+
+	
 </script>
 
 

@@ -4,13 +4,13 @@
 	<% user.people_he_follows.each do |followee| %>
   
 	  <li class="followee">
+			
+		    <%= link_to followee.username, user_url(followee) %>
 
-	    <%= link_to followee.username, user_url(followee) %>
-
-		<% if current_user.id == params[:id].to_i %>
-	    	<%= render partial: "layouts/following/deletefollowee", locals: {followee: followee}  %>
-		<% end %>
-  
+				<% if current_user.id == params[:id].to_i %>
+		    	<%= render partial: "layouts/following/deletefollowee", locals: {followee: followee}  %>
+					<% end %>
+  			
 	  </li>
 
 	<% end %>

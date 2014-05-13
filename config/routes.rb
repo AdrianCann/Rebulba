@@ -17,6 +17,8 @@ Rebulba::Application.routes.draw do
   resources :comments, only: [:destroy]
   resources :likes, only: [:destroy]
   resources :followings, only: [:destroy]
+  
+  resources :notifications, only: [:show, :destroy]
 
 
   root to: "sessions#new"

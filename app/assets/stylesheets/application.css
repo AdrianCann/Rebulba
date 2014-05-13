@@ -88,14 +88,8 @@ body {
 
 form {
 	background: none;
-	
-	padding: 20px;
 	border-radius: 10px;
 	
-/*	background: #223F5C;
-	width: 320px;
-	padding: 35px;
-	border-radius: 10px;*/
 }
 
 label {
@@ -183,18 +177,6 @@ a:hover {
 	padding: 0;*/
 }
 
-.notifications-list {
-	display: none;
-}
-
-.visible .notifications-list {
-	display: block;
-	width: 100px;
-}
-
-.notifications-list li {
-	width: 100px;
-}
 
 
 /*signout and buttons*/
@@ -208,69 +190,7 @@ a:hover {
 
 /*profile*/
 
-.profile {
-	width: 300px;
-	float: left;
-	margin: 0;
-/*	position: absolute;*/
-}
 
-.profile img {
-	float: left;
-	margin-bottom: 20px;
-	border: 5px solid black;
-	width: 300px;
-	height: auto;
-}
-
-.following {
-	height: 700px;
-}
-
-.following ul h3 {
-	
-}
-
-
-.following li a {
-	font-size: 25px;
-	padding-top: 20px;
-}
-
-.followee {
-	padding-top: 80px;
-}
-
-.following a {
-	float: left;
-	color: #7F8FA0;
-	font-size: 20px;
-/*	width: 140px;*/
-	
-}
-
-
-.followee form {
-	float: right;
-	width: 100px;
-/*	float: right;
-	background: green;
-	padding: 10px;
-	width: auto;
-	font-color: white;
-	margin: 0 0 0 0;*/
-	
-}
-
-.followee form .input {
-	margin: 0;
-	padding: 0;
-}
-
-.new-following-form {
-}
-
-/*ERRORS*/
 
 .error-list {
 	
