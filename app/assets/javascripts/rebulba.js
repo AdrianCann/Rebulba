@@ -11,7 +11,7 @@ window.Rebulba = {
 	 	Rebulba.comments = new Rebulba.Collections.Comments();
 	 	Rebulba.likes = new Rebulba.Collections.Likes();
 	 	Rebulba.current_user = new Rebulba.Models.User(dataJSON.current_user)
-	 	Rebulba.users.add(Rebulba.current_user);
+	 	// Rebulba.users.add(Rebulba.current_user);
 	  
 		
 		var coll = new Rebulba.Collections.Posts(dataJSON["user-posts"], {parse: true});

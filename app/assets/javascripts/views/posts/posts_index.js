@@ -40,13 +40,12 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
     event.preventDefault();
 		var postData = $("#new-post-form").serializeJSON();
 		postData["post"]["user_id"] = dataJSON.user.id + "";
-		var user = dataJSON["user"];
-		postData["user"] = user;		
+		var post = postData.post	
 	
-		this.postsCollection.create(postData, {
+		this.postsCollection.create(post, {
 			parse: true,
 			success: function(model) {
-				console.log("here")				
+				
 				Backbone.history.navigate("", { trigger: true });
 			},
 			error: function() { 

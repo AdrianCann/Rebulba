@@ -16,21 +16,29 @@ Rebulba.Models.Post = Backbone.Model.extend({
 	urlRoot: "/api/posts",
 	
 	user: function(json) {
+
 		var user = this._user;
 		if (user) {
 			return user;
 		}
-		var postUser = Rebulba.users.get({id: this.get("user_id")})
+		var postUser = Rebulba.users.get({id: json.user_id})
+		
 		if (postUser) {
+			// console.log(json.user_id, "we had it in collection")
 			// this._user = postUser
+			this._user = postUser
 			return postUser;
 		} else {
 			
-			var newUser = new Rebulba.Models.User(json["user"])
-			Rebulba.users.add(newUser)
+			// console.log(json.user_id, "need to make it")
+			
+			var postUser = new Rebulba.Models.User(json["user"])
+			
+			Rebulba.users.add(postUser)
 			
 		}
-		this._user = newUser
+		this._user = postUser
+		
 		
 		return this._user
 
@@ -42,16 +50,6 @@ Rebulba.Models.Post = Backbone.Model.extend({
 		this.likes_count = json.likes_count
 		
 	}
-	
-	// comment: function(json) {
-	// 	debugger
-	// 	(json["comments"]).each(function(comment){
-	// 		console.log(comment)
-	// 		var model = new Rebulba.Models.Comment(comment)
-	// 		Rebulba.comments.add(model)
-	// 	})
-	// 	
-	// },
-	
+
 	
 });
