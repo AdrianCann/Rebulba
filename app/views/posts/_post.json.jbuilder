@@ -2,6 +2,7 @@ json.(post, :id, :title, :body, :user_id, :created_at, :updated_at, :likes_count
 json.user do
 	json.id post.user.id
 	json.username post.user.username
+	json.avatar_url post.user.avatar.url
 end
 json.comments do
 	json.array!(post.comments) do |comment|
