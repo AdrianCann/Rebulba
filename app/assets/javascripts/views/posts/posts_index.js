@@ -215,18 +215,18 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 	},
   
   updatePost: function(event) {
-	var that = this;
-	var $target = $(event.target);
-	var post = this.collection.get($target.attr("data-id"));
-	var formData = $("#update-post-form").serializeJSON();
-	post.save(formData, {
-		patch: true,
-		success: function() {
-        that.postsCollection.add(post);
-        Backbone.history.navigate("", { trigger: true });
-		}
-	});
-	// post.save({})
+		var that = this;
+		var $target = $(event.target);
+		var post = this.collection.get($target.attr("data-id"));
+		var formData = $("#update-post-form").serializeJSON();
+		post.save(formData, {
+			patch: true,
+			success: function() {
+	        that.postsCollection.add(post);
+	        Backbone.history.navigate("", { trigger: true });
+			}
+		});
+		// post.save({})
   },
 	
 	renderWall: function() {
@@ -246,9 +246,18 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 	viewComments: function(event) {
 	  var $target = $(event.target);
 	  var id = $target.attr("data-id")
-		
+  	var post = this.feedsCollection.get(id);
+		if (!post) {
+			post = this.postsCollection.get(id);
+		};
 		var $tag = $target.closest("div").parent("div").parent().children("div.comment").children();
 		
+		
+		var commentView = new Rebulba.Views.CommentsIndex({
+			post: post
+		})
+		
+		$tag.html(commentView.render().$el)
 	},
 
   render: function () {
