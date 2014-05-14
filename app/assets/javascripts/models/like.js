@@ -8,7 +8,7 @@ Rebulba.Models.Like = Backbone.Model.extend({
 
   parse: function(json) {
 		
-		
+		console.log("here")
     if (json.user) {
       this.user = new Rebulba.Models.User(json.user);
       delete json.user;

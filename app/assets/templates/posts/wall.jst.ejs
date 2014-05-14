@@ -45,9 +45,11 @@
 		  			
 					<% } else { %>
 					
-					 <button class="post-option-toggle" data-id="<%= post.id %>">option</button>
+					 
 					 
 					<% }; %>
+					
+					<button class="post-option-toggle" data-id="<%= post.id %>">option</button>
 				</nav>
 
 		</div>
@@ -69,6 +71,7 @@
 			<div class="comment">
 				
 				<div class="comments-wrap">
+					<!-- JST["comments/comments"]({comments: post.comments, post: post}) in erb went here -->
 				</div>
 			</div>
 

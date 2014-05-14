@@ -12,11 +12,9 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 		"click .show-feed-button": "renderFeed",
 		"click .show-wall-button": "renderWall",
 		"click .view-comments": "viewComments",
-		"click .submit-comment-button": "submitComment",
-		"click .delete-comment": "deleteComment",
-		"click .unlike-post": "unlikePost",
-		"click .like-comment": "likeComment",
-		"click .unlike-comment": "unlikeComment"
+		
+		"click .unlike-post": "unlikePost"
+
 		
   },
 
@@ -26,7 +24,7 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 		this.feedsCollection = options.feedsCollection;
 		this.commentsCollection = Rebulba.comments;
     this.listenTo(this.postsCollection, "add change remove reset", this.render);
-		this.listenTo(Rebulba.comments, "add change remove reset", this.render);
+		// this.listenTo(Rebulba.comments, "add change remove reset", this.render);
 		this.listenTo(Rebulba.likes, "add remove reset", function() {
 			that.render
 			that.renderFeed
@@ -54,29 +52,7 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 		});
   },
 	
-	submitComment: function(event) {
-		event.preventDefault();
-		var $form = $(event.target).closest("form")
-		var commentData = $form.serializeJSON();
-		
-		var id = $(event.target).attr("data-id")
-		
-		var post = this.postsCollection.get(id)
-		if (!post) {
-			post = this.feedsCollection.get(id)
-		};
-		post.comments.create(commentData, {
-			parse: true,
-			success: function(comment) {
-				Rebulba.comments.add(comment);
-				Backbone.history.navigate("", { trigger: true });
-			},
-			error: function() {
-			}
-		});
-		
-		
-	},
+
 
 	toggle: function (event) {
 	    var $target = $(event.target);
@@ -143,53 +119,7 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 		
 	},
 		
-	likeComment: function(event) {
-		var that = this;
-	  var $target = $(event.target);
-	  var commentId = $target.attr("data-id");
-		var postId = $target.closest("article.post").find("div.post-content").attr("data-id");
-		
-		var post = this.postsCollection.get(postId);
-		if (!post) {
-			post = this.feedsCollection.get(postId)
-		};
-		var comment = post.comments.get($target.attr("data-id"));
-		var like = {likeable_type: "Comment", likeable_id: commentId, user_id: Rebulba.current_user.id}
-		comment.likes.create(like, {
-			success: function() {
-				that.render();
-				
-				if (Rebulba.ownPage && post.get("user_id") !== Rebulba.current_user.id) {
-					
-					that.renderFeed();
-				};	
-			}
-		});
-		
-	},
-	
-	unlikeComment: function(event) {
-		var that = this;
-	  var $target = $(event.target);
-	  var commentId = $target.attr("data-id")
-		var postId = $target.closest("article.post").find("div.post-content").attr("data-id");
-		
-		var post = this.postsCollection.get(postId);
-		if (!post) {
-			post = this.feedsCollection.get(postId)
-		};
-		var comment = post.comments.get($target.attr("data-id"));
-		
-		var like = comment.likes.findWhere({user_id: Rebulba.current_user.id})
-		like.destroy({
-			success: function() {
-				that.render();
-				if (Rebulba.ownPage) {
-					// that.renderFeed();
-				};
-			},
-		})
-	},
+
   
   
   edit: function(event) {
@@ -198,21 +128,7 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
   	Backbone.history.navigate('posts/' + id + '/edit', { trigger: true });
   },
 	
-	deleteComment: function(event) {
-		var $target = $(event.target);
-		var post_id = $target.closest("article.post").find("div.post-content").attr("data-id")
-		
-		var post = this.postsCollection.get(post_id);
-		if (!post) {
-			post = this.feedsCollection.get(post_id)
-		};
-		
-		//FIND THE COMMENT FROM WHATEVER COLLECTION (maybe the posts collection of comments...?)
-  	var comment = post.comments.get($target.attr("data-id"));
-		
-		comment.destroy();
-		this.render();
-	},
+
   
   updatePost: function(event) {
 		var that = this;
