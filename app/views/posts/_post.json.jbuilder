@@ -27,13 +27,14 @@ json.comments do
 		end
 	end
 end
-json.likes do 
+json.likes do
 	json.array!(post.likes) do |like|
 		json.id like.id
 		json.user_id like.user_id
 		json.user do
 			json.id like.user.id
 			json.username like.user.username
+			json.page_url users_url(like.user)
 		end
 	end
 end

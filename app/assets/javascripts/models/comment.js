@@ -43,6 +43,7 @@ Rebulba.Models.Comment = Backbone.Model.extend({
 	},
 	
 	like: function(jsonComment) {
+		
 		var isNew = (!!jsonComment.likes)
 		this.likes = new Rebulba.Collections.Likes(jsonComment.likes, {parse: isNew})
 		console.log("end of like func")
