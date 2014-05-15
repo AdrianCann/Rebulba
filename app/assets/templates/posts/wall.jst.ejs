@@ -45,11 +45,11 @@
 		  			
 					<% } else { %>
 					
-					 
+					 <button class="post-option-toggle" data-id="<%= post.id %>">option</button>
 					 
 					<% }; %>
 					
-					<button class="post-option-toggle" data-id="<%= post.id %>">option</button>
+					<button class="view-comments" data-id="<%= post.id %>">Comments</button>
 				</nav>
 
 		</div>
@@ -62,7 +62,7 @@
 		  	<nav class="post-option-nav">
 				<button class="delete-post" data-id="<%= post.id %>">Delete</button>
 	  			<button class="edit-post" data-id="<%= post.id %>">Edit</button>
-	  			<button class="view-comments" data-id="<%= post.id %>">Comments</button>
+	  			
 				</nav>
 	  	</div>
 	   

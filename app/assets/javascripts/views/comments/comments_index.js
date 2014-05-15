@@ -3,7 +3,7 @@ Rebulba.Views.CommentsIndex = Backbone.View.extend({
 	initialize: function(options) {
 		this.post = options.post;
 		this.collection = this.post.comments;
-		this.listenTo(this.collection, "add remove reset", this.render)
+		this.listenTo(this.collection, "add change remove reset", this.render)
 	},
 	
 	tagName: "div",
@@ -67,16 +67,19 @@ Rebulba.Views.CommentsIndex = Backbone.View.extend({
 	},
 	
 	submitComment: function(event) {
+		that = this;
 		event.preventDefault();
 		var $form = $(event.target).closest("form")
 		var commentData = $form.serializeJSON();
+		var comment = commentData.comment
+		comment.comment_sender = {id: Rebulba.current_user.id}
 		
-		
-		
-		this.collection.create(commentData.comment, {
+		this.collection.create(comment, {
 			parse: true,
 			success: function() {
 				console.log("yay")
+				// that.collection.render()
+				
 				// Rebulba.comments.add(comment);
 				// Backbone.history.navigate("", { trigger: true });
 			},

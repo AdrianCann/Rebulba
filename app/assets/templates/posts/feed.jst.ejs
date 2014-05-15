@@ -30,8 +30,11 @@
 					<% } else { %>
 		  			<button class="like-post" data-id="<%= post.id %>">Like
 						</button>
+						
+						
 					
 					<% } %>
+					<button class="view-comments" data-id="<%= post.id %>">Comments</button>
 					 <a class="likes" href="#"><%= post.likes.length + " likes" %></a>
 			 
 				</nav>

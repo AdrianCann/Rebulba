@@ -166,7 +166,12 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 		if (!post) {
 			post = this.postsCollection.get(id);
 		};
-		var $tag = $target.closest("div").parent("div").parent().children("div.comment").children();
+		
+		// var $tag = $target.closest("div").parent("div").parent().children("div.comment").children();
+		var $tag = $target.parent().parent().next().next().children();
+		if ($tag.length === 0){
+			$tag = $target.parent().parent().next().children()
+		}
 		
 		
 		var commentView = new Rebulba.Views.CommentsIndex({
