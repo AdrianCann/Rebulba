@@ -28,7 +28,22 @@
 		    </header>
 		     <p class="post-body"><%= post.escape("body") %></p>
 				 <nav class="post-bottom-nav">
-					 <a class="likes" href="#"><%= post.likes.length + " likes" %></a>
+					 <div class="liker-list">
+					 
+						 <a href="#"><%= post.likes.length %> likes</a>
+						 <ul>
+			
+						 	<% post.likes.each(function(like) { %>
+
+								<li>
+									<a href="<%= like.user.get("user_url") %>"><%= like.user.get("username") %></a>
+								</li>
+							<% }) %>
+
+						</ul>
+					 </div>
+					 
+					 
 		 			<% if (!Rebulba.ownPage) { %>
 						
 						<% if (post.likes.findWhere({user_id: Rebulba.current_user.id})) { %>

@@ -16,12 +16,15 @@
 				<div class="comment-bottom">
 				
 				 <div class="liker-list">
-					  <a href="#"><%= comment.likes.length %> likes</a>
+					 
+					 <a href="#"><%= comment.likes.length %> likes</a>
 					 <ul>
 			
 					 	<% comment.likes.each(function(like) { %>
-					 		
-							<li><a href="<% like.user.user_url %>"><% like.user.username %></a><li>
+
+							<li>
+								<a href="<%= like.user.get("user_url") %>"><%= like.user.get("username") %></a>
+							</li>
 						<% }) %>
 
 					</ul>
