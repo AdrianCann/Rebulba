@@ -34,7 +34,7 @@
 						
 					
 					<% } %>
-					<button class="view-comments" data-id="<%= post.id %>">Comments</button>
+					<button class="view-comments" data-id="<%= post.id %>"><% post.comments.length %> comments</button>
 					 <a class="likes" href="#"><%= post.likes.length + " likes" %></a>
 			 
 				</nav>

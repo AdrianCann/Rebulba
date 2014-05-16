@@ -3,10 +3,11 @@ Rebulba.Models.Like = Backbone.Model.extend({
 	
   initialize: function() {
 		
+		
   },
 
   parse: function(json) {
-		// this.setUser(json)
+		this.setUser(json)
 		
 		console.log(json)
 		return json
@@ -21,7 +22,7 @@ Rebulba.Models.Like = Backbone.Model.extend({
 			return user;
 		}
 
-		var user = Rebulba.users.get({id: json.user.id})
+		var user = Rebulba.users.get({id: json.user_id})
 		
 		if (!user) {
 			

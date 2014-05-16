@@ -77,15 +77,20 @@ Rebulba.Views.CommentsIndex = Backbone.View.extend({
 		var comment = commentData.comment
 		comment.comment_sender = {id: Rebulba.current_user.id}
 		
+		//increase comment number
+		
 		this.collection.create(comment, {
 			parse: true,
 			success: function() {
+				
 			},
 			error: function() {
 			}
 		});
 			
 	},
+	
+
 	
 	render: function() {
 	  var renderedContent = this.template({

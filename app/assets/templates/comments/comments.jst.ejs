@@ -14,9 +14,18 @@
 				<p><%= comment.escape("body") %></p>
 				
 				<div class="comment-bottom">
-				 <a href="#"><%= comment.likes.length %> likes</a>
-				 	
-					<%  %>
+				
+				 <div class="liker-list">
+					  <a href="#"><%= comment.likes.length %> likes</a>
+					 <ul>
+			
+					 	<% comment.likes.each(function(like) { %>
+					 		
+							<li><a href="<% like.user.user_url %>"><% like.user.username %></a><li>
+						<% }) %>
+
+					</ul>
+				 </div>
 					
 		 			<% if (post.get("user_id") === Rebulba.current_user.id || comment.user.get("id") === Rebulba.current_user.id) { %>
 						<button class="delete-comment" data-id="<%= comment.id %>">Delete</button>
@@ -33,7 +42,6 @@
 					<% } %>
 				</div>
 			</article>
-		
 
 
 	<% }) %>

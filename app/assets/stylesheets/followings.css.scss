@@ -85,6 +85,24 @@
 	padding: 0;
 }
 
+.delete-followee {
+	display: none;
+}
+
+.profile:hover .delete-followee {
+	display: block;
+	position: absolute;
+	top: 385px;
+}
+
+.delete-followee input {
+	background: red;
+}
+
+.delete-followee input:hover {
+	background: red;
+}
+
 .new-following-form {
 }
 
