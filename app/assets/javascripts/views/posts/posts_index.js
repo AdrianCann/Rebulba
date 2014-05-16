@@ -12,7 +12,7 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 		"click .show-feed-button": "renderFeed",
 		"click .show-wall-button": "renderWall",
 		"click .view-comments": "viewComments",
-		
+		"click .hide-comments": "hideComments",
 		"click .unlike-post": "unlikePost"
 
 		
@@ -161,6 +161,9 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 	
 	viewComments: function(event) {
 	  var $target = $(event.target);
+		
+
+		
 	  var id = $target.attr("data-id")
   	var post = this.feedsCollection.get(id);
 		if (!post) {
@@ -173,12 +176,31 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 			$tag = $target.parent().parent().next().children()
 		}
 		
+		if ($target.hasClass("visible")){
+			$tag.html("")
+			$target.removeClass("visible")
+			
+		} else {
+			var commentView = new Rebulba.Views.CommentsIndex({
+				post: post
+			})
 		
-		var commentView = new Rebulba.Views.CommentsIndex({
-			post: post
-		})
+			$tag.html(commentView.render().$el)
+			$target.addClass("visible");
+			
+		}
 		
-		$tag.html(commentView.render().$el)
+
+	},
+	
+	hideComments: function() {
+		var $target = $(event.target);
+		var $tag = $target.parent().parent().next().next().children();
+		if ($tag.length === 0){
+			$tag = $target.parent().parent().next().children()
+		};
+		console.log($tag)
+		$tag.html("<h1>NOTHING HERE NOW</h1>")
 	},
 
   render: function () {

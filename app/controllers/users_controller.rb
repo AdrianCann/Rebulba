@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.includes(:posts).includes(:comments).find(params[:id])
+    @user = User.includes([:posts, :people_he_follows, :comments]).find(params[:id])
 
     
     @new_post = Post.new
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     
     @feed_posts = @user.generate_feed_posts
 
-    @user_posts = @user.posts
+    @user_posts = @user.posts.includes([:comments, :likes])
     @own_page = (current_user == @user)
 
   end

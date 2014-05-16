@@ -76,6 +76,7 @@ class User < ActiveRecord::Base
   end
 
   def generate_feed_posts(num=5)
+    #optimize to include comments, likes, and all on query... n+1
     self.people_he_follows.includes(:posts).limit(num).map(&:posts).flatten
   end
   
