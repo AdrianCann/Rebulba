@@ -2,12 +2,12 @@ class Api::PostsController < ApplicationController
   def create
     @post = current_user.posts.new(post_params)
     @post.likes_count = 0
-
+    
     if @post.save
 
       render json: @post
     else
-      render :json, status: :unprocessible_entity
+      render json: {}, status: :unprocessible_entity
     end
   end
 

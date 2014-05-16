@@ -12,6 +12,7 @@
 .liker-list {
 	float: right;
 	display: block;
+	position: relative;
 }
 
 .liker-list ul {
@@ -21,8 +22,21 @@
 .liker-list:hover ul {
 	display: block;
 	position: absolute;
+	top: 30px;
 }
 
 .liker-list a {
 	font-size: 25px;
+	margin: 0;
+}
+
+.liker-list ul li a {
+	background: #888;
+	margin: 0;
+	padding: 0;
+	min-width: 200px;
+}
+
+.liker-list ul li a:hover {
+	background: #C6C6C6;
 }

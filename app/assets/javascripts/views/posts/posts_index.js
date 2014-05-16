@@ -38,7 +38,12 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
     event.preventDefault();
 		var postData = $("#new-post-form").serializeJSON();
 		postData["post"]["user_id"] = dataJSON.user.id + "";
-		var post = postData.post	
+		var post = postData.post
+		
+		// validity check
+		if (post.title === "" || post.body === ""){
+			return
+		};
 	
 		this.postsCollection.create(post, {
 			parse: true,

@@ -75,6 +75,11 @@ Rebulba.Views.CommentsIndex = Backbone.View.extend({
 		var $form = $(event.target).closest("form")
 		var commentData = $form.serializeJSON();
 		var comment = commentData.comment
+		
+		if (comment.body === ""){
+			return
+		};
+		
 		comment.comment_sender = {id: Rebulba.current_user.id}
 		
 		//increase comment number
