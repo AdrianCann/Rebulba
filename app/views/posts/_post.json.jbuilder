@@ -3,7 +3,7 @@ json.user do
 	json.id post.user.id
 	json.username post.user.username
 	json.avatar_url post.user.avatar.url
-	json.user_url users_url(post.user)
+	json.user_url post.user.show_url
 end
 json.comments do
 	json.array!(post.comments) do |comment|
@@ -15,7 +15,7 @@ json.comments do
 			json.id comment.comment_sender.id
 			json.username comment.comment_sender.username
 			json.avatar_url comment.comment_sender.avatar.url
-			json.user_url users_url(comment.comment_sender)
+			json.user_url comment.comment_sender.show_url
 		end
 		json.likes do 
 			json.array!(comment.likes) do |like|
@@ -24,7 +24,7 @@ json.comments do
 				json.user do
 					json.id like.user.id
 					json.username like.user.username
-					json.url users_url(like.user)
+					json.user_url like.user.show_url
 					json.avatar_url like.user.avatar.url
 				end
 			end
@@ -38,7 +38,7 @@ json.likes do
 		json.user do
 			json.id like.user.id
 			json.username like.user.username
-			json.user_url users_url(like.user)
+			json.user_url like.user.show_url
 			json.avatar_url like.user.avatar.url
 		end
 	end

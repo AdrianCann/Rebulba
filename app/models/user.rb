@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://s3.amazonaws.com/rebulba_dev/users/avatars/000/000/007/original/puppy.jpg?1398551275"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/]
+  
+  include Rails.application.routes.url_helpers
 
   before_validation :ensure_session_token
   attr_reader :password
@@ -86,6 +88,18 @@ class User < ActiveRecord::Base
     else
       
     end
+  end
+  
+  
+  # here and in notifications: factor out
+  def default_url_options
+    options = {}
+    options[:host] = Rails.env.production? ? "rebulba.com" : "localhost:3000"
+    options
+  end
+  
+  def show_url
+    users_url + "/#{self.id}"
   end
 
 end
