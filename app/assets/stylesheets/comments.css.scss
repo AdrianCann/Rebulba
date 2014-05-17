@@ -17,6 +17,7 @@
 /*comments themselves*/
 
 .comments-wrap article {
+	position: relative;
 	background: white;
 	width: 400px;
 	float: right;
@@ -38,6 +39,13 @@
 
 .comments-wrap article form {
 	display: block;
+}
+
+article.comment-article button.delete-comment {
+	position: absolute;
+	padding: 5px;
+	top: 5px;
+	right: 5px;
 }
 
 .comments-wrap article h4 time {

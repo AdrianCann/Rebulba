@@ -3,10 +3,9 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
   template: JST['posts/index'],
   
   events: {
-	  "click .post-option-toggle": "toggle",
+		"click .view-new-post-option": "viewNewPostForm",
 		"click .delete-post": "deletePost",
 		"click .edit-post": "edit",
-		"click .update-post": "updatePost",
 		"click .like-post": "likePost",
 		"click #new-post-button": "newpost",
 		"click .show-feed-button": "renderFeed",
@@ -15,7 +14,6 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 		"click .hide-comments": "hideComments",
 		"click .unlike-post": "unlikePost"
 
-		
   },
 
   initialize: function (options) {
@@ -31,6 +29,10 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 		}) //will render wall... not feed.
 	// $("html").on("click") try sams thing of clicking elsewhere to hide menu
   },
+	
+	viewNewPostForm: function(){
+		
+	},
   
   newpost: function (event) {
 		
@@ -130,24 +132,16 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
   edit: function(event) {
 	  var $target = $(event.target);
 	  var id = $target.attr("data-id")
-  	Backbone.history.navigate('posts/' + id + '/edit', { trigger: true });
-  },
-	
-
-  
-  updatePost: function(event) {
-		var that = this;
-		var $target = $(event.target);
-		var post = this.collection.get($target.attr("data-id"));
-		var formData = $("#update-post-form").serializeJSON();
-		post.save(formData, {
-			patch: true,
-			success: function() {
-	        that.postsCollection.add(post);
-	        Backbone.history.navigate("", { trigger: true });
-			}
-		});
-		// post.save({})
+		var post = this.postsCollection.get(id)
+		
+		var view = new Rebulba.Views.PostForm({
+			post: post,
+			collection: this.postsCollection
+		})
+		var $tag = $target.closest("div")
+		
+		$tag.html(view.render().$el)
+  	// Backbone.history.navigate('posts/' + id + '/edit', { trigger: true });
   },
 	
 	renderWall: function() {
@@ -198,15 +192,15 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 
 	},
 	
-	hideComments: function() {
-		var $target = $(event.target);
-		var $tag = $target.parent().parent().next().next().children();
-		if ($tag.length === 0){
-			$tag = $target.parent().parent().next().children()
-		};
-		console.log($tag)
-		$tag.html("<h1>NOTHING HERE NOW</h1>")
-	},
+	// hideComments: function() {
+	// 	var $target = $(event.target);
+	// 	var $tag = $target.parent().parent().next().next().children();
+	// 	if ($tag.length === 0){
+	// 		$tag = $target.parent().parent().next().children()
+	// 	};
+	// 	console.log($tag)
+	// 	$tag.html("<h1>NOTHING HERE NOW</h1>")
+	// },
 
   render: function () {
     var renderedContent = this.template({

@@ -4,8 +4,11 @@
 	<% comments.each(function(comment){ %>
 
 		
-			<article>
+			<article class="comment-article">
 				<h4 class="group">
+			 			<% if (post.get("user_id") === Rebulba.current_user.id || comment.user.get("id") === Rebulba.current_user.id) { %>
+							<button class="delete-comment" data-id="<%= comment.id %>">X</button>
+					 	<% }; %>
 					
 						<a href="/users/<%= comment.user.get("id")%> " ><%= comment.user.escape("username") %></a>
 						<time class="timeago" datetime="<%= comment.escape("updated_at") %>"></time>
@@ -29,10 +32,6 @@
 
 					</ul>
 				 </div>
-					
-		 			<% if (post.get("user_id") === Rebulba.current_user.id || comment.user.get("id") === Rebulba.current_user.id) { %>
-						<button class="delete-comment" data-id="<%= comment.id %>">Delete</button>
-				 	<% }; %>
 					
 					<% if (comment.user.get("id") !== Rebulba.current_user.id) { %>
 						

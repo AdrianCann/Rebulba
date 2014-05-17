@@ -1,6 +1,11 @@
 Rebulba.Views.PostForm = Backbone.View.extend({
   tagName: 'form',
   template: JST['posts/form'],
+	
+	initialize: function(options){
+		this.model = options.post;
+		this.collection = options.collection
+	},
   events: {
     'click .submit': 'submit'
   },

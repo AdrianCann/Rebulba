@@ -60,6 +60,11 @@ form.user-form {
 	border-radius: 10px;
 }
 
+
+input#profile-picture {
+	
+}
+
 /*EDIT PROFILE*/
 
 .edit-profile-title {
@@ -87,4 +92,63 @@ form.user-form {
 #profile-picture {
 /*		padding-top: 20px;
 		padding-bottom: 20px;*/
+}
+
+
+/*top nav bar*/
+
+
+/*navbar*/
+
+.navbar {
+	
+}
+
+
+
+.navebar ul {
+	float: right;
+	width: 500px;
+	margin-left: 600px;
+}
+
+.navbar ul li {
+	padding: 0px;
+
+	float: left;
+	
+/*	font-size: 30px;
+	border-radius: 10px;*/
+}
+
+.navbar ul li:hover {
+}
+
+.edit-profile-link a {
+	width: 170px;
+	font-size: 20px;
+	text-align: center;
+}
+
+li div a {
+	color: white;
+	font-size: 20px;
+	width: 170px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: center;
+}
+
+.navbar a {
+	font-size: 25px;
+	float: left;
+}
+
+.navbar button {
+	width: 130px;
+}
+
+.navbar ul li form {
+	width: 50px;
+
 }

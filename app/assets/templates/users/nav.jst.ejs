@@ -1,6 +1,7 @@
-<nav class="navbar">
+<nav class="navbar group">
+	<%  %>
   
-	<ul>
+	<ul class="group">
 		<li>
 			<div class="feed-button-wrap visible">
 				<button class="show-feed-button">FEED</button>
@@ -8,8 +9,22 @@
 			<div class="wall-button-wrap">
 				<button class="show-wall-button">WALL</button>
 			</div>
-			
 
+		</li>
+		
+		<li>
+				<div class="edit-profile-link">
+					
+						<a href="<%= dataJSON.edit_url %>">Edit Profile</a>
+				</div>
+			
+		</li>
+		
+		<li>
+				<div class="new-post-button">
+					
+					<button class="view-new-post-option">New Post</button>
+				</div>
 		</li>
 
 	</ul>

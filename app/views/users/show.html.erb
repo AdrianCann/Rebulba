@@ -2,9 +2,7 @@
   <nav class="navbar">
 	  
   	<ul class="group">
-			<li><a href="#">View Feed</a></li>
-			<li><%= link_to "Dashboard", user_url(current_user.id) %></li>
-	    <li><%= link_to "Edit Profile", edit_user_url(current_user) %></li>
+			<li><%= link_to "Home", user_url(current_user.id) %></li>
 			<li><%= button_to "sign out", session_url, method: :delete %></li>
   	</ul>
 		
@@ -93,7 +91,10 @@
 		"user": <%= @user.to_json.html_safe %>, 
 		"feed-posts": <%= render(partial: "posts/posts.json", locals: { posts: @feed_posts}).html_safe %>,
   	"user-posts": <%= render(partial: "posts/posts.json", locals: { posts: @user_posts}).html_safe %>,
-		"ownPage": <%= @own_page %> }
+		"ownPage": <%= @own_page %>,
+		"home_url": <%= current_user.show_url.to_json.html_safe %>,
+		"edit_url": <%= edit_user_url(current_user).to_json.html_safe %>
+	}
 </script>
 
 <script>
