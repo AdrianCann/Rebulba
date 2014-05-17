@@ -19,6 +19,7 @@
       	<div class="post-header-info group">
 					<h4><a href="#"><%= post._user.get("username") %></a></h4>  
        	 <time class="timeago" datetime="<%= post.escape("created_at") %>"></time>
+				 <button class="delete-post" data-id="<%= post.id %>">X</button>
       	</div>
 				<div class="post-title-wrap">
 					<h3><a class="post-title-link" href="#"><%= post.escape("title") %></a></h3>
@@ -60,7 +61,7 @@
 		  			
 					<% } else { %>
 					
-					 <button class="post-option-toggle" data-id="<%= post.id %>">option</button>
+					 <button class="edit-post" data-id="<%= post.id %>">Edit</button>
 					 
 					<% }; %>
 					

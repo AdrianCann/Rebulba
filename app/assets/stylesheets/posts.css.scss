@@ -110,6 +110,7 @@
 }
 
 .post-content {
+	position: relative; /*just to make x*/
 	width: 500px;
 	background: white;
 	display: inline-block;
@@ -152,6 +153,13 @@
 	text-align: center;
 }
 
+.post-header .delete-post {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	padding: 8px;
+}
+
 .post-title-wrap {
 
 }
@@ -178,9 +186,15 @@
 	margin-right: 30px;
 	margin-bottom: 40px;
 }
+
+.edit-post {
+	margin-left: 20px;
+}
+
 .post-option-toggle {
 	float: left;
 	margin-left: 20px;
+	margin-right: 20px;
 
 }
 

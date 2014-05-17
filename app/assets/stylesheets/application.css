@@ -60,22 +60,22 @@ input[type="submit"], button, .button_to, .navbar ul li {
 .submit > input, button, .button_to, .navbar ul li {
   position: relative;
   display: inline-block;
-  background: #0c0;
+  background: #2E8AC3;
   color: #fff;
   padding: 10px 20px;
   border-radius: 5px;
   font-weight: bold;
-  box-shadow: 0 3px 0 0 #070;
+  box-shadow: 0 4px 0 0 #226690;
 }
 
 .submit > input:hover, button:hover, .button_to:hover, .navbar ul li:hover {
-  background: #0b0;
+  background: #3297D6;
 }
 
 .submit > input:active, button:active, .button_to:active, .navbar ul li:active {
   top: 3px;
   box-shadow: none;
-  background: #0a0;
+  background: #2D91E2;
 }
 
 body {
