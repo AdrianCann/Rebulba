@@ -59,7 +59,7 @@
 
 .is-visible #new-post-form {
 	display: block;
-	align: left;
+	
 }
 
 #new-post-form div {
@@ -275,13 +275,26 @@
 /*edit post form*/
 
 .post-form-input {
-	position: relative;
+	width: auto;
 }
 
 .post-form-input input, textarea {
-	align: left;
 }
 
 .post-form-input label {
 
+}
+
+#update-post-form {
+}
+
+#update-post-form .submit {
+	width: auto;
+	height: auto;
+}
+
+#update-post-form .submit input {
+	float: left;
+	margin: 0;
+	
 }

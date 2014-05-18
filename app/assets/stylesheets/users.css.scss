@@ -18,7 +18,7 @@
 }
 
 .welcome h1 {
-	color: white;
+	color: black;
 }
 
 .welcome h4 {
@@ -68,14 +68,12 @@ input#profile-picture {
 /*EDIT PROFILE*/
 
 .edit-profile-title {
-	position: relative;
+	
 	width: auto;
 }
 
 .edit-profile-title h1 {
-	position: absolute;
-	top: -100px;
-	left: 400px;
+	color: black;
 }
 
 .file-input {

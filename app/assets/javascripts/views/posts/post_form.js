@@ -39,8 +39,9 @@ Rebulba.Views.PostForm = Backbone.View.extend({
     this.model.collection = this.collection;
     this.model.save(attrs, {
       success: function (post) {
-		  console.log("success")
-        that.collection.add(post);
+		  	console.log("success")
+				
+        // that.collection.add(post);
         Backbone.history.navigate("", { trigger: true });
       },
 	  error: function() {
