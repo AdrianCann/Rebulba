@@ -54,6 +54,11 @@
 }
 
 #new-post-form {
+	display: none;
+}
+
+.is-visible #new-post-form {
+	display: block;
 	align: left;
 }
 
@@ -264,4 +269,19 @@
 
 .visible .show-feed-button {
 	display: block;
+}
+
+
+/*edit post form*/
+
+.post-form-input {
+	position: relative;
+}
+
+.post-form-input input, textarea {
+	align: left;
+}
+
+.post-form-input label {
+
 }

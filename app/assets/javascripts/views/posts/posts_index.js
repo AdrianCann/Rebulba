@@ -30,7 +30,18 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 	// $("html").on("click") try sams thing of clicking elsewhere to hide menu
   },
 	
-	viewNewPostForm: function(){
+	viewNewPostForm: function(){    
+		var $scope = $("#new-post-form").parent();
+		
+		
+
+		if ($scope.is(".is-visible")) {
+			$scope.removeClass("is-visible")
+	
+		} else {
+			$scope.addClass("is-visible")
+		}
+		
 		
 	},
   
@@ -62,18 +73,18 @@ Rebulba.Views.PostsIndex = Backbone.View.extend({
 
 
 	toggle: function (event) {
-	    var $target = $(event.target);
+	   var $target = $(event.target);
 	    
-	$scope = $target.parent().parent().next("div")
+		$scope = $target.parent().parent().next("div")
 	
-	if ($scope.is(".is-visible")) {
-		$scope.removeClass("is-visible")
+		if ($scope.is(".is-visible")) {
+			$scope.removeClass("is-visible")
 		
-	} else {
-		$scope.addClass("is-visible")
-	}
+		} else {
+			$scope.addClass("is-visible")
+		}
 	
-	  },
+	},
   
   deletePost: function(event) {
 	var $target = $(event.target);

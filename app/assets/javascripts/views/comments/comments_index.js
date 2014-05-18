@@ -95,8 +95,6 @@ Rebulba.Views.CommentsIndex = Backbone.View.extend({
 			
 	},
 	
-
-	
 	render: function() {
 	  var renderedContent = this.template({
 			post: this.post,
