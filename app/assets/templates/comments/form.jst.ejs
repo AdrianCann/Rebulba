@@ -1,13 +1,12 @@
 
-		<form id="update-comment-form">
-	    <div class="input">
-	      <label for="comment-body" name>Comment</label>
-	      <input type="textarea" id="comment-body" name="comment[body]" value="<%= comment.escape("body") %>">
-	    </div>
-			
-				
+<form id="update-comment-form">
+  <div class="input">
+    <input type="textarea" id="comment-body" name="comment[body]" value="<%= comment.escape("body") %>">
+  </div>
 
-	    <div class="submit">
-	      <input data-id="<%= post.id %>" class="submit-comment-button" type="submit" value="submit">
-	    </div>
-		</form>
+	
+
+  <div class="submit">
+    <input data-id="<%= post.id %>" class="submit-comment-button" type="submit" value="submit">
+  </div>
+</form>

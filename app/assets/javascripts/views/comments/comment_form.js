@@ -1,5 +1,5 @@
 Rebulba.Views.CommentForm = Backbone.View.extend({
-  tagName: 'article',
+  tagName: 'div',
   template: JST['comments/form'],
 	
 	initialize: function(options){

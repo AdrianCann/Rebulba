@@ -5,9 +5,11 @@ Rebulba.Views.PostForm = Backbone.View.extend({
 	initialize: function(options){
 		this.model = options.post;
 		this.collection = options.collection
+		
 	},
   events: {
-    'click .submit': 'submit'
+    'click .submit': 'submit',
+		'click .cancel': 'cancel'
   },
 
   render: function () {
@@ -30,6 +32,11 @@ Rebulba.Views.PostForm = Backbone.View.extend({
 	// });
 	// // post.save({})
 	//   },
+	
+	cancel: function(event){
+    event.preventDefault();
+		this.collection.add();
+	},
 
   submit: function (event) {
     var that = this;

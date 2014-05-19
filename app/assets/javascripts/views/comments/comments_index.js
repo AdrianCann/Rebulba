@@ -4,7 +4,6 @@ Rebulba.Views.CommentsIndex = Backbone.View.extend({
 		this.post = options.post;
 		this.collection = this.post.comments;
 		this.listenTo(this.collection, "add change remove reset", this.render)
-		
 	},
 	
 	tagName: "div",
@@ -103,13 +102,15 @@ Rebulba.Views.CommentsIndex = Backbone.View.extend({
 		if (comment.user.id !== Rebulba.current_user.id) {
 			return;
 		}
+		
 		var view = new Rebulba.Views.CommentForm({
 			post: this.post,
 			comment: comment
 		})
-		
+		// this.listenTo(view, "cancel", this.render)
 		
 		var $tag = $target.parent("article")
+		$tag = $target
 		$tag.html(view.render().$el)
 	},
 	

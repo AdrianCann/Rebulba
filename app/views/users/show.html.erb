@@ -20,9 +20,13 @@
 		</div>
  	 	
 		<nav class="profile-side-nav">
-			
+			<form action="<%= session_url %>" class="button_to sign-out" method="post">
+				<input name="_method" type="hidden" value="delete">
+				<input type="submit" value="sign out">
+				<%= auth_token %>
+			</form>
 			<li class="home-link"><%= link_to "Home", user_url(current_user.id) %></li>
-			<%= button_to "sign out", session_url, method: :delete %>
+
 			<button class="side-nav-button" id="followings">Followings</button>
 			<button class="side-nav-button" id="followers">Follwers</button>
 			<button class="side-nav-button" id="notifications">Notifications</button>

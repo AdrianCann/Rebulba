@@ -67,5 +67,9 @@ module ApplicationHelper
       </div>
     HTML
   end
+  
+  def reset_database
+    
+  end
 
 end

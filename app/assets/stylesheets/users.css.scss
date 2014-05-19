@@ -73,12 +73,19 @@ input#profile-picture {
 }
 
 .edit-profile-title h1 {
-	color: black;
+	color: gray;
+	font-size: 45px;
 }
 
 .file-input {
 	margin-top: 20px;
 	margin-bottom: 20px;
+}
+
+.edit-user {
+  height: auto;
+  margin: auto;
+	width: 300px;
 }
 
 /*FEED*/
@@ -149,14 +156,23 @@ li div a {
 }
 
 .sign-out {
+	float: right;
+}
+
+.home-link {
+	padding-top: 10px;
 	
 }
 
-.sign-out form {
-	
-}
+
 
 .home-link a {
-	margin: 5px;
 	color: white;
+	font-size: 25px;
+	margin-bottom: 20px;
+}
+
+.home-link a:hover {
+	background: gray;
+	width: 50px;
 }
