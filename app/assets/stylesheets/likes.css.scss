@@ -25,6 +25,7 @@
 	top: 30px;
 	right: 0px;
 	z-index: 100;
+	
 }
 
 .liker-list a {
@@ -36,7 +37,7 @@
 .liker-list ul li a {
 	background: #888;
 	margin: 0;
-	padding: 0;
+/*	padding: 0;*/
 	min-width: 200px;
 }
 
@@ -44,12 +45,24 @@
 	background: #C6C6C6;
 }
 
+.comment-like-list li {
+/*	width: auto;*/
+	width: 200px;
+	
+}
+
 .comment-like-list li a {
-/*	width: 200px;*/
+/*	width: auto;*/
+/*	padding: auto;*/
+	width: auto;
 	
 }
 
 .comment-like-list {
 	background: #888;
 	min-width: 200px;
+}
+
+.comment-liker-link {
+
 }

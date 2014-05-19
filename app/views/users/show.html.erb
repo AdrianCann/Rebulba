@@ -1,15 +1,3 @@
-<header>
-  <nav class="navbar">
-	  
-  	<ul class="group">
-			<li class="home-link"><%= link_to "Home", user_url(current_user.id) %></li>
-			<li class="sign-out"><%= button_to "sign out", session_url, method: :delete %></li>
-  	</ul>
-		
-  </nav>
-
-</header>
-
 <div class="content group">
 
   <section class="profile">
@@ -32,9 +20,15 @@
 		</div>
  	 	
 		<nav class="profile-side-nav">
+			
+			<li class="home-link"><%= link_to "Home", user_url(current_user.id) %></li>
+			<%= button_to "sign out", session_url, method: :delete %>
 			<button class="side-nav-button" id="followings">Followings</button>
 			<button class="side-nav-button" id="followers">Follwers</button>
 			<button class="side-nav-button" id="notifications">Notifications</button>
+			
+			
+			
 		</nav>
 		
 		<div class="following-wrap">

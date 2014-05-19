@@ -135,10 +135,11 @@ li {
 
 a {
 	text-decoration: none;
-	
+	color: #192D49;
 }
 
 a:hover {
+	color: #233F66;
 	
 }
 

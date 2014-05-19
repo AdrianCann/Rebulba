@@ -100,6 +100,9 @@ Rebulba.Views.CommentsIndex = Backbone.View.extend({
 	
 		var $target = $(event.target);
 		var comment = this.collection.get($target.attr("data-id"));
+		if (comment.user.id !== Rebulba.current_user.id) {
+			return;
+		}
 		var view = new Rebulba.Views.CommentForm({
 			post: this.post,
 			comment: comment
