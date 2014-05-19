@@ -14,7 +14,8 @@ Rebulba.Views.CommentsIndex = Backbone.View.extend({
 		"click .submit-comment-button": "submitComment",
 		"click .delete-comment": "deleteComment",
 		"click .like-comment": "likeComment",
-		"click .unlike-comment": "unlikeComment"
+		"click .unlike-comment": "unlikeComment",
+		"click p": "editComment"
 		
 	},
 	
@@ -93,6 +94,20 @@ Rebulba.Views.CommentsIndex = Backbone.View.extend({
 			}
 		});
 			
+	},
+	
+	editComment: function(event) {
+	
+		var $target = $(event.target);
+		var comment = this.collection.get($target.attr("data-id"));
+		var view = new Rebulba.Views.CommentForm({
+			post: this.post,
+			comment: comment
+		})
+		
+		
+		var $tag = $target.parent("article")
+		$tag.html(view.render().$el)
 	},
 	
 	render: function() {

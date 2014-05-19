@@ -70,7 +70,7 @@ Post.create({
   user_id: 5})
 
 post_title = ["Some Thoughts of Mine", "Penny for my thoughts", "Hey Friends", "NEWS FLASH!"]
-post_body = ["I am going vegan today", "My gerbil passed away. RIP.", "cats make great pets", "my life rocks!",
+post_body = ["I am going vegan today. Oh no how will I get my protein? I guess I will have to remember to include leucine rich foods like nuts and beans", "My gerbil passed away. RIP.", "cats make great pets", "my life rocks!",
   "Sennacy is a pretty-kitty!"]
 
 6.times do |i|
@@ -88,7 +88,7 @@ end
 Comment.create({post_id: 2, body: "lol agree", user_id: 2})
 Comment.create({post_id: 2, body: "So true", user_id: 4})
 
-comments = ["lol", "lame post", "haha", "troll!", "spam spam spam comment. Try out our new credit card sharing service."]
+comments = ["lol. Love that post. Reminds me that their are other chill users on this site.", "lame post", "haha", "troll!", "spam spam spam comment. Try out our new credit card sharing service."]
 
 20.times do
   Comment.create!(post_id: (rand(25)+1), body: comments[rand(4)], user_id: (rand(6)+1))

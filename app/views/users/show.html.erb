@@ -2,8 +2,8 @@
   <nav class="navbar">
 	  
   	<ul class="group">
-			<li><%= link_to "Home", user_url(current_user.id) %></li>
-			<li><%= button_to "sign out", session_url, method: :delete %></li>
+			<li class="home-link"><%= link_to "Home", user_url(current_user.id) %></li>
+			<li class="sign-out"><%= button_to "sign out", session_url, method: :delete %></li>
   	</ul>
 		
   </nav>

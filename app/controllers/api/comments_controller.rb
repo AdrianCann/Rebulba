@@ -8,7 +8,7 @@ class Api::CommentsController < ApplicationController
 
       render json: @comment
     else
-      render :json, status: :unprocessible_entity
+      render json: {}, status: :unprocessible_entity
     end
   end
   
@@ -18,6 +18,17 @@ class Api::CommentsController < ApplicationController
       comment.destroy
     end
     render json: {}
+  end
+  
+  def update
+    @comment = Comment.find(params[:id])
+    if @comment.comment_sender == current_user
+      if @comment.update_attributes(comment_params)
+        render json: @comment
+      else
+        render json: {}, status: :unprocessible_entity
+      end
+    end
   end
   
   private

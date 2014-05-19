@@ -25,6 +25,7 @@ form, label, button, input#profile-picture {
 
 /*ELEMENTS*/
 
+input[type="textarea"],
 input[type="text"],
 input[type="email"],
 input[type="password"],
@@ -44,6 +45,16 @@ button,
   width: auto;
   background: transparent;
   color: inherit;
+	
+}
+
+input[type="textarea"],
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="textarea"] {
+	border: 1px solid black;
+	font-size: 20px;
 }
 
 input[type="submit"], button, .button_to, .navbar ul li {
@@ -52,7 +63,7 @@ input[type="submit"], button, .button_to, .navbar ul li {
 	display: block;
 	width: 300;
 	height: 300;
-  	margin: 0;
+  margin: 0;
 	
 	font-color: #7F8FA0;
 }
@@ -66,6 +77,9 @@ input[type="submit"], button, .button_to, .navbar ul li {
   border-radius: 5px;
   font-weight: bold;
   box-shadow: 0 4px 0 0 #226690;
+	
+	font-family: sans-serif;
+	font-size: 20px;
 }
 
 .submit > input:hover, button:hover, .button_to:hover, .navbar ul li:hover {

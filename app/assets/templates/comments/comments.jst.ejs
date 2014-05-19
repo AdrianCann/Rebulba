@@ -14,7 +14,7 @@
 						<time class="timeago" datetime="<%= comment.escape("updated_at") %>"></time>
 				</h4> 
 				
-				<p><%= comment.escape("body") %></p>
+				<p data-id="<%= comment.id %>"><%= comment.escape("body") %></p>
 				
 				<div class="comment-bottom">
 				
