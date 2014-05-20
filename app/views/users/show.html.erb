@@ -27,9 +27,9 @@
 			</form>
 			<li class="home-link"><%= link_to "Home", user_url(current_user.id) %></li>
 
-			<button class="side-nav-button" id="followings">Followings</button>
-			<button class="side-nav-button" id="followers">Followers</button>
-			<button class="side-nav-button" id="notifications">Notifications</button>
+			<button class="side-nav-button" id="followings">Following (<%= current_user.people_he_follows.count %>)</button>
+			<button class="side-nav-button" id="followers">Followers (<%= current_user.followers.count %>) </button>
+			<button class="side-nav-button" id="notifications">Notifications (<%= current_user.notifications.unread.count %>)</button>
 			
 			
 			
@@ -38,6 +38,12 @@
 		<div class="following-wrap">
 	    <div class="following">
 	      <%= render partial: "layouts/following/followings", locals: {user: @user} %>	
+	    </div>
+		</div>
+		
+		<div class="followers-wrap">
+	    <div class="followers">
+	      <%= render partial: "layouts/following/followers", locals: {user: @user} %>	
 	    </div>
 		</div>
 		
@@ -55,13 +61,13 @@
 						</li> -->
 					<% else %>
 						<li class="unread">
-							<a href="<%= notification_url(note) %>"><%= note.text %></a>
-							<time><%= note.created_at %></time>
 							<form action="<%= notification_url(note) %>" method="post">
 								<%= auth_token %>
 								<input type="hidden" name="_method" value="delete">
 								<button>X</button>
 							</form>
+							<a href="<%= notification_url(note) %>"><%= note.text %></a>
+							<time><%= note.created_at %></time>
 						</li>
 					<% end %>
 				<% end %>
@@ -104,6 +110,10 @@
 			} else {
 				$(".notifications-wrap").addClass("visible")
 			};
+			
+			$(".following-wrap").removeClass("visible")
+			$(".followers-wrap").removeClass("visible")
+			
 		});
 		
 		$("#followings").on("click", function(){
@@ -112,8 +122,22 @@
 			} else {
 				$(".following-wrap").addClass("visible")
 			};
+			
+			$(".followers-wrap").removeClass("visible")
+			$(".notifications-wrap").removeClass("visible")
 		});
 		
+		$("#followers").on("click", function(){
+			if ($(".followers-wrap").hasClass("visible")){
+				$(".followers-wrap").removeClass("visible")
+			} else {
+				$(".followers-wrap").addClass("visible")
+			};
+			
+			$(".following-wrap").removeClass("visible")
+			$(".notifications-wrap").removeClass("visible")
+			
+		});
 
 		
 	  Rebulba.initialize();

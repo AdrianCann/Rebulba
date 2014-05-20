@@ -29,6 +29,14 @@
 /*	position: relative;*/
 }
 
+.followers {
+	display: none;
+}
+
+.visible .followers {
+	display: block;
+}
+
 
 .following {
 	display: none;

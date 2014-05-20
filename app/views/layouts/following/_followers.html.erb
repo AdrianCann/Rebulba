@@ -1,0 +1,14 @@
+<ul>
+	
+	<% user.followers.each do |followee| %>
+  
+	  <li class="followee group">
+			
+		    <%= link_to followee.username, user_url(followee) %>
+
+
+  			
+	  </li>
+
+	<% end %>
+</ul>
