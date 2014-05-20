@@ -1,0 +1,77 @@
+			<div class="post-content" data-id="<%= post.id %>">
+			<header class="post-header group">
+      	<div class="post-header-info group">
+					<h4><a href="#"><%= post._user.get("username") %></a></h4>  
+       	 <time class="timeago" datetime="<%= post.escape("created_at") %>"></time>
+				 <button class="delete-post" data-id="<%= post.id %>">X</button>
+      	</div>
+				<div class="post-title-wrap">
+					<h3><a class="post-title-link" href="#"><%= post.escape("title") %></a></h3>
+				</div>
+		
+	      	
+		    </header>
+		     <p class="post-body"><%= post.escape("body") %></p>
+				 <nav class="post-bottom-nav">
+					 <div class="liker-list">
+					 
+						 <a href="#"><%= post.likes.length %> likes</a>
+						 <ul>
+			
+						 	<% post.likes.each(function(like) { %>
+
+								<li>
+									<a href="<%= like.user.get("user_url") %>"><%= like.user.get("username") %></a>
+								</li>
+							<% }) %>
+
+						</ul>
+					 </div>
+					 
+					 
+		 			<% if (!Rebulba.ownPage) { %>
+						
+						<% if (post.likes.findWhere({user_id: Rebulba.current_user.id})) { %>
+							
+			  			<button class="unlike-post" data-id="<%= post.id %>">Unlike
+							</button>
+						
+						<% } else { %>
+			  			<button class="like-post" data-id="<%= post.id %>">Like
+							</button>
+						
+						<% } %>
+
+		  			
+					<% } else { %>
+					
+					 <button class="edit-post" data-id="<%= post.id %>">Edit</button>
+					 
+					<% }; %>
+					
+					<button class="view-comments" data-id="<%= post.id %>"><%= post.comments.length %> comments</button>
+
+				</nav>
+
+		</div>
+		
+		
+	
+	    <div class="post-options">
+	  	  <div class="show-post-options">
+	  
+		  	<nav class="post-option-nav">
+				<button class="delete-post" data-id="<%= post.id %>">Delete</button>
+	  			<button class="edit-post" data-id="<%= post.id %>">Edit</button>
+	  			
+				</nav>
+	  	</div>
+	   
+		</div>
+		
+			<div class="comment">
+				
+				<div class="comments-wrap">
+					<!-- JST["comments/comments"]({comments: post.comments, post: post}) in erb went here -->
+				</div>
+			</div>

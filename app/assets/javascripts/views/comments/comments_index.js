@@ -14,7 +14,7 @@ Rebulba.Views.CommentsIndex = Backbone.View.extend({
 		"click .delete-comment": "deleteComment",
 		"click .like-comment": "likeComment",
 		"click .unlike-comment": "unlikeComment",
-		"click p": "editComment"
+		"click .comment-body": "editComment"
 		
 	},
 	
@@ -98,7 +98,9 @@ Rebulba.Views.CommentsIndex = Backbone.View.extend({
 	editComment: function(event) {
 	
 		var $target = $(event.target);
-		if ($target.parent().hasClass("input")){
+		
+		if ($target.parent().hasClass("input") || $target.parent().parent("form").length !== 0){
+			// do not edit when we click update comment button
 			return;
 		}
 		var comment = this.collection.get($target.attr("data-id"));

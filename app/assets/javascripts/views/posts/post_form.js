@@ -1,6 +1,7 @@
 Rebulba.Views.PostForm = Backbone.View.extend({
   tagName: 'form',
   template: JST['posts/form'],
+	post: JST['posts/show'],
 	
 	initialize: function(options){
 		this.model = options.post;
@@ -35,7 +36,14 @@ Rebulba.Views.PostForm = Backbone.View.extend({
 	
 	cancel: function(event){
     event.preventDefault();
-		this.collection.add();
+		$target = $(event.target);
+		$tag = $target.parentsUntil(".post-content").parent()
+		
+    var renderedContent = this.post({
+      post: this.model
+    });
+    $tag.html(renderedContent);
+    return this;
 	},
 
   submit: function (event) {

@@ -1,6 +1,7 @@
 Rebulba.Views.PostsIndex = Backbone.View.extend({
 
   template: JST['posts/index'],
+	post: JST['posts/post'],
   
   events: {
 		"click .view-new-post-option": "viewNewPostForm",

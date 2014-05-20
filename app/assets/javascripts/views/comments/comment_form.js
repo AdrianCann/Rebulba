@@ -8,7 +8,7 @@ Rebulba.Views.CommentForm = Backbone.View.extend({
 		this.collection = this.post.comments;
 	},
   events: {
-    'click .submit': 'submit'
+    'click .update-comment-button': 'updateComment'
   },
 
   render: function () {
@@ -33,11 +33,17 @@ Rebulba.Views.CommentForm = Backbone.View.extend({
 	// // post.save({})
 	//   },
 
-  submit: function (event) {
+  updateComment: function (event) {
 		
     var that = this;
     event.preventDefault();
     var commentData = $("#update-comment-form").serializeJSON();
+		
+		
+		if (commentData.comment.body === this.comment.escape("body")){
+			$target = $(event.target)
+			$target.parentsUntil("p").parent().html(commentData.comment.body)
+		}
 		
     this.comment.save(commentData.comment, {
       success: function (){
