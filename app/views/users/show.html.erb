@@ -22,7 +22,7 @@
 		<nav class="profile-side-nav">
 			<form action="<%= session_url %>" class="button_to sign-out" method="post">
 				<input name="_method" type="hidden" value="delete">
-				<input type="submit" value="sign out">
+				<input type="submit" value="Sign Out">
 				<%= auth_token %>
 			</form>
 			<li class="home-link"><%= link_to "Home", user_url(current_user.id) %></li>
