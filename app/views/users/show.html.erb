@@ -105,8 +105,14 @@
 	$(document).ready(function(){
 		
 		$("#notifications").on("click", function(){
+			$("#followings").removeClass("active-button")
+			$("#followers").removeClass("active-button")
+			
+			$("#notifications").addClass("active-button")
+			
 			if ($(".notifications-wrap").hasClass("visible")){
 				$(".notifications-wrap").removeClass("visible")
+				$("#notifications").removeClass("active-button")
 			} else {
 				$(".notifications-wrap").addClass("visible")
 			};
@@ -117,8 +123,14 @@
 		});
 		
 		$("#followings").on("click", function(){
+			$("#notifications").removeClass("active-button")
+			$("#followers").removeClass("active-button")
+			
+			$("#followings").addClass("active-button")
+			
 			if ($(".following-wrap").hasClass("visible")){
 				$(".following-wrap").removeClass("visible")
+				$("#followings").removeClass("active-button")
 			} else {
 				$(".following-wrap").addClass("visible")
 			};
@@ -128,8 +140,13 @@
 		});
 		
 		$("#followers").on("click", function(){
+			$("#notifications").removeClass("active-button")
+			$("#followings").removeClass("active-button")
+			
+			$("#followers").addClass("active-button")
 			if ($(".followers-wrap").hasClass("visible")){
 				$(".followers-wrap").removeClass("visible")
+				$("#followers").removeClass("active-button")
 			} else {
 				$(".followers-wrap").addClass("visible")
 			};

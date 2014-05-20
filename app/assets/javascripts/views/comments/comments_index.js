@@ -98,6 +98,9 @@ Rebulba.Views.CommentsIndex = Backbone.View.extend({
 	editComment: function(event) {
 	
 		var $target = $(event.target);
+		if ($target.parent().hasClass("input")){
+			return;
+		}
 		var comment = this.collection.get($target.attr("data-id"));
 		if (comment.user.id !== Rebulba.current_user.id) {
 			return;

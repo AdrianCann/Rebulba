@@ -219,3 +219,16 @@ a:hover {
 	width: 170px;
 }
 
+/*ACTIVE BUTTON*/
+
+.active-button {
+	background: blue;
+}
+
+.active-button:hover {
+	background: blue;
+}
+
+.active-button:active {
+	background: blue;
+}
