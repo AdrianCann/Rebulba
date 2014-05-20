@@ -28,7 +28,7 @@
 			<li class="home-link"><%= link_to "Home", user_url(current_user.id) %></li>
 
 			<button class="side-nav-button" id="followings">Followings</button>
-			<button class="side-nav-button" id="followers">Follwers</button>
+			<button class="side-nav-button" id="followers">Followers</button>
 			<button class="side-nav-button" id="notifications">Notifications</button>
 			
 			
@@ -56,7 +56,7 @@
 					<% else %>
 						<li class="unread">
 							<a href="<%= notification_url(note) %>"><%= note.text %></a>
-							<time><%= note.created_at %><time>
+							<time><%= note.created_at %></time>
 							<form action="<%= notification_url(note) %>" method="post">
 								<%= auth_token %>
 								<input type="hidden" name="_method" value="delete">

@@ -68,7 +68,7 @@ input[type="submit"], button, .button_to, .navbar ul li {
 	font-color: #7F8FA0;
 }
 
-.submit, .cancel > input, button, .button_to, .navbar ul li {
+.submit > input, .cancel > input, button, .button_to, .navbar ul li {
   position: relative;
   display: inline-block;
   background: #2E8AC3;
@@ -94,16 +94,16 @@ input[type="submit"], button, .button_to, .navbar ul li {
 
 /*CANCEL DELETE(SIGN OUT) ARE GRAY*/
 
-.button_to, .delete-post, .delete-comment {
+.button_to, .delete-post, .delete-comment, .delete-followee .submit {
 	background: gray;
 	box-shadow: 0 4px 0 0 #545454;
 }
 
-.button_to:hover, .delete-post:hover, .delete-comment:hover {
+.button_to:hover, .delete-post:hover, .delete-comment:hover, .delete-followee .submit:hover {
 	background: #787878;
 }
 
-.button_to:active, .delete-post:active, .delete-comment:active {
+.button_to:active, .delete-post:active, .delete-comment:active, .delete-followee .submit:active {
 	box-shadow: none;
 }
 

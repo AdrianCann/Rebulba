@@ -46,33 +46,22 @@
 	height: auto;
 }
 
-.following ul h3 {
-	
-}
-
-
-.following li a {
-	font-size: 20px;
-	width: auto;
-}
-
 .followee {
-	min-height: 80px;
+	min-height: 40px;
 }
 
-.following a {
+.followee:hover {
+	background: gray;
+}
+
+.followee a {
 	float: left;
-	color: #7F8FA0;
-	font-size: 20px;
-	max-width: 160px;
-/*	width: 140px;*/
-	
+	color: white;
+	font-size: 25px;
 }
-
 
 .followee form {
 	float: right;
-	width: 100px;
 /*	float: right;
 	background: green;
 	padding: 10px;
@@ -82,28 +71,36 @@
 	
 }
 
+.submit {  /*OVERIDE IN MAIN*/
+	padding: 0;
+}
+
 .followee form .input {
 	margin: 0;
 	padding: 0;
 }
 
+.delete-followee .submit input {
+	height: auto;
+	width: auto;
+}
+
 .delete-followee {
 	display: block;
+	width: 10px;
+	height: 10px;
 }
 
 .profile:hover .delete-followee {
 	display: block;
-	position: absolute;
-	top: 1px;
-	left: 1px;
 }
 
-.delete-followee input {
-	background: red;
+.delete-followee .sumbit input {
+
 }
 
 .delete-followee input:hover {
-	background: red;
+
 }
 
 .new-following-form {

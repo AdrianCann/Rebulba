@@ -12,7 +12,7 @@
 }
 
 .notifications-list li a {
-	font-size: 20px;
+	font-size: 25px;
 	color: #8190A1;
 	float: left;
 	width: 280px;
@@ -28,6 +28,13 @@
 .notifications-list li {
 	min-height: 50px;
 	margin-top: 10px;
+}
+
+.notification-list li time {
+	display: none;
+}
+
+.unread time {
 }
 
 .notifications-list li:hover {
