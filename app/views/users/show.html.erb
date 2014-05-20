@@ -12,7 +12,7 @@
 		<div class="add-delete-follower">
 	  	<% if current_user.id.to_s != params[:id] %>
 	      <% if current_user.people_he_follows.include?(@user) %>
-	        <%= render partial: "layouts/following/deletefollowee", locals: {followee: @user} %>
+	        
 	      <% else %>
 	        	<%= render partial: "layouts/following/new" %>
 	      <% end %>
@@ -27,8 +27,8 @@
 			</form>
 			<li class="home-link"><%= link_to "Home", user_url(current_user.id) %></li>
 
-			<button class="side-nav-button" id="followings">Following (<%= current_user.people_he_follows.count %>)</button>
-			<button class="side-nav-button" id="followers">Followers (<%= current_user.followers.count %>) </button>
+			<button class="side-nav-button" id="followings">Following (<%= @user.people_he_follows.count %>)</button>
+			<button class="side-nav-button" id="followers">Followers (<%= @user.followers.count %>) </button>
 			<button class="side-nav-button" id="notifications">Notifications (<%= current_user.notifications.unread.count %>)</button>
 			
 			

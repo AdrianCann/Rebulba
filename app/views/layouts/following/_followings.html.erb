@@ -2,9 +2,8 @@
 	
 	<% user.people_he_follows.each do |followee| %>
   
-	  <li class="followee group">
+	  <li class="followee">
 			
-				<!-- <a href="<%= user_url(followee) %>"><% followee.username %></a> -->
 		    <%= link_to followee.username, user_url(followee) %>
 
 				<% if current_user.id == params[:id].to_i %>

@@ -54,6 +54,8 @@
 }
 
 .followee {
+	position: relative;
+	padding: 0;
 	min-height: 40px;
 }
 
@@ -65,6 +67,9 @@
 	float: left;
 	color: white;
 	font-size: 25px;
+	min-width: 220px;
+	min-height: 40px;
+	margin: auto;
 }
 
 .followee form {
@@ -96,6 +101,8 @@
 	display: block;
 	width: 10px;
 	height: 10px;
+	float: right;
+
 }
 
 .profile:hover .delete-followee {
@@ -103,14 +110,17 @@
 }
 
 .delete-followee .sumbit input {
-
+		margin: 10px;
 }
 
 .delete-followee input:hover {
 
 }
 
-.new-following-form {
+.new-following-form .submit input {
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 
 
