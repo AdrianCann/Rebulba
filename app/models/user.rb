@@ -79,8 +79,12 @@ class User < ActiveRecord::Base
 
   def generate_feed_posts(num=5)
     #optimize to include comments, likes, and all on query... n+1
-    self.people_he_follows.includes(:posts).limit(num).map(&:posts).flatten
+    # self.people_he_follows.includes(:posts).limit(num).map(&:posts).flatten
+    
+    self.people_he_follows.includes(:posts).includes([:comments, :likes]).map(&:posts).flatten
   end
+  
+  
   
   def avatar_picture
     if self.avatar

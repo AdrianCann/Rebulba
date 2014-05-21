@@ -1,14 +1,8 @@
 
 
 <div class="user-posts group">
-  
-  
-  
-
   <%= render partial: "layouts/post/post", locals: {feed_posts: @user.posts} %>
-
 <div>
-
 <div class="feed-posts group">
 	<h1><%= @user.username + "\'s page" %></h1>
 
@@ -21,9 +15,6 @@
 	    <%= post_form("submit post") %>
 	  </form>
 	</div>
-	
-	
   <h3>My Feed</h3>
   <%= render partial: "layouts/post/post", locals: {feed_posts: @feed_posts} %>
-
 </div>

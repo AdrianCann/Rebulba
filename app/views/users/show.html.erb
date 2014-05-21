@@ -25,12 +25,14 @@
 				<input type="submit" value="Sign Out">
 				<%= auth_token %>
 			</form>
+			
 			<li class="home-link"><%= link_to "Home", user_url(current_user.id) %></li>
 
 			<button class="side-nav-button" id="followings">Following (<%= @user.people_he_follows.count %>)</button>
 			<button class="side-nav-button" id="followers">Followers (<%= @user.followers.count %>) </button>
-			<button class="side-nav-button" id="notifications">Notifications (<%= current_user.notifications.unread.count %>)</button>
-			
+			<% if @own_page %>
+				<button class="side-nav-button" id="notifications">Notifications (<%= 				current_user.notifications.unread.count %>)</button>
+			<% end %>
 			
 			
 		</nav>
@@ -47,9 +49,10 @@
 	    </div>
 		</div>
 		
+		<% if @own_page %>
 			<div class="notifications-wrap">
 				<ul class="notifications-list">
-				<% @current_user.notifications.each do |note| %>
+				<% current_user.notifications.each do |note| %>
 					<% if note.is_read %>
 						<!-- <li class="read">
 							<a href="<%= notification_url(note) %>"><%= note.text %></a>
@@ -73,18 +76,35 @@
 				<% end %>
 			</ul>
 		</div>
-		
+	<% end %>
   </section>
 
-	  <% if current_user.id.to_s == params[:id] %>
+	  <% if @own_page %>
 	    <section class="feed group">
-	      <%= render partial: "layouts/user/feed" %>
+				<div class="user-posts group">
+				  <%= render partial: "layouts/post/post", locals: {feed_posts: @user_posts} %>
+				<div>
+				<div class="feed-posts group">
+					<h1><%= @user.username + "\'s page" %></h1>
+
+					<div class="post-form group">
+	
+					  <form action="<%= posts_url %>" method="post">
+						  <h3> New Post </h3>
+					    <%= auth_token %>
+
+					    <%= post_form("submit post") %>
+					  </form>
+					</div>
+				  <h3>My Feed</h3>
+				  <%= render partial: "layouts/post/post", locals: {feed_posts: @feed_posts} %>
+				</div>
 	    </section>
 	  
 		<% else %>
 		  <section class="show-page group">
 		
-		    <%= render partial: "layouts/user/show", locals: {user: @user} %>
+		    <%= render partial: "layouts/post/post", locals: {feed_posts: @user_posts} %>
 		  </section>
 	  <% end %>
 	
