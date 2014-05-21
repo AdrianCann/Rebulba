@@ -18,6 +18,7 @@ Rebulba.Views.PostForm = Backbone.View.extend({
       post: this.model
     });
     this.$el.html(renderedContent);
+		
     return this;
   },
   
@@ -43,6 +44,7 @@ Rebulba.Views.PostForm = Backbone.View.extend({
       post: this.model
     });
     $tag.html(renderedContent);
+		$tag.find('.timeago').timeago();
     return this;
 	},
 
