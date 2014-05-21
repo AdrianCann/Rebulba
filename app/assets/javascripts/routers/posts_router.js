@@ -16,14 +16,15 @@ Rebulba.Routers.PostsRouter = Backbone.Router.extend({
     },
 	
 
-    edit: function (id) {
+    edit: function(id) {
       var that = this;
+			
       this._getPost(id, function (post) {
         var formView = new Rebulba.Views.PostForm({
           collection: that.posts,
-          model: post
+          post: post
         });
-
+				
         that._swapView(formView);
       });
     },

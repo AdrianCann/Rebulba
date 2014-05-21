@@ -22,7 +22,7 @@
 				 <button class="delete-post" data-id="<%= post.id %>">X</button>
       	</div>
 				<div class="post-title-wrap">
-					<h3><a class="post-title-link" href="#"><%= post.escape("title") %></a></h3>
+					<h3><a class="post-title-link" href="#/posts/<%= post.get("id") %>/edit"><%= post.escape("title") %></a></h3>
 				</div>
 		
 	      	

@@ -8,14 +8,13 @@
 
 .visible .notifications-list {
 	display: block;
-	width: 300px;
 }
 
 .notifications-list li a {
 	font-size: 25px;
-	color: #8190A1;
+	color: white;
 	float: left;
-	width: 280px;
+	width: 240px;
 }
 
 .notifications-list li button {
@@ -34,15 +33,11 @@
 	
 }
 
-.notification-list li time {
-	display: none;
-}
-
 .unread time {
 }
 
 .notifications-list li:hover {
-	background: #2B4F82;
+	background: gray;
 }
 
 .notifications-list li.read {

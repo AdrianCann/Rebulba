@@ -60,7 +60,7 @@
 							</form>
 						</li> -->
 					<% else %>
-						<li class="unread">
+						<li class="unread group">
 							<form action="<%= notification_url(note) %>" method="post">
 								<%= auth_token %>
 								<input type="hidden" name="_method" value="delete">

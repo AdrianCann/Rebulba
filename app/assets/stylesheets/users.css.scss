@@ -49,10 +49,6 @@ h3 a {
 	color: #7F8FA0;
 }
 
-h3 a:hover {
-	color: darkgray;
-}
-
 form.user-form {
 	background: #223F5C;
 	width: 320px;
@@ -172,6 +168,7 @@ li div a {
 
 
 .home-link a {
+	padding: 10px;
 	color: white;
 	font-size: 25px;
 	margin-bottom: 20px;

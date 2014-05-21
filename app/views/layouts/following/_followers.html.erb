@@ -1,4 +1,4 @@
-<ul>
+<ul class="my-followers">
 	
 	<% user.followers.each do |followee| %>
   
@@ -6,7 +6,17 @@
 			
 		    <%= link_to followee.username, user_url(followee) %>
 
+				<% if !current_user.people_he_follows.include?(followee) %>
+				
+					<form class="new-following-form" action="<%= user_followings_url(followee) %>" method="post">
+					  <%= auth_token %>
+							<div class="submit">
+					    	<input type="submit" value="Follow">
+							</div>
 
+					</form>
+				
+				<% end %>
   			
 	  </li>
 

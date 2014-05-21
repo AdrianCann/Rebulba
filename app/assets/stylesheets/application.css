@@ -222,13 +222,13 @@ a:hover {
 /*ACTIVE BUTTON*/
 
 .active-button {
-	background: blue;
+	background: #19C5EC;
 }
 
 .active-button:hover {
-	background: blue;
+	background: #19C5EC;
 }
 
 .active-button:active {
-	background: blue;
+	background: #19C5EC;
 }
