@@ -15,8 +15,7 @@ class FollowingsController < ApplicationController
   end
 
   def destroy
-    following = current_user.outbound_followings
-                            .where(:followee_id == params[:id]).first
+    following = current_user.outbound_followings.where("followee_id = ?", params[:id]).first
     following.destroy
     redirect_to current_user
   end
