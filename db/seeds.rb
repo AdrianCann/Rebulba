@@ -5,11 +5,17 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-User.destroy_all
-Post.destroy_all
-Comment.destroy_all
-Like.destroy_all
-Following.destroy_all
+# User.destroy_all
+# Post.destroy_all
+# Comment.destroy_all
+# Like.destroy_all
+# Following.destroy_all
+
+environment_seed_file = File.join(Rails.root, 'db', 'seeds', "#{Rails.env}.rb")
+ 
+def seed_image(file_name)
+  File.open(File.join(Rails.root, "/app/assets/images/seed/#{file_name}.jpg"))
+end
 
 User.create({
   username: "Demo User",
@@ -20,12 +26,14 @@ User.create({
 User.create({
   username: "Sam Sweeney",
   email: 'sam.s.sweeney@gmail.com',
-  password: "123456"})
+  password: "123456"
+  })
 
 User.create({
   username: "Adrian",
   email: 'atcann@bu.edu',
-  password: "123456"})
+  password: "123456",
+  })
 
 User.create({
   username: "Andrew",

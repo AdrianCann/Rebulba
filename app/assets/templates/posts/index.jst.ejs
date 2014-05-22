@@ -17,6 +17,7 @@
 <% if (dataJSON.ownPage) { %>
 	<div class="group feed-wrap">
 		
+		<%= JST["users/suggested"]() %>
 		
 		<%= JST["posts/feed"]({ feedPosts: feedPosts }) %>
 
