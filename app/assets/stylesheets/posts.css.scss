@@ -59,13 +59,13 @@
 
 #new-post-form {
 	display: none;
-	width: 500px;
+	width: auto;
 	float: left;
-	margin-left: 200px;
 }
 
 .is-visible #new-post-form {
 	display: block;
+	background: white;
 	
 }
 
@@ -120,6 +120,7 @@
 
 .post-content {
 	position: relative; /*just to make x*/
+	padding: 26px;
 	width: 500px;
 	background: white;
 	display: inline-block;
@@ -129,21 +130,23 @@
 
 .post-header-info {
 	min-height: 40px;
+	margin-bottom: 10px;
 }
 
 .post-header-info h4 a {
 	float: left;
-	font-size: 30px;
-	padding-left: 20px;
-	max-width: 150px;
+	font-size: 24px;
+}
+
+.post-header-right {
+	float: right;
 }
 
 .post-header-info time {
-	font-size: 25px;
+	font-size: 20px;
 	color: black;
-	float: right;
-	padding-right: 20px;
-	max-width: 150px;
+	padding-right: 6px;
+	float: left;
 }
 
 .post-header-info a:hover {
@@ -159,14 +162,12 @@
 	color: black;
 	font-family: sans-serif;
 	font-size: 40px;
-	text-align: center;
+	text-align: left;
 }
 
 .post-header .delete-post {
-	position: absolute;
-	right: 5px;
-	top: 5px;
-	padding: 8px;
+	padding: 0 4px;
+	float: right;
 }
 
 .post-title-wrap {
@@ -176,28 +177,19 @@
 .post-title-link {
 	width: 500px;
 	color: black;
-	
 }
 
 .post-content p.post-body {
-	font-size: 30px;
+	font-size: 24px;
 	color: black;
-	padding: 20px;
-	text-align: center;
-}
-
-.post-bottom-nav {
-	
+	margin: 24px 0;
 }
 
 .post-bottom-nav a {
 	float: right;
-	margin-right: 30px;
-	margin-bottom: 40px;
 }
 
 .edit-post {
-	margin-left: 20px;
 }
 
 .post-option-toggle {
@@ -309,6 +301,24 @@
 	float: left;
 	margin: 0;
 	
+}
+
+/*EDIT*/
+.post-content form {
+	height: auto;
+	width: auto;
+}
+
+.post-form-input label {
+	color: black;
+}
+
+.update-post-form-wrap .cancel {
+	float: right;
+}
+
+.update-post-form-wrap .submit {
+	float: left;
 }
 
 /*STYLE INPUTS*/

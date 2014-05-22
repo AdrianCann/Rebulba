@@ -13,7 +13,7 @@
  */
 /*RESET*/
 html, body, header, footer, section, article, div,
-strong, a, img, p, h1, h2, h3, time, ul, li, small,
+strong, a, img, p, h1, h2, h3, h4, time, ul, li, small,
 form, label, button, input#profile-picture {
   margin: 0;
   padding: 0;
@@ -202,7 +202,9 @@ a:hover {
 }
 
 #new-post-form h3 {
-	color: white;
+	color: black;
+	padding: 0;
+	margin: 0;
 	
 }
 
@@ -215,8 +217,8 @@ a:hover {
 }
 
 .timeago {
-	font-size: 25px;
-	width: 170px;
+	font-size: 20px;
+
 }
 
 /*ACTIVE BUTTON*/
@@ -231,4 +233,18 @@ a:hover {
 
 .active-button:active {
 	background: #19C5EC;
+}
+
+/*ABOUT THIS APP*/
+
+#about {
+	margin-bottom: 20px;
+	padding: 0;
+	text-align: left;
+	color: white;
+	font-size: 25px;
+}
+
+#about:hover {
+	cursor: pointer;
 }

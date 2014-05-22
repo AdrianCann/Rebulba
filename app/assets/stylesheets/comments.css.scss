@@ -32,20 +32,25 @@
 	min-height: 30px;
 }
 
+.comment-header-right {
+	float: right;
+}
+
+.comment-header-right time {
+	float: left;
+}
+
+.comment-header-right button {
+	float: right;
+}
+
 .comments-wrap article p {
-	font-size: 30px;
-	text-align: center;
+	font-size: 24px;
+	padding: 5px 0 5px 0;
 }
 
 .comments-wrap article form {
 	display: block;
-}
-
-article.comment-article button.delete-comment {
-	position: absolute;
-	padding: 5px;
-	top: 5px;
-	right: 5px;
 }
 
 .comments-wrap article h4 time {
@@ -53,7 +58,7 @@ article.comment-article button.delete-comment {
 }
 
 .comments-wrap article h4 a {
-	font-size: 30px;
+	font-size: 24px;
 	float: left;
 }
 
@@ -69,15 +74,8 @@ article.comment-article button.delete-comment {
 }*/
 
 .delete-comment {
-	float: left;
-	margin: 10px;
-	
-/*	background: #1BC606;
-	color: white;
-	font-size: 25px;
-	width: 100px;
-	margin: 10px;
-	border-radius: 5px;*/
+	padding: 0 4px;
+	margin-left: 6px;
 }
 
 #update-comment-form .submit {

@@ -1,9 +1,10 @@
 <section class="post-feed-toggle">
   <% feedPosts.each(function(post){ %>
-  
+
   	<article class="post">
 	    <div class="post-thumb">
-			<a href="#">
+				
+			<a href="<%= post._user.get("user_url")%>">
 				<img src="<%= post._user.get("avatar_url") %>" width="54" height="54" alt="">
 			</a>
 	    </div>
@@ -11,8 +12,11 @@
 		<div class="post-content" data-id="<%= post.id %>">
 			<header class="post-header group">
       	<div class="post-header-info group">
-					<h4><a href="#"><%= post._user.get("username") %></a></h4>  
-       	 <time class="timeago" datetime="<%= post.escape("created_at") %>"></time>
+					<h4><a href="<%= post._user.get("user_url")%>"><%= post._user.get("username") %></a></h4> 
+					
+					<div class="post-header-right"> 
+       	 	 <time class="timeago" datetime="<%= post.escape("created_at") %>"></time>
+				 </div>
       	</div>
 				<div class="post-title-wrap">
 					<h3><a class="post-title-link" href="#"><%= post.escape("title") %></a></h3>

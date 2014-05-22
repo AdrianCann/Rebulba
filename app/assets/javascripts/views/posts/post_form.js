@@ -5,8 +5,7 @@ Rebulba.Views.PostForm = Backbone.View.extend({
 	
 	initialize: function(options){
 		this.model = options.post;
-		this.collection = options.collection
-		
+		this.collection = options.collection;
 	},
   events: {
     'click .submit': 'submit',
@@ -36,15 +35,14 @@ Rebulba.Views.PostForm = Backbone.View.extend({
 	//   },
 	
 	cancel: function(event){
+		
     event.preventDefault();
-		$target = $(event.target);
-		$tag = $target.parentsUntil(".post-content").parent()
 		
     var renderedContent = this.post({
       post: this.model
     });
-    $tag.html(renderedContent);
-		$tag.find('.timeago').timeago();
+    this.$el.html(renderedContent);
+		this.$el.find('.timeago').timeago();
     return this;
 	},
 
