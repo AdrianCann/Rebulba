@@ -14,7 +14,7 @@
 environment_seed_file = File.join(Rails.root, 'db', 'seeds', "#{Rails.env}.rb")
  
 def seed_image(file_name)
-  File.open(File.join(Rails.root, "/app/assets/images/seed/#{file_name}.jpg"))
+  File.open(File.join(Rails.root, "/app/assets/images/#{file_name}.png"))
 end
 
 User.create({
@@ -26,29 +26,36 @@ User.create({
 User.create({
   username: "Sam Sweeney",
   email: 'sam.s.sweeney@gmail.com',
-  password: "123456"
+  password: "123456",
+  avatar: seed_image("sam")
   })
 
 User.create({
   username: "Adrian",
   email: 'atcann@bu.edu',
   password: "123456",
+  avatar: seed_image("adrian")
   })
 
 User.create({
   username: "Andrew",
   email: 'andrew@roommate.com',
-  password: "123456"})
+  password: "123456",
+  avatar: seed_image("andrew")
+  })
 
 User.create({
   username: "Jorge",
   email: 'jorge@chill.com',
-  password: "123456"})
+  password: "123456",
+  avatar: seed_image("jorge")
+  })
   
 User.create({
   username: "Tiffany",
   email: "tiffany@gmail.com",
-  password: "123456"
+  password: "123456",
+  avatar: seed_image("tiffany2")
 })
 
 (1..6).each do |i|

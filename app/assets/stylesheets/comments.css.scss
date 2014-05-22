@@ -94,5 +94,13 @@ article.comment-article button.delete-comment {
 }
 
 #new-comment-form .input input {
-	margin: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#new-comment-form h3 {
+	font-size: 30px;
+	margin-top: 10px;
+	padding: 0;
+	text-align: left;
 }
