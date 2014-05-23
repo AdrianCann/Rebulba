@@ -22,6 +22,7 @@ class SessionsController < ApplicationController
     User.first.update({username: "Demo User",
                         email: "Demo-User@example.com",
                         password: "123456"})
+                        
     logout
     render :new
   end

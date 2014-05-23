@@ -98,7 +98,7 @@ class User < ActiveRecord::Base
   # here and in notifications: factor out
   def default_url_options
     options = {}
-    options[:host] = Rails.env.production? ? "rebulba.com" : "localhost:3000"
+    options[:host] = Rails.env.production? ? "www.rebulba.com" : "localhost:3000"
     options
   end
   
