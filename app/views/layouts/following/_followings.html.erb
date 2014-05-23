@@ -1,12 +1,12 @@
-<ul>
+<ul class="group">
 	
 	<% user.people_he_follows.each do |followee| %>
   
-	  <li class="followee">
+	  <li class="followee group">
 			
 		    <%= link_to followee.username, user_url(followee) %>
 
-				<% if current_user.id == params[:id].to_i %>
+				<% if @own_page %>
 		    	<%= render partial: "layouts/following/deletefollowee", locals: {followee: followee}  %>
 				<% end %>
   			
