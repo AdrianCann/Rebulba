@@ -16,7 +16,10 @@
 					<h4><a href="#"><%= post._user.get("username") %></a></h4>  
 					<div class="post-header-right">
        	 		<time class="timeago" datetime="<%= post.escape("created_at") %>"></time>
-				 	 <button class="delete-post" data-id="<%= post.id %>">&times;</button>
+					<%  if (dataJSON.ownPage){ %>
+										 	 <button class="delete-post" data-id="<%= post.id %>">&times;</button>
+				<%	} %>
+
 				 </div>
       	</div>
 				<div class="post-title-wrap">

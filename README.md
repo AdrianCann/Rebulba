@@ -7,7 +7,7 @@
 
 ### Features
 * Users sign up with an email and upload a picture for their profile
-	- Email must be verified
+	- Email must be verified (TK)
 * Users can:
 	- post or comment on other posts
 	- like posts or comments that are not their own
