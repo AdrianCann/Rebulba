@@ -36,6 +36,9 @@
 	display: block;
 }
 
+.my-followers {
+	background: #19C5EC;
+}
 
 .following {
 	display: none;
@@ -46,7 +49,9 @@
 }
 
 .following {
+	margin-top: 10px;
 	height: auto;
+	background: #19C5EC;
 }
 
 .following ul {
@@ -60,13 +65,13 @@
 }
 
 .followee:hover {
-	background: gray;
+	background: #2E8AC3;
 }
 
 .followee a {
 	float: left;
 	color: white;
-	font-size: 25px;
+	font-size: 20px;
 	min-width: 220px;
 	min-height: 40px;
 	margin: auto;
@@ -100,8 +105,6 @@
 
 .delete-followee {
 	display: block;
-	width: 10px;
-	height: 10px;
 	float: right;
 
 }
@@ -133,7 +136,7 @@
 
 .profile-side-nav button {
 	width: 200px;
-	margin-top: 20px;
+	margin: 20px 0 0px 0;
 }
 
 /*MY FOLLOWERS*/

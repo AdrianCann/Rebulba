@@ -29,26 +29,27 @@
 			<li class="home-link"><%= link_to "Home", user_url(current_user.id) %></li>
 
 			<button class="side-nav-button" id="followings">Following (<%= @user.people_he_follows.count %>)</button>
+			
+			<div class="following-wrap">
+		    <div class="following">
+		      <%= render partial: "layouts/following/followings", locals: {user: @user} %>	
+		    </div>
+			</div>
+			
 			<button class="side-nav-button" id="followers">Followers (<%= @user.followers.count %>) </button>
+			
+			<div class="followers-wrap">
+		    <div class="followers">
+		      <%= render partial: "layouts/following/followers", locals: {user: @user} %>	
+		    </div>
+			</div>
+			
 			<% if @own_page %>
 				<button class="side-nav-button" id="notifications">Notifications (<%= 				current_user.notifications.unread.count %>)</button>
 			<% end %>
-			
-			
+
 		</nav>
-		
-		<div class="following-wrap">
-	    <div class="following">
-	      <%= render partial: "layouts/following/followings", locals: {user: @user} %>	
-	    </div>
-		</div>
-		
-		<div class="followers-wrap">
-	    <div class="followers">
-	      <%= render partial: "layouts/following/followers", locals: {user: @user} %>	
-	    </div>
-		</div>
-		
+
 		<% if @own_page %>
 			<div class="notifications-wrap">
 				<ul class="notifications-list">
@@ -67,10 +68,10 @@
 							<form action="<%= notification_url(note) %>" method="post">
 								<%= auth_token %>
 								<input type="hidden" name="_method" value="delete">
-								<button>X</button>
+								<button>&times;</button>
 							</form>
 							<a href="<%= notification_url(note) %>"><%= note.text %></a>
-							<time><%= note.created_at %></time>
+							<time><%= time_ago_in_words(note.created_at) %></time>
 						</li>
 					<% end %>
 				<% end %>

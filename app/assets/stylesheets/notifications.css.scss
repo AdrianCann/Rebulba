@@ -8,10 +8,11 @@
 
 .visible .notifications-list {
 	display: block;
+	background: #19C5EC;
 }
 
 .notifications-list li a {
-	font-size: 25px;
+	font-size: 20px;
 	color: white;
 	float: left;
 	width: 240px;
@@ -37,7 +38,7 @@
 }
 
 .notifications-list li:hover {
-	background: gray;
+	background: #2E8AC3;
 }
 
 .notifications-list li.read {
