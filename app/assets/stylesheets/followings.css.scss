@@ -101,6 +101,17 @@
 	padding: 2px;
 	height: auto;
 	width: auto;
+	background: gray;
+	box-shadow: black;
+}
+
+.delete-followee .submit input:hover {
+	background: gray;
+	box-shadow: black;
+}
+
+.delete-followee .submit input:active {
+	background: gray;
 }
 
 .delete-followee {
