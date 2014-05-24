@@ -55,14 +55,7 @@
 				<ul class="notifications-list">
 				<% current_user.notifications.each do |note| %>
 					<% if note.is_read %>
-						<!-- <li class="read">
-							<a href="<%= notification_url(note) %>"><%= note.text %></a>
-							<form action="<%= notification_url(note) %>" method="post">
-								<%= auth_token %>
-								<input type="hidden" name="_method" value="delete">
-								<button>X</button>
-							</form>
-						</li> -->
+
 					<% else %>
 						<li class="unread group">
 							<form action="<%= notification_url(note) %>" method="post">

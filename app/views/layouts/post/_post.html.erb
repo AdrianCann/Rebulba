@@ -1,36 +1,38 @@
 <section id="feed" class="posts group">
-  <% feed_posts.each do |post| %>
+	<% if false %>
+	  <% feed_posts.each do |post| %>
 
-  <article class="post">
+	  <article class="post">
 	  
-	  <%= render partial: "layouts/post/postoptions", locals: {post: post} %>
+		  <%= render partial: "layouts/post/postoptions", locals: {post: post} %>
 	  
-    <div class="post-thumb">
-      <a href="#"><img src="<%= @user.avatar %>" width="54" height="54" alt=""></a>
-    </div>
-	<div class="post-content">
-	    <header class="post-header group">
-			<h4><%= link_to post.user.username, user_url(post.user) %><h4>
-			<h3><%= link_to post.title, post_url(post.id), method: :get %></h3>
+	    <div class="post-thumb">
+	      <a href="#"><img src="<%= @user.avatar %>" width="54" height="54" alt=""></a>
+	    </div>
+		<div class="post-content">
+		    <header class="post-header group">
+				<h4><%= link_to post.user.username, user_url(post.user) %><h4>
+				<h3><%= link_to post.title, post_url(post.id), method: :get %></h3>
 		
-	      <div class="post-header-info">  
-	        <time><%= post.updated_at %></time>
-	      </div>
-	    </header>
-	     <p class="post-body"><%= post.body %></p>
-			 <nav class="post-bottom-nav">
-				 <a class="likes" href="#"><%= post.likes.count.to_s + " likes" %></a>
+		      <div class="post-header-info">  
+		        <time><%= post.updated_at %></time>
+		      </div>
+		    </header>
+		     <p class="post-body"><%= post.body %></p>
+				 <nav class="post-bottom-nav">
+					 <a class="likes" href="#"><%= post.likes.count.to_s + " likes" %></a>
 				 
-			</nav>
-	</div>
+				</nav>
+		</div>
 
-    <div class="comment">
-      <%= render partial: "layouts/comment/postcomments", locals: {post: post} %>
-    </div>
+	    <div class="comment">
+	      <%= render partial: "layouts/comment/postcomments", locals: {post: post} %>
+	    </div>
 
 	
-  </article>
+	  </article>
 
-  <% end %>
+	  <% end %>
+	<% end %>
   
 </section>
