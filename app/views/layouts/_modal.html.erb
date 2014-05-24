@@ -1,0 +1,43 @@
+ <!-- <h3 id="about">About Rebulba</h3> -->
+<h4 class="about-app"><a href="#" class="open-modal">About Rebulba</a></h4>
+
+<section id="modal" class="modal">
+  <article class="modal-content">
+    <span class="modal-x close-modal">&times;</span>
+
+    <h1>About Rebulba</h1>
+
+    <p>Created by <a href="www.adriancann.com">Adrian Cann</a> in the Spring of 2014, Rebulba is a blog inspired by <a href="www.tumblr.com">tumblr</a>. Like tumblr, Rebulba users can follow other users and see their posts the dashboard. Users also receive notifications for new followers, likes, or comments. To improve user experience, all posting, commenting and liking happens without a pagerefresh thanks to a snappy Backbone.js front end.</p>
+		<p><a href="#">Source Code</a></p>
+		<p><a href="#">Full Description of Features</a></p>
+
+  </article>
+  <div class="modal-screen close-modal"></div>
+</section>
+
+ 
+ <% if flash[:errors] %>
+ 	<ul class="error-list">
+   <% flash[:errors].each do |error| %>
+     <li class="error"><%= error %></li>
+   <% end %>
+   	</ul>
+ <% end %>
+ 
+ <script>
+ 
+ window.openModal = function(event){
+   $("#modal").addClass("is-active");
+ }
+
+ window.closeModal = function(event){
+   $("#modal").removeClass("is-active");
+ }
+ 
+ $(document).ready(function(){
+   $("body").on("click", ".open-modal", window.openModal);
+   $("body").on("click", ".close-modal", window.closeModal);
+ });
+ 
+ 
+ </script>

@@ -221,30 +221,86 @@ a:hover {
 
 }
 
-/*ACTIVE BUTTON*/
-
-.active-button {
-	background: #19C5EC;
-}
-
-.active-button:hover {
-	background: #19C5EC;
-}
-
-.active-button:active {
-	background: #19C5EC;
-}
-
 /*ABOUT THIS APP*/
 
-#about {
-	margin-bottom: 20px;
-	padding: 0;
-	text-align: left;
-	color: white;
-	font-size: 25px;
+.modal {
+  display: none;
 }
 
-#about:hover {
-	cursor: pointer;
+.modal.is-active {
+  display: block;
 }
+
+.modal-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: #fff;
+
+  margin-left: -230px;
+  margin-top: -150px;
+
+  padding: 30px;
+  width: 400px;
+  min-height: 200px;
+  z-index: 1000;
+
+  box-shadow: 0 0 5px 5px rgba(0,0,0,0.3);
+  border-radius: 10px;
+}
+
+.modal-content p {
+	font-size: 20px;
+}
+
+.modal-content h1 {
+	font-size: 40px;
+}
+
+.modal-content a {
+	color: #2575B5;
+}
+
+.modal-content a:hover {
+	color: #2C90DF;
+}
+
+.modal-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0,0,0,0.5);
+  z-index: 999;
+}
+
+.modal-x {
+  display: block;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+
+  color: #999;
+}
+
+.modal-x:hover {
+  color: #000;
+}
+
+.about-app {
+	width: auto;
+	text-align: left;
+	margin-bottom: 20px;
+}
+
+.open-modal {
+	font-size: 25px;
+	color: white;
+}
+
