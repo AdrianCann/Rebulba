@@ -10,6 +10,7 @@ Rebulba.Routers.PostsRouter = Backbone.Router.extend({
 	
     routes: {
       '': 'index',
+			'_=_': 'index',
       'posts/new': 'new',
       'posts/:id': 'show',
       'posts/:id/edit': 'edit'

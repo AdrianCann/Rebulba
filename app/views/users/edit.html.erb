@@ -9,3 +9,6 @@
 
   <%= user_form("Update Profile", current_user.username, current_user.email) %>
 </form>
+
+
+<%= button_to "Delete My Account", user_url(current_user), method: :delete %>

@@ -48,8 +48,13 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    current_user.destroy
-    redirect_to new_session_url
+    if current_user.id > 6
+      current_user.destroy
+      redirect_to new_session_url
+    else
+      flash.now[:errors] = ["you didn't create this user!"]
+      render :edit
+    end
   end
 
   private
