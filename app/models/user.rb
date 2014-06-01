@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   validates :username, :email, :token, presence: true, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
+  before_validation :make_url_image
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://s3.amazonaws.com/rebulba_dev/users/avatars/000/000/007/original/puppy.jpg?1398551275"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/]
@@ -86,11 +87,9 @@ class User < ActiveRecord::Base
   
   
   
-  def avatar_picture
-    if self.avatar
-      
-    else
-      
+  def make_url_image
+    if self.avatar.class == String
+      self.avatar = open(self.avatar, allow_redirections: :safe)
     end
   end
   
