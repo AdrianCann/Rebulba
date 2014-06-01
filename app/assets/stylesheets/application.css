@@ -94,7 +94,7 @@ input[type="submit"], button, .button_to, .navbar ul li {
 
 /*CANCEL DELETE(SIGN OUT) ARE GRAY*/
 
-.button_to, .delete-post, .delete-comment, .delete-followee .submit {
+.button_to, .delete-post, .delete-comment, .delete-followee .submit, .cancel input {
 	background: gray;
 	box-shadow: 0 4px 0 0 #545454;
 }

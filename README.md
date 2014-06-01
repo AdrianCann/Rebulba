@@ -11,7 +11,7 @@
 * Users can:
 	- post or comment on other posts
 	- like posts or comments that are not their own
-	- follow other users and see their posts in their news feed
+	- follow other users and see their posts on the dashboard (news feed)
 	- log in with Facebook (TK)
 	- update  their own posts
 	- delete a post or comment they authored. They may also delete comments on their posts.

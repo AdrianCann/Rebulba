@@ -36,4 +36,5 @@ Rebulba::Application.routes.draw do
   end
   
   get 'auth/facebook/callback', to: 'sessions#create'
+
 end
