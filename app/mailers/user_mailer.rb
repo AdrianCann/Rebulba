@@ -8,6 +8,6 @@ class UserMailer < ActionMailer::Base
   end
 
   def notification_email
-
+    
   end
 end
